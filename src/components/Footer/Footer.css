@@ -1,8 +1,8 @@
 .footer {
-    bottom: 0;
     text-align: center;
     background-color: #4f75dc; 
-    padding-top: 2px;
+    padding-top: 2px; 
+    margin-top: 15px;
     width: 100%; 
     height: 105px; 
     position: absolute; /* stick to the bottom */

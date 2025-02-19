@@ -1,3 +1,78 @@
 .content {
     margin: 0; 
 }
+
+.product-items { 
+    display: flex; 
+    flex-wrap: wrap;
+    /* flex-direction: row; // not this it will be all in one line */
+    align-items: center;
+    margin: 30px;
+    justify-content: space-between;
+    /* gap: 20px; */
+  } 
+
+  
+  .itemBlock {
+    width: 25%; /* put 3 items in a row + display: flex + flex-wrap: wrap */ 
+    border: 5px solid rgb(156, 162, 157); 
+    padding: 15px;
+  } 
+
+
+
+
+  .imageBlock { /* image in dive to inline text with different image height */
+    position: relative; 
+    border: 5px solid rgb(156, 162, 157); 
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 15px; 
+    margin-left: 55px;
+    overflow: hidden; 
+    /* display, align-items, justify-content - to put image from the top to the center of image block) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  
+  .itemBlock img {
+    width: 100%; 
+    margin-bottom: 10px; /* Space between image and text */
+    
+    
+  }
+
+
+  .textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+
+
+  
+  .itemBlock p {
+    margin: 10px 10px 10px 10px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 24px; 
+    color: #080808; 
+    text-align: center;
+
+  } 
+
+
+  /* if text overflows, move it to the new line: display: inline-block; + word-wrap: break-word; */
+  .product-description {
+    color: #000000; 
+    margin-bottom: 40px; 
+    line-height: 1.8; 
+    width: 250px; 
+    display: block;
+    word-wrap: break-word; 
+  }

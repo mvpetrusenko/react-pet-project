@@ -30,3 +30,11 @@ h1 {
     padding-left: 385px;
     padding-top: 20px;
 }
+
+
+.cart {
+    width: 50px; 
+    height: 40px;
+    padding-left: 950px; 
+    color: white;
+}
