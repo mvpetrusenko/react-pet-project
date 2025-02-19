@@ -1,7 +1,27 @@
-.addToCartElement {
+.addToCartElement a:link { /* unvisited link*/
     font-weight: bold; 
-    width: 150px; 
-    height: 150px;
+    border-radius: 10px; 
     background-color: rgb(176, 116, 232); 
+    padding: 10px 15px 15px 15px; 
+    color:rgb(176, 116, 232); 
+    text-decoration: none; 
    
+}
+
+
+.addToCartElement a:visited {
+    color: rgb(113, 21, 125); 
+    text-decoration: none;
+} 
+
+
+.addToCartElement a:hover {
+    color: white; 
+    text-decoration: none;
+} 
+
+
+.addToCartElement a:active {
+    color: red; 
+    text-decoration: underline;
 }
