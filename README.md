@@ -86,6 +86,8 @@ git push -u origin main // Push the 'main' branch to the 'origin' remote
 
 
 
-Pull the remote changes first (if you want to keep the remote files): git pull origin main --allow-unrelated-histories
+Pull the remote changes first (if you want to keep the remote files): 
+git branch -M main  // Rename your local branch to 'main' (common practice)
+git push -u origin main // Push the 'main' branch to the 'origin' remote 
 
-git push -u origin main
+git push -u origin main --force
