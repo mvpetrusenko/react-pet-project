@@ -5,13 +5,15 @@
     padding: 10px 15px 15px 15px; /* background of element */
     color:rgb(176, 116, 232); 
     text-decoration: none; 
+    margin-top: 20px;
    
 }
 
 
 .addToCartElement a:visited {
     color: rgb(113, 21, 125); 
-    text-decoration: none;
+    text-decoration: none; 
+    margin-top: 20px;
 } 
 
 

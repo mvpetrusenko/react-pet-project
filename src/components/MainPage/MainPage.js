@@ -11,6 +11,7 @@ import AddToCartElement from '../AddToCartElement/AddToCartElement';
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton'; 
 import Card from '../Card/Card'; 
 import CardData from '../Card/CardData'; 
+import '../Card/Card.css'
 
 
 

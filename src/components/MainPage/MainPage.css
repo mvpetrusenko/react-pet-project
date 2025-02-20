@@ -2,55 +2,15 @@
     margin: 0; 
 }
 
-/* .product-items { - without array props
+.product-items { /* - without array props */
     display: flex; 
     flex-wrap: wrap;
-    flex-direction: row; // not this it will be all in one line 
-    align-items: center;
-    margin: 30px;
-    justify-content: space-between;
-    /* gap: 20px; 
-  }  */
-
-
-
-
-
-
-  .product-items {  
-    display: flex;
-    flex-direction: row; 
+    flex-direction: row; /* not this it will be all in one line */
     align-items: center;
     margin: 30px;
     justify-content: space-between;
     gap: 20px; 
-
-    width: 25%;
-    text-align: center;
-    margin-left: 10%;
   } 
-
-  
-
-  .product-items > .card { 
-    width: 200px;
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -64,7 +24,7 @@
 
 
 
-  .imageBlock { /* image in dive to inline text with different image height */ 
+  .imageBlock { /* image in div to inline text with different image height */ 
     position: relative; 
     border: 5px solid rgb(156, 162, 157); 
     width: 200px; 

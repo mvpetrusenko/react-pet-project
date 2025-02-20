@@ -32,13 +32,17 @@ map() is only for arrays
 
 MainPage is parent component 
 
-if styles is DevTools are not visible = css file has not been imported 
+if styles is DevTools are not visible = css file has not been imported  
+
+
+!!! not seen css styles in DevTools - classname in css file is written incorrectly
 
 */
 
 
 import React from "react"; 
-import '../Card/Card.css'
+import '../Card/Card.css'; 
+import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
 
 
@@ -48,12 +52,19 @@ function Card(props) {
 
 
     return ( 
-    <div>
+    <div className="cards">
         {props.details.map((value) => ( 
         <div className="cardContainer" key={value.id}>
-            <img className="cardImage" src={value.image} alt="Card Image"></img>
-            <span className="cardTitle">{value.title}</span>
-            <p className="cardPrice">{value.price}</p>
+            <div className="cardImageBlock">
+                <img className="cardImage" src={value.image} alt="Card Image"></img>
+            </div>
+            <div className='cardTextBlock'>
+                <span className="cardTitle">{value.title}</span>
+                <p className="cardPrice">{value.price}</p> 
+                
+                {<AddToCartElement />}
+            </div> 
+            
         </div>
         ))} 
     </div>

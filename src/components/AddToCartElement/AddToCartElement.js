@@ -11,7 +11,7 @@ function AddToCartElement() {
 
    const handleAddToCart = () => {
     setButtonText('Added to Cart'); 
-    handleChangeCounterNumber();
+    // handleChangeCounterNumber();
   }
 
 

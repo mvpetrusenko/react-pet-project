@@ -1,0 +1,67 @@
+.cards { /* this div is under product-items */
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row; /* not this it will be all in one line */
+    align-items: center;
+    margin: 30px;
+    /* justify-content: space-between; */
+    gap: 20px; 
+    width: 100%;
+}
+
+
+.cardContainer {
+    width: 30%; /* !!! images in a row */
+    display: flex; 
+    flex-direction: column; 
+    border: 5px solid rgb(180, 178, 178); 
+    padding-top: 20px; 
+    padding-bottom: 40px;
+}
+
+
+.cardImageBlock { /* image in div to inline text with different image height */ 
+    border: 5px solid rgb(156, 162, 157); 
+    width: 200px; 
+    height: 200px; 
+    margin-bottom: 15px; 
+    margin-left: 75px;
+    overflow: hidden; 
+    /* display, align-items, justify-content - to put image from the top to the center of image block) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+.cardImage {
+    width: 300px;
+}
+
+
+.cardTextBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  } 
+
+
+
+  .cardTitle {
+    margin: 10px 10px 10px 10px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: 24px; 
+    color: #080808; 
+    text-align: center;
+
+  } 
+
+
+
+
+  .cardPrice {
+    margin-bottom: 60px;
+  }
