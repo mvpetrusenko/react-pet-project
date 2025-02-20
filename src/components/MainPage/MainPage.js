@@ -7,7 +7,8 @@ import Footer from '../Footer/Footer';
 import apple from '../../assets/images/apple.jpg'; 
 import grapes from '../../assets/images/grapes.jpg'; 
 import kiwi from '../../assets/images/kiwi.jpg'; 
-import AddToCartElement from '../AddToCartElement/AddToCartElement';
+import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
+import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton';
 
 function MainPage() {
   return ( 
@@ -60,9 +61,44 @@ function MainPage() {
                     </div> 
                     
                 </div> 
-          </div>
+          </div> 
+
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div> 
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          <div>ggggggggggggggg</div>
+          
         </div>
-        {<Footer />}
+            {<ScrollToTopButton />}
+            {<Footer />} 
       
     </div>
   );

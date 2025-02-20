@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import { Link } from 'react-router-dom';
 import '../Header/Header.css'
 import logo from '../../assets/images/logo.png'; 
@@ -8,7 +8,18 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 
 
-function Header() {
+function Header() { 
+
+  let initialNumber = '0';
+  
+     const [counterNumber, setCounterNumber] = useState(initialNumber);
+  
+     const handleChangeCounterNumber = () => {
+      setCounterNumber('1');
+    } 
+
+
+
   return (
     <header className="sticky">
         <div> 
@@ -16,7 +27,14 @@ function Header() {
           <h1 style={{ fontFamily: 'cursive', textAlign: 'center' }}>
             Examples
           </h1> 
-          <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} className="cart"/></Link>
+          <div className='cartBlock'>
+            <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} className="cart"/>
+            <div className='cartCounter'>
+              {counterNumber}
+            </div>
+            </Link>
+          </div> 
+          
         
         </div>
       </header> 

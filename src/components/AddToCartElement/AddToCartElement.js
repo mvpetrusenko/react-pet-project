@@ -9,15 +9,16 @@ function AddToCartElement() {
 
    const [buttonText, setButtonText] = useState(initialText);
 
-   const handleAddToCartButtonClick = () => {
-    setButtonText('Added to Cart');
+   const handleAddToCart = () => {
+    setButtonText('Added to Cart'); 
+    handleChangeCounterNumber();
   }
 
 
 
   return (
     <addToCartElement className="addToCartElement">
-        <Link to="/" onClick={handleAddToCartButtonClick}>{buttonText}</Link>
+        <Link to="/" onClick={handleAddToCart}>{buttonText}</Link> 
     </addToCartElement>
   );
 }
