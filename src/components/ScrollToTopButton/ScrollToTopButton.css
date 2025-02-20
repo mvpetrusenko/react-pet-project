@@ -9,8 +9,7 @@
     bottom: 20px; 
     position: fixed; /* arrow will be visible not only in the footer, but also during scroll */ 
     z-index: 1; /* to show in front of footer */
-
-    /* opacity: 0.5; - transparent */
+    opacity: 0.4; /* transparent */
     /* border: 6px solid gray; */
 }
 

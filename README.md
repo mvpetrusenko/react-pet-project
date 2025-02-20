@@ -103,3 +103,21 @@ git push origin main --force
 ## Different 
 
 npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+
+
+## SAAS 
+https://create-react-app.dev/docs/adding-a-sass-stylesheet/ 
+
+Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools 
+You rent the use of an app for your organization, and your users connect to it over the Internet, usually with a web browser (https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-saas)
+
+npm install sass 
+
+see version of saas after installing in package.json (dependencies) 
+
+rename index.css to index.scss 
+
+and rename it to index.scss in import in index.js 
+
+styled components react
