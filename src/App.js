@@ -7,15 +7,22 @@ import CartPage from './components/CartPage/CartPage';
 import './App.css';  // Ensure you import global styles
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer'; 
+import { Link } from 'react-router-dom';
 
-function App() {
+function App() { 
+
+
   return (
     <Router>
       <div className="App"> 
 
         <Header /> 
-        <NavBar />
+        <NavBar /> 
+
+        <nav>
+          <Link to="/">Home</Link>
+        </nav>
 
         <Routes>
           <Route exact path="/" element={<MainPage />} /> 

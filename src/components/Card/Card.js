@@ -1,4 +1,3 @@
-
 /* dynamic value - value that will be changed - {} in JSX (React) 
 method map returns changed data, not new data 
 for each returns the same data 

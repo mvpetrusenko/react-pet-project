@@ -31,7 +31,18 @@ function CartPage() {
                   //     ))}
                   // </ul> 
 
-                  <div className='addedProductBlock'>
+                  <div className='addedProductBlock'> 
+
+                  <div className='addedProductImage'> 
+                      {cartItems.map((item) => (
+                          <img key={item.id} src={item.image} className='addedCardImage' />
+                           
+                      ))}
+                    
+                  </div> 
+
+
+
                     <div className='addedProductTitle'>
                       {cartItems.map((item) => (
                           <p key={item.id}>

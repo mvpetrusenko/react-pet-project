@@ -4,8 +4,23 @@
     padding: 20px;
     color: rgb(62, 115, 222); 
     background-color: rgb(0, 85, 255);  
+    border: 5px solid rgb(180, 178, 178); 
     
 }
+
+
+
+.addedProductImage { 
+    padding: 10px; 
+    background-color: rgb(181, 213, 240); 
+} 
+
+
+.addedCardImage {
+    width: 150px;
+    padding: 15px;
+}
+
 
 
 
@@ -20,7 +35,7 @@
 
 
 .addedProductPrice {
-    padding: 10px; 
+    padding: 10px 80px 10px 10px; 
     color: black; 
     font-weight: bold;
     background-color: rgb(181, 213, 240); 

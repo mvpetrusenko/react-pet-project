@@ -461,7 +461,7 @@ const CardData = [
 
 ];
 
-function Card({ details, addToCart }) { // Receive addToCart as a prop
+<!-- function Card({ details, addToCart }) { // Receive addToCart as a prop
     return (
         <div className="cards">
             {details.map((value) => (
@@ -479,7 +479,7 @@ function Card({ details, addToCart }) { // Receive addToCart as a prop
             ))}
         </div>
     );
-}
+} -->
 
 function CartPage() {
     const [cartItems, setCartItems] = useState([]); // State for cart items
