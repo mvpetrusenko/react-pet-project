@@ -120,4 +120,426 @@ rename index.css to index.scss
 
 and rename it to index.scss in import in index.js 
 
-styled components react
+styled components react 
+
+
+
+
+## Array Map() Method 
+
+function ObjectsList() {
+    const products = [
+        { id: '1', name: 'book', price: 300, description: 'a very good book', isAvailable: true },
+        { id: '2', name: 'pencil', price: 300, description: 'a very good pencil', isAvailable: true },
+        { id: '3', name: 'pen', price: 300, description: 'a very good pen', isAvailable: false }
+    ];
+
+    return (
+        <div>
+            {products.map((product) => (
+                product.isAvailable ? ( // Conditional (ternary) operator
+                    <div key={product.id}>
+                        <div>{product.id}</div>
+                        <div>{product.name}</div>
+                        <div>{product.price}</div>
+                        <div>{product.description}</div>
+                    </div>
+                ) : null // Return null if not available
+            ))}
+        </div>
+    );
+}
+
+export default ObjectsList; 
+
+
+
+## Child to Parent Props 
+
+<!-- // Greeting.js
+function Greeting(props) { // or function Greeting({ name }) { destructuring
+    return (
+        <h1>Hello, {props.name}!</h1> // Access the prop using props.name
+    );
+}
+
+export default Greeting;
+
+// MainComponent.js
+import Greeting from './Greeting'; // Import the Greeting component
+
+function MainComponent() {
+    return (
+        <Greeting name="Alice" /> // Pass the name prop
+    );
+}
+
+export default MainComponent;  --> 
+
+
+<!-- // Inside the Greeting component, render a personalized greeting using the name prop (e.g., <h1>Hello, {props.name}!</h1>).
+// In the parent component, render the Greeting component and pass a name as a prop (e.g., <Greeting name="Alice" />). -->
+ 
+
+
+
+
+<!-- Alternative (and often preferred) way to access props:
+
+You can use destructuring in the function parameters to directly access the prop: 
+
+// Greeting.js (using destructuring)
+function Greeting({ name }) {  // Destructure the name prop directly
+    return (
+        <h1>Hello, {name}!</h1> // Use the name variable directly
+    );
+}
+
+export default Greeting;
+
+// MainComponent.js (remains the same)
+import Greeting from './Greeting';
+
+function MainComponent() {
+    return (
+        <Greeting name="Alice" />
+    );
+}
+
+export default MainComponent; -->
+
+
+
+
+
+<!-- // Create a functional component called Product.
+// The Product component should accept title, price, and image props.
+// Inside the Product component, display the product information (title in an <h2>, price in a <p>, image in an <img> tag).
+// In the parent component, create an array of product objects (each object should have title, price, and image properties).
+// Use the .map() method to render a Product component for each product in the array, passing the appropriate props.
+
+
+
+// Product.js
+function Product({ title, price, image }) { // Destructure props
+    return (
+        <div> {/* Wrap in a single element */}
+            <h2>{title}</h2>
+            <p>{price}</p>
+            <img src={image} alt={title} /> {/* Add src and alt attributes */}
+        </div>
+    );
+}
+
+export default Product;
+
+// MainComponent.js
+import Product from './Product';
+
+function MainComponent() {
+    const products = [
+        { title: 'title 1', price: 2, image: './image1.jpg' },
+        { title: 'title 2', price: 3, image: './image2.jpg' },
+        { title: 'title 3', price: 4, image: './image3.jpg' }
+    ];
+
+    return (
+        <div> {/* Wrap in a single element */}
+            {products.map((product) => ( // Use .map() here
+                <Product 
+                    key={product.title} // Use a unique key (or index if order never changes)
+                    title={product.title} 
+                    price={product.price} 
+                    image={product.image} 
+                />
+            ))}
+        </div>
+    );
+}
+
+export default MainComponent; --> 
+
+
+
+
+## Lifting State Up Practice:
+
+// Task 1: Shared Counter State:
+// Create two components: Counter and Display.
+// The Counter component has a button that increments a counter.
+// The Display component shows the current value of the counter.
+// Lift the count state up to a parent component.
+// Pass the count state as a prop to the Display component.
+// Pass the setCount function (or a function that calls setCount) as a prop to the Counter component.
+
+You need to lift the count state up to the common ancestor of Counter and Display (which would be MainComponent in this case), and then pass the count and the setCount function as props to both components. 
+
+// Counter.js
+function Counter({ count, setCount }) { // Receive count and setCount as props
+    const handleClick = () => {
+        setCount(count + 1);
+    };
+
+    return (
+        <button onClick={handleClick}>Increment</button>
+    );
+}
+
+export default Counter;
+
+// Display.js
+function Display({ count }) { // Receive count as a prop
+    return (
+        <p>Count: {count}</p>
+    );
+}
+
+export default Display;
+
+// MainComponent.js
+import React, { useState } from 'react'; // Import useState in the parent
+import Counter from './Counter';
+import Display from './Display';
+
+function MainComponent() {
+    const [count, setCount] = useState(0); // State is in the parent
+
+    return (
+        <div>
+            <Counter count={count} setCount={setCount} /> {/* Pass count and setCount */}
+            <Display count={count} /> {/* Pass count */}
+        </div>
+    );
+}
+
+export default MainComponent; 
+
+
+
+
+
+
+
+
+## Add to Cart 
+
+// Task 2: Add to Cart Functionality:
+// Create a ProductList component and a Cart component.
+// The ProductList component displays a list of products (you can use a hardcoded array for now). Each product should have an "Add to Cart" button.
+// The Cart component should initially be empty.
+// Lift the cart items state (an array of products) up to a parent component.
+// Pass the cart items state as a prop to the Cart component.
+// Pass a function (e.g., addToCart) as a prop to the ProductList component.
+// When the "Add to Cart" button is clicked, call the addToCart function, passing the product that was added.
+// In the parent component, the addToCart function should update the cart items state. 
+
+
+// ProductList.js
+function ProductList({ addToCart }) {
+    const products = [
+        { id: 1, name: 'ball', price: 100 },
+        { id: 2, name: 'pen', price: 200 },
+        { id: 3, name: 'book', price: 300 }
+    ];
+
+    return (
+        <div>
+            {products.map((product) => ( // Add parentheses for implicit return
+                <div key={product.id}> {/* Add a unique key */}
+                    <p>{product.id}</p>
+                    <p>{product.name}</p>
+                    <p>{product.price}</p>
+                    <button onClick={() => addToCart(product)}>Add to Cart</button> {/* Pass product to addToCart */}
+                </div>
+            ))}
+        </div>
+    );
+}
+
+export default ProductList;
+
+// Cart.js
+function Cart({ cart }) { // Receive cart as a prop
+    return (
+        <div>
+            <h2>Cart</h2>
+            {cart.length === 0 ? (
+                <p>Your cart is empty.</p>
+            ) : (
+                <ul>
+                    {cart.map((item) => (
+                        <li key={item.id}>{item.name} - ${item.price}</li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+}
+
+export default Cart;
+
+// MainComponent.js
+import React, { useState } from 'react';
+import ProductList from './ProductList';
+import Cart from './Cart';
+
+function MainComponent() {
+    const [cart, setCart] = useState([]); // Initialize cart as an empty array
+
+    const addToCart = (product) => { // Receive the product
+        setCart([...cart, product]); // Add the product to the cart array
+    };
+
+    return (
+        <div>
+            <ProductList addToCart={addToCart} /> {/* Pass addToCart to ProductList */}
+            <Cart cart={cart} /> {/* Pass cart to Cart */}
+        </div>
+    );
+}
+
+export default MainComponent; 
+
+
+
+cart State as Array: In MainComponent, the cart state is initialized as an empty array: useState([]).  This is crucial because you'll be adding multiple products to the cart.
+
+addToCart Function: The addToCart function in MainComponent now receives the product object as an argument.  It uses the spread syntax (...cart) to create a new array containing the existing items in the cart and the newly added product: setCart([...cart, product]);. This is the correct way to update state based on previous state.
+
+Passing addToCart:  MainComponent passes the addToCart function as a prop to the ProductList component: <ProductList addToCart={addToCart} />.
+
+Calling addToCart: In ProductList, the onClick handler of the "Add to Cart" button now calls the addToCart function (which was passed as a prop), passing the current product as an argument:  <button onClick={() => addToCart(product)}>Add to Cart</button>. The arrow function is necessary to pass the product to the addToCart function.
+
+Cart Component: The Cart component now receives the cart array as a prop. It maps over the cart array to display the items in the cart. It also includes a check for an empty cart.
+
+Unique Keys: The key prop is essential when rendering lists.  I've added key={product.id} in ProductList and key={item.id} in Cart.  Make sure you use a truly unique identifier for each product.
+
+How it Works Step-by-Step:
+
+MainComponent initializes the cart state to an empty array.
+MainComponent renders ProductList and Cart, passing the addToCart function and the cart state as props.
+ProductList renders a list of products.
+When the "Add to Cart" button for a product is clicked:
+The addToCart function (from MainComponent) is called, passing the product object.
+MainComponent updates the cart state by creating a new array with the added product.
+MainComponent re-renders.
+Cart re-renders, displaying the updated cart contents. 
+
+
+
+
+## My Case 
+
+JavaScript
+
+import React, { useState } from 'react';
+import apple from '../../assets/images/apple.jpg';
+import grapes from '../../assets/images/grapes.jpg';
+import kiwi from '../../assets/images/kiwi.jpg';
+import '../Card/Card.css';
+
+const CardData = [
+    {
+        id: "1",
+        image: apple,
+        title: "Apple Gala",
+        price: "$10.00 per kg",
+    },
+    {
+        image: grapes,
+        id: "2",
+        title: "Niagara Grapes",
+        price: "$20.00 per kg",
+    },
+    {
+        image: kiwi,
+        id: "3",
+        title: "Hayward Kiwi",
+        price: "$30.00 per kg",
+
+    }
+
+];
+
+function Card({ details, addToCart }) { // Receive addToCart as a prop
+    return (
+        <div className="cards">
+            {details.map((value) => (
+                <div className="cardContainer" key={value.id}>
+                    <div className="cardImageBlock">
+                        <img className="cardImage" src={value.image} alt={value.title || "Product Image"} />
+                    </div>
+                    <div className='cardTextBlock'>
+                        <span className="cardTitle">{value.title}</span>
+                        <p className="cardPrice">{value.price}</p>
+                        <button onClick={() => addToCart(value)}>Add to Cart</button> {/* Call addToCart */}
+                    </div>
+
+                </div>
+            ))}
+        </div>
+    );
+}
+
+function CartPage() {
+    const [cartItems, setCartItems] = useState([]); // State for cart items
+
+    const handleAddToCart = (product) => { // Product added to cart
+        setCartItems([...cartItems, product]);
+        console.log("Item added to cart:", product);
+    };
+
+    return (
+        <div>
+            <div className="content">
+                <Card details={CardData} addToCart={handleAddToCart} /> {/* Pass addToCart */}
+                <h2>Cart</h2> {/* Cart title */}
+                {cartItems.length === 0 ? (
+                    <p>Your cart is empty.</p>
+                ) : (
+                    <ul>
+                        {cartItems.map((item) => (
+                            <li key={item.id}>
+                                {item.title} - {item.price}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
+        </div>
+    );
+}
+
+export default CartPage;
+Key Changes and Explanations:
+
+addToCart Prop: The Card component now receives a prop called addToCart, which is a function that will be called when the "Add to Cart" button is clicked.
+
+Button onClick: The "Add to Cart" button's onClick handler now calls the addToCart function, passing the entire value object (which represents the product) as an argument: onClick={() => addToCart(value)}.
+
+CartPage State and Handler: The CartPage component now has the cartItems state (an array to store the items in the cart) and the handleAddToCart function.  The handleAddToCart function is what updates the cartItems state when a product is added.
+
+Passing addToCart: The CartPage component passes the handleAddToCart function as the addToCart prop to the Card component.
+
+Cart Display: The CartPage component now displays the items in the cartItems array.  It shows a "Your cart is empty" message if the cart is empty.
+
+Import Statements: Make sure you have the correct import statements for your images and CSS file.
+
+How it Works:
+
+The CartPage component manages the cartItems state.
+The Card component receives the addToCart function as a prop.
+When the "Add to Cart" button is clicked, the Card component calls the addToCart function, passing the product object.
+The CartPage component's handleAddToCart function updates the cartItems state.
+The CartPage component re-renders, displaying the updated cart items.
+With these changes, you should now be able to add products to the cart and see them displayed on the cart page.  If you're still having issues, double-check the following:
+
+Image Paths: Make sure the paths to your images are correct.
+Unique Keys: Ensure that the id values in your CardData are unique.
+Console Errors: Check your browser's developer console for any errors.
+CSS: Make sure your CSS is correctly styling the elements. 
+
+
+
+## 

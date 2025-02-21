@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom';
 import '../Header/Header.css'
 import logo from '../../assets/images/logo.png'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+
+import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
 
 
 
 function Header() { 
+  const getData = () => {};
 
-  let initialNumber = '0';
+  // let initialNumber = '0';
   
-     const [counterNumber, setCounterNumber] = useState(initialNumber);
+  //    const [counterNumber, setCounterNumber] = useState(initialNumber);
   
-     const handleChangeCounterNumber = () => {
-      setCounterNumber('1');
-    } 
+  //    const handleChangeCounterNumber = () => {
+  //     setCounterNumber('1');
+  //   } 
 
 
 
@@ -30,7 +33,8 @@ function Header() {
           <div className='cartBlock'>
             <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} className="cart"/>
             <div className='cartCounter'>
-              {counterNumber}
+              {/* <AddToCartElement change={getData} /> */}
+              {/* {counterNumber} */}
             </div>
             </Link>
           </div> 

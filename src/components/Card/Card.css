@@ -25,7 +25,7 @@
     width: 200px; 
     height: 200px; 
     margin-bottom: 15px; 
-    margin-left: 75px;
+    margin-left: 70px;
     overflow: hidden; 
     /* display, align-items, justify-content - to put image from the top to the center of image block) */
     display: flex;

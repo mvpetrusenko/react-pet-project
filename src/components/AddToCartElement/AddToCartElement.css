@@ -1,3 +1,19 @@
+.buyButton {
+    font-weight: bold; 
+    border-radius: 10px; 
+    background-color: rgb(176, 116, 232); 
+    padding: 10px 65px 15px 65px; /* background of element */
+    color:rgb(71, 58, 83); 
+    padding-top: 14px; 
+    width: 250px;
+}
+
+
+
+
+
+
+
 .addToCartElement a:link { /* unvisited link*/
     font-weight: bold; 
     border-radius: 10px; 
@@ -5,7 +21,7 @@
     padding: 10px 15px 15px 15px; /* background of element */
     color:rgb(176, 116, 232); 
     text-decoration: none; 
-    margin-top: 20px;
+    margin-top: 20px; 
    
 }
 

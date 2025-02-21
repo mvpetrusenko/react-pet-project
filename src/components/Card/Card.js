@@ -35,41 +35,104 @@ MainPage is parent component
 if styles is DevTools are not visible = css file has not been imported  
 
 
-!!! not seen css styles in DevTools - classname in css file is written incorrectly
+!!! not seen css styles in DevTools - classname in css file is written incorrectly 
 
+
+const [count, setCount], setCount - what we will do with count (count + 1) = how 
+initial state will be changed 
+
+useState(initial state = count value = 0) - to remember initial state of count (like variable)
+
+count = new state variable (to remember state of variable)
 */
 
 
-import React from "react"; 
+import React, { useState } from "react"; 
 import '../Card/Card.css'; 
 import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
+function Card({ details, addToCart }) { // Receive addToCart as a prop
+    return (
+        <div className="cards">
+            {details.map((value) => (
+                <div className="cardContainer" key={value.id}>
+                    <div className="cardImageBlock">
+                        <img className="cardImage" src={value.image} alt={value.title || "Product Image"} />
+                    </div>
+                    <div className='cardTextBlock'>
+                        <span className="cardTitle">{value.title}</span>
+                        <p className="cardPrice">{value.price}</p>
+                        <button onClick={() => addToCart(value)}>Add to Cart</button> {/* Call addToCart */}
+                    </div>
 
-
-
-
-function Card(props) {
-
-
-    return ( 
-    <div className="cards">
-        {props.details.map((value) => ( 
-        <div className="cardContainer" key={value.id}>
-            <div className="cardImageBlock">
-                <img className="cardImage" src={value.image} alt="Card Image"></img>
-            </div>
-            <div className='cardTextBlock'>
-                <span className="cardTitle">{value.title}</span>
-                <p className="cardPrice">{value.price}</p> 
-                
-                {<AddToCartElement />}
-            </div> 
-            
+                </div>
+            ))}
         </div>
-        ))} 
-    </div>
     );
 }
+
+
+export default Card;
+
+
+// function Card(props) { 
+
+
+    // const [itemToCart, setItemToCart] = useState('Buy'); 
+
+    // const handleAddToCart = () => { 
+    //     setItemToCart(value.title); 
+    // } 
+
+
+    // 1) see button id of the clicked button in the console 
+    // open console to see what button id of the clicked button is
+    // const handleClickButtonId = (event) => {
+    //     // const buttonId = event.currentTarget.id; 
+    //     const buttonId = event.target.innerText; 
+    //     console.log(buttonId);
+
+    // } 
+
+
+
+    // const [count, setCount] = useState(0); 
+
+
+    // const handleClickButton = () => { 
+    //     setCount(count + 1); 
+    //     console.log('Button button clicked')
+        
+    // }
+
+
+
+
+
+
+//     return ( 
+//     <div className="cards">
+//         {props.details.map((value) => ( 
+//         <div className="cardContainer" key={value.id}>
+//             <div className="cardImageBlock">
+//                 <img className="cardImage" src={value.image} alt="Card Image"></img>
+//             </div>
+//             <div className='cardTextBlock'>
+//                 <span className="cardTitle">{value.title}</span> 
+//                 <p className="cardPrice">{value.price}</p> 
+                
+//                 {/* added onclick for imported component */}
+//                 {/* <div onClick={handleClickButton}> 
+//                     {<AddToCartElement />} 
+//                 </div>  */}
+
+//             </div> 
+            
+//         </div>
+//         ))} 
+//     </div>
+//     );
+// }
 
 // const arr = [
 //     {
@@ -96,4 +159,4 @@ function Card(props) {
 
 
 
-export default Card;
+// export default Card;

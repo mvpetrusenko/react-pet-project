@@ -1,0 +1,28 @@
+.addedProductBlock { 
+    display: flex; 
+    flex-direction: row;
+    padding: 20px;
+    color: rgb(62, 115, 222); 
+    background-color: rgb(0, 85, 255);  
+    
+}
+
+
+
+.addedProductTitle {
+    padding: 10px; 
+    color: black; 
+    font-weight: bold;
+    background-color: rgb(181, 213, 240); 
+
+} 
+
+
+
+.addedProductPrice {
+    padding: 10px; 
+    color: black; 
+    font-weight: bold;
+    background-color: rgb(181, 213, 240); 
+
+}
