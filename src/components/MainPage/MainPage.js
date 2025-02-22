@@ -44,13 +44,8 @@ function MainPage() {
 
 
     const [cartItems, setCartItems] = useState([]);
-    const navigate = useNavigate();
+    // const navigate = useNavigate(); 
 
-    // Load cart items from localStorage on mount
-    useEffect(() => {
-        const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        setCartItems(storedItems);
-    }, []);
 
     const addToLocalStorage = (items) => {
         localStorage.setItem('cartItems', JSON.stringify(items));
@@ -62,6 +57,18 @@ function MainPage() {
         addToLocalStorage(updatedCart); // Save to localStorage
         console.log("Item added to cart:", product);
     };
+
+
+    
+
+    // Load cart items from localStorage on mount 
+    //!! to add more than one product !!!
+    useEffect(() => {
+        const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        setCartItems(storedItems);
+    }, []);
+
+    
 
     // const goToCart = () => {
     //     navigate('/cart'); // Navigate to CartPage
@@ -111,6 +118,9 @@ function MainPage() {
 
 
 
+
+
+                {/* Code below to show clicked card products add to cart  */}
 
               {/* {cartItems.length === 0 ? (
                   <p>Your cart is empty.</p>
