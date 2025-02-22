@@ -50,3 +50,19 @@
     background-color: rgb(181, 213, 240); 
 
 }
+
+
+
+
+.deleteFromCart {
+    font-weight: bold; 
+    border-radius: 10px; 
+    background-color: rgb(176, 116, 232); 
+    padding: 10px 65px 15px 65px; /* background of element */
+    color:rgb(71, 58, 83); 
+    padding-top: 14px; 
+    width: 20px; 
+    height: 50px; 
+    margin: 125px 10px 10px -150px; /* to move button in front of other element to the right */ 
+    padding: 10px 70px 10px 30px; /* move text of the button */
+}

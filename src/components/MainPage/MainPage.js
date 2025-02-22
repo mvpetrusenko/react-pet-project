@@ -52,7 +52,7 @@ function MainPage() {
     };
 
     const handleAddToCart = (product) => {
-        const updatedCart = [...cartItems, product];
+        const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
         setCartItems(updatedCart);
         addToLocalStorage(updatedCart); // Save to localStorage
         console.log("Item added to cart:", product);

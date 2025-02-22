@@ -4,12 +4,16 @@ import '../CartPage/CartPage.css'
 // import NavBar from '../NavBar/NavBar';
 // import Footer from '../Footer/Footer'; 
 import CardGroup from '../Card/CardGroup'; 
-import CardData from '../Card/CardData'; 
+import CardData from '../Card/CardData';  
 
 
 // localStorage - data saved in browser (before clearing cash) after refreshing web page (but useState without 
 // localStorage will not save data after page refreshing) 
-// use localStorage for night mode, adding to cart, save form data
+// use localStorage for night mode, adding to cart, save form data 
+
+// cartItems is the React state that controls what's displayed in the UI 
+// storedItems is just the initial data loaded from localStorage 
+//!! cartItems is the React state that holds the current cart data
 
 
 function CartPage() { //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
@@ -40,7 +44,7 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
 //  } 
 
 
-
+//
 
 
 
@@ -53,6 +57,11 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
             const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             setCartItems(storedItems);
         }, []); 
+
+
+
+        // delete from cart 
+        
 
 
 
@@ -85,10 +94,92 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
                     <div className='addedProductPrice'>
                       <p>{item.price}</p>
                     </div>
+
+
+                    <button className='deleteFromCart'
+                      onClick={() =>
+                        setCartItems((cartItems) =>
+                          cartItems.filter(
+                            // (currIteminArray) => !(currIteminArray.id === item.id)
+                            (currIteminArray => currIteminArray.id !== item.id) 
+                            
+                    )
+                  ) 
+                  // setCartItems(updatedCart);
+                  // addToLocalStorage(updatedCart);
+                }
+              >
+                Delete
+              </button> 
+
+              
+                    
                   </div>
+                  
+                ))}
+            </div>
+          )} 
+
+
+
+
+
+
+{cartItems.length === 0 ? (
+          <p>Cart is empty.</p>
+          ) : (
+              <div className='addedProductBlock'>
+                {cartItems.map((item) => (
+                  <div key={item.id} className='cartItem'>
+                    <div className='addedProductImage'>
+                      <img src={item.image} alt={item.title} className='addedCardImage' />
+                    </div>
+                    <div className='addedProductTitle'>
+                      <p>{item.title}</p>
+                    </div>
+                    <div className='addedProductPrice'>
+                      <p>{item.price}</p>
+                    </div>
+
+
+                    <button className='deleteFromCart'
+                      onClick={() =>
+                        setCartItems((cartItems) =>
+                          cartItems.filter(
+                            // (currIteminArray) => !(currIteminArray.id === item.id)
+                            (currIteminArray => currIteminArray.id !== item.id) 
+                            
+                    )
+                  ) 
+                  // setCartItems(updatedCart);
+                  // addToLocalStorage(updatedCart);
+                }
+              >
+                Delete
+              </button> 
+
+              
+                    
+                  </div>
+                  
                 ))}
             </div>
           )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     );
   }
