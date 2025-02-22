@@ -1,6 +1,6 @@
 .addedProductBlock { 
-    display: flex; 
-    flex-direction: row;
+    /* display: flex; 
+    flex-direction: row; */
     padding: 20px;
     color: rgb(62, 115, 222); 
     background-color: rgb(0, 85, 255);  
@@ -8,6 +8,15 @@
     
 }
 
+
+.cartItem {
+    display: flex; 
+    flex-direction: row;
+    padding: 20px;
+    color: rgb(62, 115, 222); 
+    background-color: rgb(0, 85, 255);  
+    border: 5px solid rgb(180, 178, 178); 
+}
 
 
 .addedProductImage { 

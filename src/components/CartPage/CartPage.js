@@ -69,16 +69,22 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
 
 
 
-          <h2>Your Cart</h2>
+          <h2>Cart</h2>
           {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <p>Cart is empty.</p>
           ) : (
               <div className='addedProductBlock'>
                 {cartItems.map((item) => (
                   <div key={item.id} className='cartItem'>
-                    <img src={item.image} alt={item.title} className='addedCardImage' />
-                    <p>{item.title}</p>
-                    <p>{item.price}</p>
+                    <div className='addedProductImage'>
+                      <img src={item.image} alt={item.title} className='addedCardImage' />
+                    </div>
+                    <div className='addedProductTitle'>
+                      <p>{item.title}</p>
+                    </div>
+                    <div className='addedProductPrice'>
+                      <p>{item.price}</p>
+                    </div>
                   </div>
                 ))}
             </div>
