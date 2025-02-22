@@ -50,10 +50,12 @@ import React, { useState } from "react";
 import '../Card/Card.css'; 
 import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
-function CardGroup({ details, addToCart }) { // Receive addToCart as a prop
+function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop 
+
+
     return (
         <div className="cards">
-            {details.map((value) => (
+            {cardArray.map((value) => (
                 <div className="cardContainer" key={value.id}>
                     <div className="cardImageBlock">
                         <img className="cardImage" src={value.image} alt={value.title || "Product Image"} />

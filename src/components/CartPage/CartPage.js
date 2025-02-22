@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../CartPage/CartPage.css' 
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
@@ -12,38 +12,96 @@ import CardData from '../Card/CardData';
 // use localStorage for night mode, adding to cart, save form data
 
 
-function CartPage({getLocalStorage}) { 
+function CartPage() { //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
 
 
-  const[item, setItem] = useState(); // local storage 
+  // const[item, setItem] = useState(); // local storage 
 
-  const addToLocalStorage = (product) => {
-    localStorage.setItem('product', JSON.stringify(product)); // set - save data
-  }
+  // const addToLocalStorage = (product) => {
+  //   localStorage.setItem('product', JSON.stringify(product)); // set - save data
+  // }
 
-  const [cartItems, setCartItems] = useState([]); // State for cart items
+  // const [cartItems, setCartItems] = useState([]); // State for cart items
 
-  const handleAddToCart = (product) => { // Product added to cart
-      setCartItems([...cartItems, product]); // Add the product to the cart array
-      console.log("Item added to cart:", product); 
-      addToLocalStorage();
-  };
+  // const handleAddToCart = (product) => { // Product added to cart
+  //     setCartItems([...cartItems, product]); // Add the product to the cart array
+  //     console.log("Item added to cart:", product); 
+  //     addToLocalStorage();
+  // }; 
+
+
+
+
+
+
+//   const getLocalStorage = () => {
+//     let product = JSON.parse(localStorage.getItem('product')); 
+//     return product; 
+//  } 
+
+
+
+
+
+
+
+
+        const [cartItems, setCartItems] = useState([]);
+
+        // Load cart items from localStorage on mount
+        useEffect(() => {
+            const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            setCartItems(storedItems);
+        }, []); 
+
+
+
+
+
+
+
 
   return (
-      <div>
-          <div className="content">
-              <CardGroup cardArray={CardData} addToCart={handleAddToCart} /> {/* Pass addToCart */}
-              <h2>Cart</h2> {/* Cart title */}
+      <div> 
+        {/* {getLocalStorage()} */}
+
+
+
+
+
+          <h2>Your Cart</h2>
+          {cartItems.length === 0 ? (
+          <p>Your cart is empty.</p>
+          ) : (
+              <div className='addedProductBlock'>
+                {cartItems.map((item) => (
+                  <div key={item.id} className='cartItem'>
+                    <img src={item.image} alt={item.title} className='addedCardImage' />
+                    <p>{item.title}</p>
+                    <p>{item.price}</p>
+                  </div>
+                ))}
+            </div>
+          )}
+      </div>
+    );
+  }
+
+
+
+
+
+
+
+
+
+          {/* <div className="content">
+            </div>  <CardGroup cardArray={CardData} addToCart={handleAddToCart} /> 
+              <h2>Cart</h2> 
               {cartItems.length === 0 ? (
                   <p>Your cart is empty.</p>
               ) : (
-                  // <ul>
-                  //     {cartItems.map((item) => (
-                  //         <li key={item.id}>
-                  //           {item.title} - {item.price}
-                  //         </li>
-                  //     ))}
-                  // </ul> 
+                  
 
                   <div className='addedProductBlock'> 
 
@@ -84,8 +142,8 @@ function CartPage({getLocalStorage}) {
 
 
 
-              )}
-          </div> 
+              )} */}
+          {/* </div>  */}
 
 
           <div>
@@ -96,9 +154,13 @@ function CartPage({getLocalStorage}) {
             <p>5. increment / decrement button on the cart page</p> 
           </div>
 
-      </div>
-  );
-}
+//       </div>
+//   );
+// } 
+
+
+
+
 
 export default CartPage;
 
