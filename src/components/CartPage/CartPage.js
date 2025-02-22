@@ -3,22 +3,36 @@ import '../CartPage/CartPage.css'
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
 // import Footer from '../Footer/Footer'; 
-import Card from '../Card/Card'; 
+import CardGroup from '../Card/CardGroup'; 
 import CardData from '../Card/CardData'; 
 
 
-function CartPage() {
+// localStorage - data saved in browser (before clearing cash) after refreshing web page (but useState without 
+// localStorage will not save data after page refreshing) 
+// use localStorage for night mode, adding to cart, save form data
+
+
+function CartPage({getLocalStorage}) { 
+
+
+  const[item, setItem] = useState(); // local storage 
+
+  const addToLocalStorage = (product) => {
+    localStorage.setItem('product', JSON.stringify(product)); // set - save data
+  }
+
   const [cartItems, setCartItems] = useState([]); // State for cart items
 
   const handleAddToCart = (product) => { // Product added to cart
       setCartItems([...cartItems, product]); // Add the product to the cart array
-      console.log("Item added to cart:", product);
+      console.log("Item added to cart:", product); 
+      addToLocalStorage();
   };
 
   return (
       <div>
           <div className="content">
-              <Card details={CardData} addToCart={handleAddToCart} /> {/* Pass addToCart */}
+              <CardGroup cardArray={CardData} addToCart={handleAddToCart} /> {/* Pass addToCart */}
               <h2>Cart</h2> {/* Cart title */}
               {cartItems.length === 0 ? (
                   <p>Your cart is empty.</p>

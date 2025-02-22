@@ -20,9 +20,6 @@ function App() {
         <Header /> 
         <NavBar /> 
 
-        <nav>
-          <Link to="/">Home</Link>
-        </nav>
 
         <Routes>
           <Route exact path="/" element={<MainPage />} /> 

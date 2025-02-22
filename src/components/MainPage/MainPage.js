@@ -9,23 +9,49 @@ import grapes from '../../assets/images/grapes.jpg';
 import kiwi from '../../assets/images/kiwi.jpg'; 
 import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton'; 
-import Card from '../Card/Card'; 
+import CardGroup from '../Card/CardGroup'; 
 import CardData from '../Card/CardData'; 
 import '../Card/Card.css'
 
 
 
 
-function MainPage() {
+function MainPage() { 
+
+    const [cartItems, setCartItems] = useState([]); // State for cart items
+    
+      const handleAddToCart = (product) => { // Product added to cart
+          setCartItems([...cartItems, product]); // Add the product to the cart array
+          console.log("Item added to cart:", product);
+      }; 
+
+
+      const getLocalStorage = () => {
+         let product = JSON.parse(localStorage.getItem('product')); 
+         return product; 
+      }
+
+
   return ( 
     <div>
         {/* {<Header />}
         {<NavBar />} */}
+
+
+
+
         <div className="content"> 
 
             <div className='product-items'>
-                <Card details={CardData} />
-            </div> 
+                <CardGroup cardArray={CardData} /> 
+                
+        </div> 
+
+
+
+
+
+
                 {/* <div className="itemBlock">
                     <div className='imageBlock'>
                         <Link to="/"><img src={apple} alt="Apple" className="item" /></Link>

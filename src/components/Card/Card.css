@@ -64,4 +64,18 @@
 
   .cardPrice {
     margin-bottom: 60px;
-  }
+  } 
+
+
+
+
+
+  .buyButton {
+    font-weight: bold; 
+    border-radius: 10px; 
+    background-color: rgb(176, 116, 232); 
+    padding: 10px 65px 15px 65px; /* background of element */
+    color:rgb(71, 58, 83); 
+    padding-top: 14px; 
+    width: 250px;
+}

@@ -50,7 +50,7 @@ import React, { useState } from "react";
 import '../Card/Card.css'; 
 import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
-function Card({ details, addToCart }) { // Receive addToCart as a prop
+function CardGroup({ details, addToCart }) { // Receive addToCart as a prop
     return (
         <div className="cards">
             {details.map((value) => (
@@ -61,7 +61,7 @@ function Card({ details, addToCart }) { // Receive addToCart as a prop
                     <div className='cardTextBlock'>
                         <span className="cardTitle">{value.title}</span>
                         <p className="cardPrice">{value.price}</p>
-                        <button onClick={() => addToCart(value)}>Add to Cart</button> {/* Call addToCart */}
+                        <button className="buyButton" onClick={() => addToCart(value)}>Add to Cart</button> {/* Call addToCart */}
                     </div>
 
                 </div>
@@ -71,7 +71,7 @@ function Card({ details, addToCart }) { // Receive addToCart as a prop
 }
 
 
-export default Card;
+export default CardGroup;
 
 
 // function Card(props) { 
