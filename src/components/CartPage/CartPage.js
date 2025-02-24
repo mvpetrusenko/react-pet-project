@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../CartPage/CartPage.css' 
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
@@ -13,10 +13,14 @@ import CardData from '../Card/CardData';
 
 // cartItems is the React state that controls what's displayed in the UI 
 // storedItems is just the initial data loaded from localStorage 
-//!! cartItems is the React state that holds the current cart data
+//!! cartItems is the React state that holds the current cart data 
 
 
-function CartPage() { //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
+// Delete button removes the item from the UI but doesn't update localStorage, which 
+// causes the deleted items to reappear on page refresh
+
+
+function CartPage({ cartItems, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
 
 
   // const[item, setItem] = useState(); // local storage 
@@ -50,17 +54,35 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
 
 
 
-        const [cartItems, setCartItems] = useState([]);
+        // const [cartItems, setCartItems] = useState([]);
 
-        // Load cart items from localStorage on mount
-        useEffect(() => {
-            const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            setCartItems(storedItems);
-        }, []); 
+        // // Load cart items from localStorage on mount
+        // useEffect(() => {
+        //     const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        //     setCartItems(storedItems);
+        // }, []); 
 
 
 
         // delete from cart 
+        // After deleting an item, also update localStorage 
+        // Delete button removes the item from the UI but doesn't update localStorage, which 
+        // causes the deleted items to reappear on page refresh 
+        /* remove item from array: 
+          let value = 3
+
+          let arr = [1, 2, 3, 4, 5, 3]
+
+          arr = arr.filter(item => item !== value)
+
+          console.log(arr)
+          // [ 1, 2, 4, 5 ] */
+
+        // const handleDelete = (id) => {
+        //   const updatedCart = cartItems.filter((item) => item.id !== id);
+        //   setCartItems(updatedCart);
+        //   localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
+        // };
         
 
 
@@ -97,20 +119,7 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
 
 
                     <button className='deleteFromCart'
-                      onClick={() =>
-                        setCartItems((cartItems) =>
-                          cartItems.filter(
-                            // (currIteminArray) => !(currIteminArray.id === item.id)
-                            (currIteminArray => currIteminArray.id !== item.id) 
-                            
-                    )
-                  ) 
-                  // setCartItems(updatedCart);
-                  // addToLocalStorage(updatedCart);
-                }
-              >
-                Delete
-              </button> 
+                      onClick={onDelete(item.id)}>Delete</button> 
 
               
                     
@@ -119,65 +128,6 @@ function CartPage() { //  { cartItems } Receive cartItems as a prop - to see cli
                 ))}
             </div>
           )} 
-
-
-
-
-
-
-{cartItems.length === 0 ? (
-          <p>Cart is empty.</p>
-          ) : (
-              <div className='addedProductBlock'>
-                {cartItems.map((item) => (
-                  <div key={item.id} className='cartItem'>
-                    <div className='addedProductImage'>
-                      <img src={item.image} alt={item.title} className='addedCardImage' />
-                    </div>
-                    <div className='addedProductTitle'>
-                      <p>{item.title}</p>
-                    </div>
-                    <div className='addedProductPrice'>
-                      <p>{item.price}</p>
-                    </div>
-
-
-                    <button className='deleteFromCart'
-                      onClick={() =>
-                        setCartItems((cartItems) =>
-                          cartItems.filter(
-                            // (currIteminArray) => !(currIteminArray.id === item.id)
-                            (currIteminArray => currIteminArray.id !== item.id) 
-                            
-                    )
-                  ) 
-                  // setCartItems(updatedCart);
-                  // addToLocalStorage(updatedCart);
-                }
-              >
-                Delete
-              </button> 
-
-              
-                    
-                  </div>
-                  
-                ))}
-            </div>
-          )}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       </div>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import '../MainPage/MainPage.css' 
 import { Link } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +21,7 @@ import '../Card/Card.css'
 
 
 
-function MainPage() { 
+function MainPage({ addToCart }) {  // Receive addToCart as a prop
 
     // const[item, setItem] = useState(); // local storage 
     
@@ -43,32 +43,36 @@ function MainPage() {
 
 
 
-    const [cartItems, setCartItems] = useState([]);
-    // const navigate = useNavigate(); 
+    // const [cartItems, setCartItems] = useState([]);
+    // // const navigate = useNavigate(); 
 
 
-    const addToLocalStorage = (items) => {
-        localStorage.setItem('cartItems', JSON.stringify(items));
-    };
+    // const addToLocalStorage = (items) => {
+    //     localStorage.setItem('cartItems', JSON.stringify(items));
+    // };
 
-    const handleAddToCart = (product) => {
-        const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
-        setCartItems(updatedCart);
-        addToLocalStorage(updatedCart); // Save to localStorage
-        console.log("Item added to cart:", product);
-    };
+    // const handleAddToCart = (product) => {
+    //     const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
+    //     setCartItems(updatedCart);
+    //     addToLocalStorage(updatedCart); // Save to localStorage
+    //     console.log("Item added to cart:", product);
+    // };
 
 
     
 
-    // Load cart items from localStorage on mount 
-    //!! to add more than one product !!!
-    useEffect(() => {
-        const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        setCartItems(storedItems);
-    }, []);
+    // // Load cart items from localStorage on mount 
+    // //!! to add more than one product !!!
+    // useEffect(() => {
+    //     const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    //     setCartItems(storedItems);
+    // }, []);
 
     
+
+
+
+
 
     // const goToCart = () => {
     //     navigate('/cart'); // Navigate to CartPage
@@ -103,7 +107,10 @@ function MainPage() {
         </div>  */}
 
 
-        <CardGroup cardArray={CardData} addToCart={handleAddToCart} /> {/* Pass addToCart */}
+        {/* <CardGroup cardArray={CardData} addToCart={handleAddToCart} />  */} 
+
+
+        <CardGroup cardArray={CardData} addToCart={addToCart} />
 
 
 
