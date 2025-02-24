@@ -14,6 +14,9 @@ import CardGroup from '../Card/CardGroup';
 import CardData from '../Card/CardData'; 
 import '../Card/Card.css'  
 
+import { CartContext } from "../../App.js"; 
+import { useContext } from 'react';
+
 
 // details = cardArray 
 // Card = CardGroup
@@ -21,7 +24,13 @@ import '../Card/Card.css'
 
 
 
-function MainPage({ addToCart }) {  // Receive addToCart as a prop
+function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
+
+    const {cartItems, setCartItems} = useContext(CartContext); 
+
+    const addToCart = (product) => {
+        setCartItems(prevCartItems => [...prevCartItems, product]);
+      }; 
 
     // const[item, setItem] = useState(); // local storage 
     

@@ -6,6 +6,9 @@ import '../CartPage/CartPage.css'
 import CardGroup from '../Card/CardGroup'; 
 import CardData from '../Card/CardData';  
 
+import { CartContext } from "../../App.js"; 
+import { useContext } from 'react';
+
 
 // localStorage - data saved in browser (before clearing cash) after refreshing web page (but useState without 
 // localStorage will not save data after page refreshing) 
@@ -20,8 +23,9 @@ import CardData from '../Card/CardData';
 // causes the deleted items to reappear on page refresh
 
 
-function CartPage({ cartItems, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
+function CartPage({ cartItems0, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
 
+  const {cartItems, setCartItems} = useContext(CartContext);
 
   // const[item, setItem] = useState(); // local storage 
 

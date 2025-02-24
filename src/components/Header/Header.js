@@ -7,11 +7,17 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
+import { CartContext } from "../../App.js"; 
+import { useContext } from 'react';
+
+
 
 
 
 function Header() { 
-  const getData = () => {};
+  const getData = () => {}; 
+
+  const {cartItems, setCartItems} = useContext(CartContext);
 
   // let initialNumber = '0';
   
@@ -34,7 +40,7 @@ function Header() {
             <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} className="cart"/>
             <div className='cartCounter'>
               {/* <AddToCartElement change={getData} /> */}
-              {/* {counterNumber} */}
+              {cartItems.length}
             </div>
             </Link>
           </div> 

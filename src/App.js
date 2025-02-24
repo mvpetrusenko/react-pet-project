@@ -12,6 +12,11 @@ import { Link } from 'react-router-dom';
 import CardData from './components/Card/CardData'; 
 
 
+export const CartContext = React.createContext(null);
+
+
+
+
 
 // The cartItems state and the useEffect hooks for local storage are now in App.js 
 // This makes App.js the single source of truth for the cart data 
@@ -25,7 +30,13 @@ import CardData from './components/Card/CardData';
 // App.js also saves the updated cartItems to localStorage whenever it changes
 
 
+
+
+
+
 function App() { 
+
+  // const [user, setUser] = useState(null);
 
   const [cartItems, setCartItems] = useState([]);
   
@@ -64,6 +75,7 @@ const handleDeleteFromCart = (id) => {  // Delete function in App.js
   return (
     <Router>
       <div className="App"> 
+      <CartContext.Provider value={{ cartItems: cartItems, setCartItems: setCartItems }}>  
 
         <Header /> 
         <NavBar /> 
@@ -79,6 +91,7 @@ const handleDeleteFromCart = (id) => {  // Delete function in App.js
 
         {<Footer />}
 
+        </CartContext.Provider>
       </div>
     </Router>
   );
