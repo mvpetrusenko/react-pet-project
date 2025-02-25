@@ -30,15 +30,16 @@ function CartPage() {
   // getting data from context
   const {cartItems, setCartItems} = useContext(CartContext); 
 
-  localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
-  JSON.parse(localStorage.getItem('cartItems'));
+  // JSON.parse(localStorage.getItem('cartItems'));
+  // localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+  
   
   // localStorage.setItem('updatedCart', JSON.stringify(updatedCart));
 
   // const handleDelete = (id) => {
   //         const updatedCart = cartItems.filter((item) => item.id !== id);
   //         setCartItems(updatedCart);
-  //         localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
+  //         // localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
   //       }; 
 
 

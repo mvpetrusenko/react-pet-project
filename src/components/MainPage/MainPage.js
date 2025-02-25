@@ -31,9 +31,15 @@ function MainPage() {
     // const context = useContext(CartContext); 
 
     const handleAddToCart = (product) => { 
+        // alert('added');
         const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
         
         setCartItems(updatedCart); 
+
+        // set - key, value (return null) 
+        // get - key - return value
+
+        localStorage.setItem('cartItems', JSON.stringify(updatedCart));
         // after commented useAddToLocalStorage products added to cart successfully ! 
         
         // but after page refresh added product disappear because not added to local storage
