@@ -12,6 +12,8 @@ import { Link } from 'react-router-dom';
 import CardData from './components/Card/CardData'; 
 
 
+// creating context
+
 export const CartContext = React.createContext(null);
 
 
@@ -36,20 +38,26 @@ export const CartContext = React.createContext(null);
 
 function App() { 
 
-  // const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null); 
 
+  // useState - updating data passed via context 
   const [cartItems, setCartItems] = useState([]);
   
+
+  // The useEffect Hook allows you to perform side effects in your components 
+  // Some examples of side effects are: fetching data, directly updating the DOM, and timers
           // Load cart items from localStorage on mount
   useEffect(() => {
       const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
       setCartItems(storedItems);
   }, []); 
 
-
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-}, [cartItems]); 
+// if useEffect is wrapped in a function, the name of the function should start on use...
+  function useAddToLocalStorage() {
+    useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]); 
+  }
 
 
 const handleAddToCart = (product) => {
@@ -69,8 +77,9 @@ const handleDeleteFromCart = (id) => {  // Delete function in App.js
 
 
 
-  
-
+  // CartContext.Provider value= - passing data to context (wrap components into context component)
+  // value = prop (data for sharing), context value for all wrapped components 
+  // Provider provides context value to components
 
   return (
     <Router>

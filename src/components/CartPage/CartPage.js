@@ -6,6 +6,7 @@ import '../CartPage/CartPage.css'
 import CardGroup from '../Card/CardGroup'; 
 import CardData from '../Card/CardData';  
 
+// get data from context in component where this data needed
 import { CartContext } from "../../App.js"; 
 import { useContext } from 'react';
 
@@ -23,8 +24,10 @@ import { useContext } from 'react';
 // causes the deleted items to reappear on page refresh
 
 
-function CartPage({ cartItems0, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
+// function CartPage({ cartItems0, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
 
+function CartPage() { 
+  // getting data from context
   const {cartItems, setCartItems} = useContext(CartContext);
 
   // const[item, setItem] = useState(); // local storage 
@@ -122,8 +125,8 @@ function CartPage({ cartItems0, onDelete }) {  // Receive cartItems as a prop //
                     </div>
 
 
-                    <button className='deleteFromCart'
-                      onClick={onDelete(item.id)}>Delete</button> 
+                    {/* <button className='deleteFromCart'
+                      onClick={onDelete(item.id)}>Delete</button>  */}
 
               
                     

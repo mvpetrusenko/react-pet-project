@@ -24,13 +24,21 @@ import { useContext } from 'react';
 
 
 
-function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
+// function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
 
+function MainPage() {
     const {cartItems, setCartItems} = useContext(CartContext); 
 
-    const addToCart = (product) => {
-        setCartItems(prevCartItems => [...prevCartItems, product]);
-      }; 
+    const useAddToCart = (product) => {
+        const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
+        setCartItems(updatedCart);
+        // useAddToLocalStorage(updatedCart); // Save to localStorage
+        console.log("Item added to cart:", product);
+    };
+
+    // const addToCart = (product) => {
+    //     setCartItems(prevCartItems => [...prevCartItems, product]);
+    //   }; 
 
     // const[item, setItem] = useState(); // local storage 
     
@@ -119,7 +127,7 @@ function MainPage({ addToCart0 }) {  // Receive addToCart as a prop
         {/* <CardGroup cardArray={CardData} addToCart={handleAddToCart} />  */} 
 
 
-        <CardGroup cardArray={CardData} addToCart={addToCart} />
+        <CardGroup cardArray={CardData} addToCart={useAddToCart} />
 
 
 
