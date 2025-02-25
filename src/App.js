@@ -49,11 +49,15 @@ function App() {
 
   // The useEffect Hook allows you to perform side effects in your components 
   // Some examples of side effects are: fetching data, directly updating the DOM, and timers
-          // Load cart items from localStorage on mount
+          // Load cart items from localStorage on mount 
+
+  // set local storage - where to save data (on main page after clicking add to cart button) 
+  // get - on App.js, because we need saved data in header, main page and cart page 
+  // get - not on cart page        
   useEffect(() => { 
       // alert('getItem');
       const storedItems = JSON.parse(localStorage.getItem('cartItems')) || []; 
-      console.log(localStorage.getItem('cartItems'));
+      // console.log(localStorage.getItem('cartItems'));
       // alert(storedItems);
       setCartItems(storedItems); 
       

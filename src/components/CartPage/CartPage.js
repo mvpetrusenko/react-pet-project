@@ -34,13 +34,20 @@ function CartPage() {
   // localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
   
   
-  // localStorage.setItem('updatedCart', JSON.stringify(updatedCart));
+  // localStorage.setItem('updatedCart', JSON.stringify(updatedCart)); 
 
-  // const handleDelete = (id) => {
-  //         const updatedCart = cartItems.filter((item) => item.id !== id);
-  //         setCartItems(updatedCart);
-  //         // localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
-  //       }; 
+
+  // onClick={() => handleDelete(item.id) 
+  // () => - anonymous function, without name, to pass argument to created handleDelete function 
+  // onClick={handleDelete} - it would work if there is no need to pass argument to the function
+
+  const handleDelete = (id) => { 
+          console.log(cartItems)
+          const updatedCart = cartItems.filter((item) => item.id !== id);
+          setCartItems(updatedCart); 
+          console.log(updatedCart)
+          // localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
+        }; 
 
 
 
@@ -147,9 +154,10 @@ function CartPage() {
                     </div>
 
 
-                    {/* <button className='deleteFromCart'
-                      onClick={handleDelete(item.id)}
-                      >Delete</button>  */}
+                  
+                    <button className='deleteFromCart'
+                      onClick={() => handleDelete(item.id)}
+                      >Delete</button> 
 
               
                     
