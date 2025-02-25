@@ -79,3 +79,11 @@
     padding-top: 14px; 
     width: 250px;
 }
+
+
+
+/* the same styles as in buyButton, but additional different color */
+.addedProductButton {
+    background-color: rgb(232, 116, 157); 
+    
+}

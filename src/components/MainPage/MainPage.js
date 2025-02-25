@@ -53,17 +53,18 @@ function MainPage() {
     }; 
 
 
-     const [buttonText, setButtonText] = useState('Add to Cart'); 
+    //  const [buttonText, setButtonText] = useState('Add to Cart'); 
     
-      const changeButtonText = () => { 
-          setButtonText('Product added'); 
-      } 
+    //   const changeButtonText = () => { 
+    //       setButtonText('Product added'); 
+    //   } 
 
 
 
       
     
       const useRedirectToCart = () => { 
+        alert('4444')
           const navigate = useNavigate(); 
           navigate("/cart"); 
       }
@@ -163,7 +164,7 @@ function MainPage() {
         {/* <CardGroup cardArray={CardData} addToCart={handleAddToCart} />  */} 
 
 
-        <CardGroup cardArray={CardData} addToCart={handleAddToCart} changeBuyButton={changeButtonText} toCart={useRedirectToCart} />
+        <CardGroup cardArray={CardData} addToCart={handleAddToCart} redirectToCart={useRedirectToCart} />
 
 
 

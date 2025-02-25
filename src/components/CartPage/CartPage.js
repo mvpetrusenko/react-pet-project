@@ -42,11 +42,9 @@ function CartPage() {
   // onClick={handleDelete} - it would work if there is no need to pass argument to the function
 
   const handleDelete = (id) => { 
-          // console.log(cartItems)
           const updatedCart = cartItems.filter((item) => item.id !== id);
           setCartItems(updatedCart); 
-          // console.log(updatedCart)
-          // localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
+          localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
         }; 
 
 

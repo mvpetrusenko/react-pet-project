@@ -50,12 +50,17 @@ import React, { useState } from "react";
 import '../Card/Card.css'; 
 
 import { CartContext } from "../../App.js"; 
-import { useContext } from 'react';
+import { useContext } from 'react'; 
+
+import { useNavigate } from 'react-router-dom';
 
 
-function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop 
+function CardGroup({ cardArray, addToCart, redirectToCart }) { // Receive addToCart as a prop 
 
    const {cartItems, setCartItems} = useContext(CartContext); 
+   console.log(cartItems); 
+
+   const navigate = useNavigate();
 
     return (
         <div className="cards">
@@ -67,9 +72,11 @@ function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop
                     <div className='cardTextBlock'>
                         <span className="cardTitle">{value.title}</span>
                         <p className="cardPrice">{value.price}</p> 
-                        {cartItems.includes(value) ? (
-                        <button className="buyButton" onClick={() => {
-                            addToCart(value); 
+                        {/* {cartItems.includes(value) ? ( */} 
+                        {cartItems.filter((item) => item.id === value.id).length ? (
+                        <button className="addedProductButton buyButton" onClick={() => {
+                            //redirectToCart(); 
+                            navigate("/cart");
                             }}>Product added</button> 
                         ) : (
                             <button className="buyButton" onClick={() => {
