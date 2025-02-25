@@ -41,7 +41,10 @@ function App() {
   // const [user, setUser] = useState(null); 
 
   // useState - updating data passed via context 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]); 
+
+
+  
   
 
   // The useEffect Hook allows you to perform side effects in your components 
@@ -60,9 +63,9 @@ function App() {
   }
 
 
-const handleAddToCart = (product) => {
-  setCartItems(prevCartItems => [...prevCartItems, product]);
-};
+// const handleAddToCart = (product) => {
+//   setCartItems(prevCartItems => [...prevCartItems, product]);
+// };
 
 
 const handleDeleteFromCart = (id) => {  // Delete function in App.js
@@ -91,10 +94,14 @@ const handleDeleteFromCart = (id) => {  // Delete function in App.js
 
 
         <Routes>
-          <Route exact path="/" element={<MainPage cardArray={CardData} addToCart={handleAddToCart} />} /> 
+          {/* <Route exact path="/" element={<MainPage cardArray={CardData} addToCart={handleAddToCart} />} />
+          <Route path="/cart" element={<CartPage cartItems={cartItems} onDelete={handleDeleteFromCart} />} />  */}
+
+
+          <Route exact path="/" element={<MainPage />} /> 
           <Route path="/second" element={<SecondPage />} /> 
           <Route path="/third" element={<ThirdPage />} />
-          <Route path="/cart" element={<CartPage cartItems={cartItems} onDelete={handleDeleteFromCart} />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes> 
 
 

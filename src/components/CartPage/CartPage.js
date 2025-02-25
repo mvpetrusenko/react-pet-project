@@ -28,7 +28,28 @@ import { useContext } from 'react';
 
 function CartPage() { 
   // getting data from context
-  const {cartItems, setCartItems} = useContext(CartContext);
+  const {cartItems, setCartItems} = useContext(CartContext); 
+
+  localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+  JSON.parse(localStorage.getItem('cartItems'));
+  
+  // localStorage.setItem('updatedCart', JSON.stringify(updatedCart));
+
+  // const handleDelete = (id) => {
+  //         const updatedCart = cartItems.filter((item) => item.id !== id);
+  //         setCartItems(updatedCart);
+  //         localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
+  //       }; 
+
+
+
+
+  // const handleDelete = (product) => {
+  //     const updatedCart = [...cartItems]; // ...cartItems - existing items, product - new added product after click 
+  //     setCartItems(updatedCart); 
+  // };
+
+  
 
   // const[item, setItem] = useState(); // local storage 
 
@@ -126,7 +147,8 @@ function CartPage() {
 
 
                     {/* <button className='deleteFromCart'
-                      onClick={onDelete(item.id)}>Delete</button>  */}
+                      onClick={handleDelete(item.id)}
+                      >Delete</button>  */}
 
               
                     

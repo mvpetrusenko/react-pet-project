@@ -28,12 +28,19 @@ import { useContext } from 'react';
 
 function MainPage() {
     const {cartItems, setCartItems} = useContext(CartContext); 
+    // const context = useContext(CartContext); 
 
-    const useAddToCart = (product) => {
+    const handleAddToCart = (product) => { 
         const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
-        setCartItems(updatedCart);
+        
+        setCartItems(updatedCart); 
+        // after commented useAddToLocalStorage products added to cart successfully ! 
+        
+        // but after page refresh added product disappear because not added to local storage
+        
+       
         // useAddToLocalStorage(updatedCart); // Save to localStorage
-        console.log("Item added to cart:", product);
+        // console.log("Item added to cart:", product);
     };
 
     // const addToCart = (product) => {
@@ -127,7 +134,7 @@ function MainPage() {
         {/* <CardGroup cardArray={CardData} addToCart={handleAddToCart} />  */} 
 
 
-        <CardGroup cardArray={CardData} addToCart={useAddToCart} />
+        <CardGroup cardArray={CardData} addToCart={handleAddToCart}  />
 
 
 
