@@ -42,6 +42,7 @@ function App() {
 
   // useState - updating data passed via context 
   const [cartItems, setCartItems] = useState([]); 
+ 
 
 
   

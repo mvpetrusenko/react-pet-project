@@ -48,10 +48,14 @@ count = new state variable (to remember state of variable)
 
 import React, { useState } from "react"; 
 import '../Card/Card.css'; 
-import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
+
+import { CartContext } from "../../App.js"; 
+import { useContext } from 'react';
+
 
 function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop 
 
+   const {cartItems, setCartItems} = useContext(CartContext); 
 
     return (
         <div className="cards">
@@ -62,8 +66,19 @@ function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop
                     </div>
                     <div className='cardTextBlock'>
                         <span className="cardTitle">{value.title}</span>
-                        <p className="cardPrice">{value.price}</p>
-                        <button className="buyButton" onClick={() => addToCart(value)}>Add to Cart</button> {/* Call addToCart */}
+                        <p className="cardPrice">{value.price}</p> 
+                        {cartItems.includes(value) ? (
+                        <button className="buyButton" onClick={() => {
+                            addToCart(value); 
+                            }}>Product added</button> 
+                        ) : (
+                            <button className="buyButton" onClick={() => {
+                                addToCart(value); 
+                                }}>Add to Cart</button> 
+                        )}
+                        {/* <button className="buyButton" onClick={() => {
+                            addToCart(value); 
+                            }}>'Add to Cart'</button>  */}
                     </div>
 
                 </div>

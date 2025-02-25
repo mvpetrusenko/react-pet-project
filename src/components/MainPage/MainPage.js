@@ -15,7 +15,9 @@ import CardData from '../Card/CardData';
 import '../Card/Card.css'  
 
 import { CartContext } from "../../App.js"; 
-import { useContext } from 'react';
+import { useContext } from 'react'; 
+
+
 
 
 // details = cardArray 
@@ -26,8 +28,9 @@ import { useContext } from 'react';
 
 // function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
 
-function MainPage() {
+function MainPage() { 
     const {cartItems, setCartItems} = useContext(CartContext); 
+    
     // const context = useContext(CartContext); 
 
     const handleAddToCart = (product) => { 
@@ -47,7 +50,27 @@ function MainPage() {
        
         // useAddToLocalStorage(updatedCart); // Save to localStorage
         // console.log("Item added to cart:", product);
-    };
+    }; 
+
+
+     const [buttonText, setButtonText] = useState('Add to Cart'); 
+    
+      const changeButtonText = () => { 
+          setButtonText('Product added'); 
+      } 
+
+
+
+      
+    
+      const useRedirectToCart = () => { 
+          const navigate = useNavigate(); 
+          navigate("/cart"); 
+      }
+
+
+
+
 
     // const addToCart = (product) => {
     //     setCartItems(prevCartItems => [...prevCartItems, product]);
@@ -140,7 +163,7 @@ function MainPage() {
         {/* <CardGroup cardArray={CardData} addToCart={handleAddToCart} />  */} 
 
 
-        <CardGroup cardArray={CardData} addToCart={handleAddToCart}  />
+        <CardGroup cardArray={CardData} addToCart={handleAddToCart} changeBuyButton={changeButtonText} toCart={useRedirectToCart} />
 
 
 
