@@ -12,16 +12,18 @@
 .cartItem {
     display: flex; 
     flex-direction: row;
-    padding: 20px;
+    padding: 10px;
     color: rgb(62, 115, 222); 
     background-color: rgb(0, 85, 255);  
-    border: 5px solid rgb(180, 178, 178); 
+    border: 1px solid rgb(3, 3, 3); 
+    width: 1100px;
 }
 
 
 .addedProductImage { 
     padding: 10px; 
     background-color: rgb(181, 213, 240); 
+    width: 200px;
 } 
 
 
@@ -38,6 +40,7 @@
     color: black; 
     font-weight: bold;
     background-color: rgb(181, 213, 240); 
+    width: 400px;
 
 } 
 
@@ -48,6 +51,7 @@
     color: black; 
     font-weight: bold;
     background-color: rgb(181, 213, 240); 
+    width: 1000px;
 
 }
 
@@ -63,6 +67,31 @@
     padding-top: 14px; 
     width: 20px; 
     height: 50px; 
-    margin: 125px 10px 10px -150px; /* to move button in front of other element to the right */ 
+    margin: 125px 10px 15px -120px; /* to move button in front of other element to the right */ 
     padding: 10px 70px 10px 30px; /* move text of the button */
+}
+
+
+
+
+.quantity { 
+    position: absolute;
+    display: flex; 
+    flex-direction: row;
+    width: 20px; 
+    height: 35px; 
+    margin: 70px 10px 10px 692px;
+}
+
+
+
+.quantityInput {
+    width: 35px;
+}
+
+
+
+.incrementButton, .decrementButton {
+    background-color: aquamarine;
+    padding: 5px 10px 5px 10px;
 }

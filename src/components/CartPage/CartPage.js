@@ -141,18 +141,35 @@ function CartPage() {
               <div className='addedProductBlock'>
                 {cartItems.map((item) => (
                   <div key={item.id} className='cartItem'>
-                    <div className='addedProductImage'>
-                      <img src={item.image} alt={item.title} className='addedCardImage' />
-                    </div>
-                    <div className='addedProductTitle'>
-                      <p>{item.title}</p>
-                    </div>
-                    <div className='addedProductPrice'>
-                      <p>{item.price}</p>
-                    </div>
+                      <div className='addedProductImage'>
+                        <img src={item.image} alt={item.title} className='addedCardImage' />
+                      </div>
+                      <div className='addedProductTitle'>
+                        <p>{item.title}</p>
+                      </div>
+                      <div className='addedProductPrice'>
+                        <p>{item.price}</p>
+                      </div>
 
 
+                    <div className='quantity'>
+                        <button className='incrementButton'
+                          // onClick={() => handleDelete(item.id)}
+                        >+</button> 
+
+
+                        <input className='quantityInput' type='number'></input>
+
+
+                        <button className='decrementButton'
+                          // onClick={() => handleDelete(item.id)}
+                        >-</button> 
+                    </div>
                   
+
+
+
+
                     <button className='deleteFromCart'
                       onClick={() => handleDelete(item.id)}
                       >Delete</button> 

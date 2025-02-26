@@ -54,6 +54,7 @@ import { useContext } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+// addedProductButton buyButton - check if item is in card and choose (replace) button 
 
 function CardGroup({ cardArray, addToCart, redirectToCart }) { // Receive addToCart as a prop 
 
