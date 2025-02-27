@@ -24,7 +24,8 @@ function SecondPage() {
               ></iframe>
             </div>
             <p>Slider</p> 
-            <p>elements appear</p>
+            <p>elements appear</p> 
+            <p>popup</p>
         </div> 
         
         {/* {<Footer />} */}

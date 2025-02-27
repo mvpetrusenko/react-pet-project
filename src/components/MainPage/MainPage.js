@@ -18,11 +18,31 @@ import { useContext } from 'react';
 
 
 
+import { useForm } from "react-hook-form"
+
+
+
 
 // details = cardArray 
 // Card = CardGroup
 
 
+
+
+//Regex for password validation: 
+
+// Minimum eight characters, at least one letter and one number: 
+// "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
+// Minimum eight characters, at least one letter, one number and one special character: 
+// "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" 
+// Minimum eight characters, at least one uppercase letter, one lowercase letter and one number: 
+// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" 
+// Minimum eight characters, at least one uppercase letter, 
+// one lowercase letter, one number and one special character: 
+// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
+// Minimum eight and maximum 10 characters, at least one uppercase letter, 
+// one lowercase letter, one number and one special character: 
+// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"
 
 
 // function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
@@ -53,11 +73,23 @@ function MainPage() {
  
     
       const useRedirectToCart = () => { 
-        alert('4444')
+        // alert('4444')
           const navigate = useNavigate(); 
           navigate("/cart"); 
       }
 
+
+      const { 
+        register, 
+        watch, 
+        handleSubmit, 
+        getValues, 
+        formState: { errors }} = useForm({mode: "onChange"} 
+          ); 
+
+
+
+    
 
 
 
@@ -207,17 +239,101 @@ function MainPage() {
             <fieldset>
               <legend>Registration Form</legend>
               <fieldset>
-                <label for="firstName">First Name: </label>
-                <input type='text' className='firstName'></input>
+                <label for="firstName">* First Name: </label>
+                <input type='text' className='firstName' 
+                // regex for email, password, first name, last name
+                {...register('firstName', {
+                  required: 'First name is required', 
+                  minLength:{
+                    value:2,
+                    message: "Minimum 2 characters required"
+                    }, 
+                    maxLength: {
+                    value:10,
+                    message: "Max 10 is allowed"
+                    },
+                  pattern: {
+                      value: /([a-zA-Z]\s*)+/,
+                      message: 'Invalid first name',
+                  },
+              })}></input><br></br>
+                <span>{errors.firstName?.message}</span>
               </fieldset>
               <fieldset>
-                <label for="lastName">Last Name: </label>
-                <input type='text' className='lastName'></input>
+                <label for="lastName">* Last Name: </label>
+                <input type='text' className='lastName' 
+                {...register('lastName', {
+                  required: 'Last name is required', 
+                  minLength:{
+                    value:2,
+                    message: "Minimum 2 characters required"
+                    }, 
+                    maxLength: {
+                    value:10,
+                    message: "Max 10 is allowed"
+                    },
+                  pattern: {
+                      value: /[a-zA-Z]/,
+                      message: 'Invalid last name',
+                  },
+              })}></input><br></br>
+                <span>{errors.lastName?.message}</span>
               </fieldset>
               <fieldset>
-                <label for="email">Email:   </label>
-                <input type='email' placeholder='test@gmail.com' className='email'></input>
+                <label for="email">* Email:   </label>
+                <input type='email' 
+                placeholder='test@gmail.com' 
+                className='email'
+                required 
+                {...register('email', {
+                  required: 'Email is required',
+                  pattern: {
+                      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: 'Invalid email address',
+                  },
+              })}></input><br></br>
+              <span>{errors.email?.message}</span>
+              </fieldset> 
+
+              <fieldset> 
+                <fieldset>
+                    <label for="passwordRegistration">* Password: </label>
+                    <input type='password' className='password' 
+                    // Minimum eight characters, at least one uppercase letter, 
+                    // one lowercase letter, one number and one special character 
+                    {...register('passwordRegistration', {
+                      // required: 'Password is required', 
+                      minLength:{
+                        value:8,
+                        message: "Minimum 8 characters required"
+                        }, 
+                        maxLength: {
+                        value:10,
+                        message: "Max 10 is allowed"
+                        },
+                      pattern: {
+                          value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                          message: 'Invalid password: (should have  min 8 characters: uppercase, lowercase, number, special character)',
+                      },
+                  })}></input><br></br>
+                  <span>{errors.passwordRegistration?.message}</span>
+                  </fieldset> 
+
+                  {/* type='password' - to hide password with ***** */}
+                  {/* <fieldset>
+                    <label for="confirmPasswordRegistration">* Confirm Password: </label>
+                    <input type='password' className='password' 
+                    // Minimum eight characters, at least one uppercase letter, 
+                    // one lowercase letter, one number and one special character
+                    {...register('confirmPasswordRegistration', {
+                      required: "Required",
+                      validate: (value) => value !== watch("password") || 'Password does not match',
+                      
+                    })}></input><br></br>
+                  <span>{errors.confirmPasswordRegistration?.message}</span>
+                  </fieldset>  */}
               </fieldset>
+              
             </fieldset> 
             <div>
                 <button type='submit' className='submitRegistrationButton'>SUBMIT</button>
@@ -236,12 +352,46 @@ function MainPage() {
             <fieldset className='formFieldLogin'>
               <legend>Login Form</legend>
               <fieldset>
-                <label for="userName">Username: </label>
-                <input type='text' className='userName'></input>
+                <label for="userName">* Username: </label>
+                <input type='text' className='userName' 
+                {...register('userName', {
+                  required: 'Username is required', 
+                  minLength:{
+                    value:2,
+                    message: "Minimum 2 characters required"
+                    }, 
+                    maxLength: {
+                    value:10,
+                    message: "Max 10 is allowed"
+                    },
+                  pattern: {
+                      value: /[a-zA-Z]/,
+                      message: 'Invalid username',
+                  },
+              })}></input><br></br> 
+                  <span>{errors.userName?.message}</span>
               </fieldset>
               <fieldset>
-                <label for="password">Password: </label>
-                <input type='password' className='password'></input>
+                <label for="passwordLogin">* Password: </label>
+                <input type='password' className='password' 
+                // Minimum eight characters, at least one uppercase letter, 
+                // one lowercase letter, one number and one special character
+                {...register('passwordLogin', {
+                  required: 'Password is required', 
+                  minLength:{
+                    value:8,
+                    message: "Minimum 8 characters required"
+                    }, 
+                    maxLength: {
+                    value:10,
+                    message: "Max 10 is allowed"
+                    },
+                  pattern: {
+                      value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                      message: 'Invalid password: (should have  min 8 characters: uppercase, lowercase, number, special character)',
+                  },
+              })}></input><br></br>
+              <span>{errors.passwordLogin?.message}</span>
               </fieldset>
             </fieldset> 
             <div>
@@ -253,7 +403,7 @@ function MainPage() {
 
 
 
-        
+
         {/* </div> */}
             
             {<ScrollToTopButton />} 
