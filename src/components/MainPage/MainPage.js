@@ -194,6 +194,79 @@ function MainPage() {
                     
                 // </div>  */}
 
+
+
+          {/* The <fieldset> tag is used to group related elements in a form 
+          The <fieldset> tag draws a box around the related elements 
+          The <legend> tag defines a caption (name) for the <fieldset> element */}
+        <div className='forms'>
+          <form className='registrationForm'>
+            <fieldset>
+              <legend>Registration Form</legend>
+              <fieldset>
+                <label for="firstName">First Name: </label>
+                <input type='text' className='firstName'></input>
+              </fieldset>
+              <fieldset>
+                <label for="lastName">Last Name: </label>
+                <input type='text' className='lastName'></input>
+              </fieldset>
+              <fieldset>
+                <label for="email">Email:   </label>
+                <input type='email' placeholder='test@gmail.com' className='email'></input>
+              </fieldset>
+            </fieldset> 
+            <div>
+                <button type='submit' className='submitRegistrationButton'>SUBMIT</button>
+            </div>
+          </form>
+
+
+
+
+
+
+
+
+
+          <form className='loginForm'>
+            <fieldset className='formFieldLogin'>
+              <legend>Login Form</legend>
+              <fieldset>
+                <label for="userName">Username: </label>
+                <input type='text' className='userName'></input>
+              </fieldset>
+              <fieldset>
+                <label for="password">Password: </label>
+                <input type='password' className='password'></input>
+              </fieldset>
+            </fieldset> 
+            <div>
+                <button type='submit' className='loginButton'>LOGIN</button>
+            </div>
+          </form>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div>ggggggggggggggg</div>
           <div>ggggggggggggggg</div>
           <div>ggggggggggggggg</div>

@@ -91,6 +91,7 @@ function CartPage() {
       // This ensures that only the item with the matching id has its 
       // quantity updated, while all other items remain unchanged 
 
+      // item.quantity || 1 - item quantity by default = 1
 
       //NOT: 
 
@@ -98,10 +99,15 @@ function CartPage() {
       //   setQuantity(quantity + 1); 
       // } 
 
+      // The NaN (Not a Number) result in totalCost: item.price * item.quantity 
+      // almost certainly means that either item.price or item.quantity (or both) are not valid numbers 
+      // for example, item.price is a String, change (price: "10") to (price: 10) 
+
+
       const handleIncrease = (id) => {
         const updatedCart = cartItems.map((item) => {
             if (item.id === id) {
-                return { ...item, quantity: (item.quantity || 1) + 1 }; // Increment quantity, default to 1
+                return { ...item, quantity: (item.quantity || 1) + 1, totalCost: Number(item.price) * ((item.quantity || 1) + 1) }; // Increment quantity, default to 1
             }
             return item;
         });
@@ -124,6 +130,10 @@ function CartPage() {
 
   }
 
+
+
+
+  
 
 
 

@@ -78,3 +78,45 @@
     display: block;
     word-wrap: break-word; 
   }
+
+
+  .forms { 
+    display: flex; 
+    flex-direction: row;
+    width: 800px; 
+    color: rgb(94, 224, 94); 
+    background-color: rgb(37, 61, 37); 
+    margin: 80px 10px 120px 250px; 
+    padding: 20px 20px 60px 20px;
+  }
+
+
+  .registrationForm {
+    width: 500px; 
+    margin-right: 50px;
+  } 
+
+
+
+  .formFieldLogin {
+    height: 150px;
+  }
+
+
+  .loginForm {
+    width: 500px;
+  }
+
+
+
+
+
+  .submitRegistrationButton, .loginButton {
+    font-weight: bold; 
+    border-radius: 10px; 
+    background-color: rgb(94, 224, 94); 
+    padding: 15px 105px 15px 65px; /* background of element */
+    color:rgb(10, 46, 10);  
+    width: 50px;
+    margin-top: 20px;
+  }

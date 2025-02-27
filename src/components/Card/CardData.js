@@ -10,19 +10,19 @@ const CardData = [
         id: "1", 
         image: apple,
         title: "Apple Gala", 
-        price: "$10.00 per kg", 
+        price: 10, 
     }, 
     {
         image: grapes,
         id: "2", 
         title: "Niagara Grapes", 
-        price: "$20.00 per kg", 
+        price: 20, 
     }, 
     {
         image: kiwi,
         id: "3", 
         title: "Hayward Kiwi", 
-        price: "$30.00 per kg", 
+        price: 30, 
         
     }
 
