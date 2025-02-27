@@ -198,7 +198,10 @@ function MainPage() {
 
           {/* The <fieldset> tag is used to group related elements in a form 
           The <fieldset> tag draws a box around the related elements 
-          The <legend> tag defines a caption (name) for the <fieldset> element */}
+          The <legend> tag defines a caption (name) for the <fieldset> element */} 
+
+
+      <div className='formContainer'>  
         <div className='forms'>
           <form className='registrationForm'>
             <fieldset>
@@ -220,7 +223,7 @@ function MainPage() {
                 <button type='submit' className='submitRegistrationButton'>SUBMIT</button>
             </div>
           </form>
-
+      
 
 
 
@@ -246,60 +249,11 @@ function MainPage() {
             </div>
           </form>
           </div>
+        </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div> 
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-          <div>ggggggggggggggg</div>
-
+        
         {/* </div> */}
             
             {<ScrollToTopButton />} 

@@ -80,12 +80,28 @@
   }
 
 
+
+
+  .formContainer { 
+    display: flex; 
+    flex-direction: row;
+    background-image: url('../../assets/images/wall.jpg'); 
+    background-repeat: no-repeat; 
+    height: 500px; 
+    padding-top: 20px; 
+    margin-top: 80px; 
+    margin-bottom: 80px;
+  }
+  
+
+
+
   .forms { 
     display: flex; 
     flex-direction: row;
     width: 800px; 
     color: rgb(94, 224, 94); 
-    background-color: rgb(37, 61, 37); 
+    background-color: rgba(0, 0, 0, 0.7); 
     margin: 80px 10px 120px 250px; 
     padding: 20px 20px 60px 20px;
   }
