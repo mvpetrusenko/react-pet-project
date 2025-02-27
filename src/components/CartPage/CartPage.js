@@ -27,74 +27,97 @@ import { useContext } from 'react';
 // function CartPage({ cartItems0, onDelete }) {  // Receive cartItems as a prop //  { cartItems } Receive cartItems as a prop - to see clicked product in the cart // {getLocalStorage}
 
 function CartPage() { 
+  
   // getting data from context
   const {cartItems, setCartItems} = useContext(CartContext); 
 
-  // JSON.parse(localStorage.getItem('cartItems'));
-  // localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
   
-  
-  // localStorage.setItem('updatedCart', JSON.stringify(updatedCart)); 
-
 
   // onClick={() => handleDelete(item.id) 
   // () => - anonymous function, without name, to pass argument to created handleDelete function 
   // onClick={handleDelete} - it would work if there is no need to pass argument to the function
 
+  // This id represents the unique identifier of the item to be removed from the cart 
+  // filter creates a new array containing only the elements that pass a certain test 
+  // item.id !== id: This condition checks if the id of the current item 
+  // is not equal to the id that was passed to the handleDelete function 
+  // If the IDs are different, the filter method keeps that item in the new array 
+  //  If the IDs are the same (meaning this is the item to delete), 
+  // the filter method excludes that item from the new array 
+
+  // id - clicked product 
+  // item.id - product shown in the cart page 
+  // filter (stay) all products where click on delete button of id of product !== shown product = 
+  // = stay only product with !! NOT CLICKED (DELETE) BUTTON (returns ARRAY) 
+  // it how array filter() method works - returns array of items which passed (true) the condition 
+  
   const handleDelete = (id) => { 
-          const updatedCart = cartItems.filter((item) => item.id !== id);
+          const updatedCart = cartItems.filter((item) => item.id !== id); 
           setCartItems(updatedCart); 
           localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // Update localStorage
         }; 
 
 
-
-
-  // const handleDelete = (product) => {
-  //     const updatedCart = [...cartItems]; // ...cartItems - existing items, product - new added product after click 
-  //     setCartItems(updatedCart); 
-  // };
-
   
+  // Difference with handleDelete - we need to return not array of not clicked products, 
+  // but product with clicked increase button 
 
-  // const[item, setItem] = useState(); // local storage 
+  // cartItems.filter((item) => item.id === id);  - stay product WITH CLICKED button 
+  // setCartItems(updatedCart) - save changes 
+  // next task - increase clicked product && other cartItems - add if on NOT clicked? 
 
-  // const addToLocalStorage = (product) => {
-  //   localStorage.setItem('product', JSON.stringify(product)); // set - save data
-  // }
-
-  // const [cartItems, setCartItems] = useState([]); // State for cart items
-
-  // const handleAddToCart = (product) => { // Product added to cart
-  //     setCartItems([...cartItems, product]); // Add the product to the cart array
-  //     console.log("Item added to cart:", product); 
-  //     addToLocalStorage();
-  // }; 
+  // if clicked (===) - quantity + 1, else (if not clicked (!==) - return quantity)
 
 
+    const [quantity, setQuantity] = useState(1);
+  
+    
+      
+      // const updatedCart = (cartItems.filter((item) => item.id !== id)) ? (setQuantity(quantity)) : (setQuantity(quantity + 1)); 
+      
+      // const notIncreasedItems = (cartItems.filter((item) => item.id !== id)); 
+   
+
+
+      // map() creates a new array where only the clicked item gets its quantity increased 
+      // if condition inside map() 
+      // item - product card 
+      // using the spread syntax ...item to copy the existing item's properties) and updates the quantity property 
+      // return item;: This line is executed if the if condition is false
+      // item.id === id - product card with clicked increased + button 
+      // The map function iterates through each item in the cartItems array 
+      // If the item.id matches the id create a new object with the updated quantity and return it 
+      // Otherwise (else), we simply return the original item object 
+      // This ensures that only the item with the matching id has its 
+      // quantity updated, while all other items remain unchanged 
+
+
+      //NOT: 
+
+      // if(cartItems.filter((item) => item.id !== id)) { 
+      //   setQuantity(quantity + 1); 
+      // } 
+
+      const handleIncrease = (id) => {
+        const updatedCart = cartItems.map((item) => {
+            if (item.id === id) {
+                return { ...item, quantity: (item.quantity || 1) + 1 }; // Increment quantity, default to 1
+            }
+            return item;
+        });
+        setCartItems(updatedCart);
+
+    }
+
+
+
+      const handleDecrease = (id) => {
+        setQuantity(quantity - 1 < 1 ? 1 : quantity - 1); 
+      }
 
 
 
 
-//   const getLocalStorage = () => {
-//     let product = JSON.parse(localStorage.getItem('product')); 
-//     return product; 
-//  } 
-
-
-//
-
-
-
-
-
-        // const [cartItems, setCartItems] = useState([]);
-
-        // // Load cart items from localStorage on mount
-        // useEffect(() => {
-        //     const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        //     setCartItems(storedItems);
-        // }, []); 
 
 
 
@@ -126,7 +149,8 @@ function CartPage() {
 
 
 
-  return (
+  return ( 
+    
       <div> 
         {/* {getLocalStorage()} */}
 
@@ -135,9 +159,9 @@ function CartPage() {
 
 
           <h2>Cart</h2>
-          {cartItems.length === 0 ? (
+          {cartItems.length === 0 ?(
           <p>Cart is empty.</p>
-          ) : (
+          ) : ( 
               <div className='addedProductBlock'>
                 {cartItems.map((item) => (
                   <div key={item.id} className='cartItem'>
@@ -154,15 +178,15 @@ function CartPage() {
 
                     <div className='quantity'>
                         <button className='incrementButton'
-                          // onClick={() => handleDelete(item.id)}
+                          onClick={() => handleIncrease(item.id)}
                         >+</button> 
 
-
-                        <input className='quantityInput' type='number'></input>
+                        {/* {item.quantity || 1} - to set default "1" quantity in the quantity counter  */}
+                        <span className='quantityInput'>{item.quantity || 1}</span>
 
 
                         <button className='decrementButton'
-                          // onClick={() => handleDelete(item.id)}
+                          // onClick={() => handleDecrease()}
                         >-</button> 
                     </div>
                   
@@ -185,7 +209,7 @@ function CartPage() {
 
       </div>
     );
-  }
+  
 
 
 
@@ -258,29 +282,9 @@ function CartPage() {
 //   );
 // } 
 
-
+}
 
 
 
 export default CartPage;
 
-
-
-
-// function CartPage() {
-//   return ( 
-//     <div>
-//         {/* {<Header />}
-//         {<NavBar />} */}
-//         <div className="content"> 
-//             <p>Cart Page Content</p>
-//             <Card details={value} />
-//         </div> 
-        
-//         {/* {<Footer />} */}
-      
-//     </div>
-//   );
-// }
-
-// export default CartPage;

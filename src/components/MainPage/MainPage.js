@@ -5,10 +5,9 @@ import { useNavigate } from 'react-router-dom';
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
 // import Footer from '../Footer/Footer'; 
-import apple from '../../assets/images/apple.jpg'; 
-import grapes from '../../assets/images/grapes.jpg'; 
-import kiwi from '../../assets/images/kiwi.jpg'; 
-import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
+// import apple from '../../assets/images/apple.jpg'; 
+// import grapes from '../../assets/images/grapes.jpg'; 
+// import kiwi from '../../assets/images/kiwi.jpg'; 
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton'; 
 import CardGroup from '../Card/CardGroup'; 
 import CardData from '../Card/CardData'; 
@@ -42,26 +41,16 @@ function MainPage() {
         // set - key, value (return null) 
         // get - key - return value
 
-        localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-        // after commented useAddToLocalStorage products added to cart successfully ! 
+        localStorage.setItem('cartItems', JSON.stringify(updatedCart)); 
         
         // but after page refresh added product disappear because not added to local storage
         
        
         // useAddToLocalStorage(updatedCart); // Save to localStorage
-        // console.log("Item added to cart:", product);
+        
     }; 
 
-
-    //  const [buttonText, setButtonText] = useState('Add to Cart'); 
-    
-    //   const changeButtonText = () => { 
-    //       setButtonText('Product added'); 
-    //   } 
-
-
-
-      
+ 
     
       const useRedirectToCart = () => { 
         alert('4444')
@@ -70,79 +59,6 @@ function MainPage() {
       }
 
 
-
-
-
-    // const addToCart = (product) => {
-    //     setCartItems(prevCartItems => [...prevCartItems, product]);
-    //   }; 
-
-    // const[item, setItem] = useState(); // local storage 
-    
-    //   const addToLocalStorage = (product) => {
-    //     localStorage.setItem('product', JSON.stringify(product)); // set - save data
-    //   }
-    
-    //   const [cartItems, setCartItems] = useState([]); // State for cart items
-    
-    //   const handleAddToCart = (product) => { // Product added to cart
-    //       setCartItems([...cartItems, product]); // Add the product to the cart array 
-        
-    //       console.log("Item added to cart:", product); 
-    //       addToLocalStorage();
-    //   };
-
-
-
-
-
-
-    // const [cartItems, setCartItems] = useState([]);
-    // // const navigate = useNavigate(); 
-
-
-    // const addToLocalStorage = (items) => {
-    //     localStorage.setItem('cartItems', JSON.stringify(items));
-    // };
-
-    // const handleAddToCart = (product) => {
-    //     const updatedCart = [...cartItems, product]; // ...cartItems - existing items, product - new added product after click 
-    //     setCartItems(updatedCart);
-    //     addToLocalStorage(updatedCart); // Save to localStorage
-    //     console.log("Item added to cart:", product);
-    // };
-
-
-    
-
-    // // Load cart items from localStorage on mount 
-    // //!! to add more than one product !!!
-    // useEffect(() => {
-    //     const storedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    //     setCartItems(storedItems);
-    // }, []);
-
-    
-
-
-
-
-
-    // const goToCart = () => {
-    //     navigate('/cart'); // Navigate to CartPage
-    // };
-
-
-
-
-
-
-    
-
-    //   const getLocalStorage = () => {
-    //      let product = JSON.parse(localStorage.getItem('product')); 
-    //      return product; 
-    //   }
 
 
   return ( 

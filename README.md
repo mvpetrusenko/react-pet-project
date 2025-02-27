@@ -542,4 +542,15 @@ CSS: Make sure your CSS is correctly styling the elements.
 
 
 
-## 
+## Code Plan 
+
+Increment button 
+
+User flow - Program Code - What to use 
+
+1 - Click Add to Cart button                 - handleAddToCart function on Main Page returns updatedCart array (check by adding console.log(updatedCart))
+2 - Product Added to Cart                    - product is shown - item in cartItems renders in <> on Cart Page
+3 - Click + button of SELECTED PRODUCT       - ???? find product which + button is clicked (??? JS function, if, array mehtod ?? what returns? ) - if item.id of added product
+4 - Quantity increases + 1                   - increase quantity by 1 (count + 1)
+5 - Refresh page                             - save changes        - set state in local storage
+6 - Quantity stays the same                  - 

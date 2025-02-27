@@ -9,12 +9,6 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function ScrollToTopButton() {
 
-    // const [scrollToTopPage, setScrollToTopPage] = useState('');  
-
-    // function handleToTopButtonClick () {
-    //     setScrollToTopPage(window.scrollTo({top: 0, behavior: 'smooth'}));
-    // }
-
 
     function handleToTopButtonClick () {
         window.scrollTo({top: 0, behavior: 'smooth'}); 

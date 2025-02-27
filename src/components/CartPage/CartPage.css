@@ -78,15 +78,17 @@
     position: absolute;
     display: flex; 
     flex-direction: row;
-    width: 20px; 
-    height: 35px; 
+    width: 100px; 
+    /* height: 35px;  */
     margin: 70px 10px 10px 692px;
 }
 
 
 
 .quantityInput {
-    width: 35px;
+    width: 35px; 
+    background-color: wheat; 
+    border: 1.4px solid black;
 }
 
 

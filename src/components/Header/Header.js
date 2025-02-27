@@ -5,7 +5,6 @@ import logo from '../../assets/images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 
-import AddToCartElement from '../AddToCartElement/AddToCartElement'; 
 
 import { CartContext } from "../../App.js"; 
 import { useContext } from 'react';

@@ -55,11 +55,21 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // addedProductButton buyButton - check if item is in card and choose (replace) button 
+// cartItems.filter((item) => item.id === value.id): 
+// This part checks if the product is already in the cart 
+// If they are equal, it means the product is already in the cart, 
+// and that item will be included in the new filtered array 
+//  The .length property then gives you the number of elements in that filtered array (either 1 or 0)
+// One element if the product is already in the cart 
+// Zero elements if the product is not in the cart 
+//  If the length of the filtered array is greater than 0 (meaning the product 
+// is in the cart), the code after the ? is executed 
+// : Otherwise (if the length is 0), the code after the : is executed
 
-function CardGroup({ cardArray, addToCart, redirectToCart }) { // Receive addToCart as a prop 
+function CardGroup({ cardArray, addToCart }) { // Receive addToCart as a prop 
 
    const {cartItems, setCartItems} = useContext(CartContext); 
-   console.log(cartItems); 
+
 
    const navigate = useNavigate();
 
@@ -74,6 +84,7 @@ function CardGroup({ cardArray, addToCart, redirectToCart }) { // Receive addToC
                         <span className="cardTitle">{value.title}</span>
                         <p className="cardPrice">{value.price}</p> 
                         {/* {cartItems.includes(value) ? ( */} 
+                        {/* if cart has added item (===)  */}
                         {cartItems.filter((item) => item.id === value.id).length ? (
                         <button className="addedProductButton buyButton" onClick={() => {
                             //redirectToCart(); 

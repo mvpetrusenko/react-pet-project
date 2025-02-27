@@ -84,9 +84,9 @@ function App() {
 // };
 
 
-const handleDeleteFromCart = (id) => {  // Delete function in App.js
-  setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== id));
-};
+// const handleDeleteFromCart = (id) => {  // Delete function in App.js
+//   setCartItems(prevCartItems => prev(item => item.id !== id));
+// };
 
 // const handleDelete = (id) => {
 //   const updatedCart = cartItems.filter((item) => item.id !== id);
