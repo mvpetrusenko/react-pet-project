@@ -554,3 +554,16 @@ User flow - Program Code - What to use
 4 - Quantity increases + 1                   - increase quantity by 1 (count + 1)
 5 - Refresh page                             - save changes        - set state in local storage
 6 - Quantity stays the same                  - 
+
+
+
+
+
+## Design Pattern - Figma Community 
+
+
+
+## BEM - methodology 
+
+
+## 

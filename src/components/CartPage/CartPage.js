@@ -111,9 +111,27 @@ function CartPage() {
 
 
 
-      const handleDecrease = (id) => {
-        setQuantity(quantity - 1 < 1 ? 1 : quantity - 1); 
-      }
+
+
+    const handleDecrease = (id) => {
+      const updatedCart = cartItems.map((item) => {
+          if (item.id === id) {
+              return { ...item, quantity: (item.quantity || 1) - 1 }; 
+          }
+          return item;
+      });
+      setCartItems(updatedCart);
+
+  }
+
+
+
+
+
+
+      // const handleDecrease = (id) => {
+      //   setQuantity(quantity - 1 < 1 ? 1 : quantity - 1); 
+      // }
 
 
 
@@ -186,7 +204,7 @@ function CartPage() {
 
 
                         <button className='decrementButton'
-                          // onClick={() => handleDecrease()}
+                          onClick={() => handleDecrease(item.id)}
                         >-</button> 
                     </div>
                   
