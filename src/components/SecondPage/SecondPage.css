@@ -10,3 +10,90 @@ iframe.introductionVideo {
     margin: 0;
     /* z-index: -1; - Ensure the video is behind the content  */
 } 
+
+
+
+
+.textToAppear { 
+    display: flex; 
+    flex-direction: column;
+    background-color: red; 
+    /* put element in the center of screen - width: 50% + margin: auto */
+    width: 50%; 
+    margin: auto;
+
+}
+
+
+
+.firstToAppear {
+    background-color: yellow; 
+    height: 100px; 
+    padding-top: 15px;
+}
+
+
+
+
+.secondToAppear {
+    background-color: green; 
+    height: 50px; 
+    padding-top: 15px;
+} 
+
+
+
+
+
+.popupForm { 
+    display: none; /* popup chat hidden (none) by default */ 
+    position: fixed;  
+    border: 1px solid gray; 
+    bottom: 23px;
+    right: 28px;
+    width: 280px; 
+    z-index: 2; 
+    height: 350px; 
+ 
+} 
+
+
+
+
+.formPopupContainer {
+    height: 329px;
+    padding: 10px; 
+    background-color: wheat; 
+} 
+
+
+
+.openPopupChat {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px; 
+  z-index: 1; /* to put in front of page and footer */
+} 
+
+
+
+
+.closeButton {
+    background-color: red; 
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px; /* put button on the form bottom */
+    right: 28px;
+    width: 280px;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../MainPage/MainPage.css' 
 import { Link } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ import { useContext } from 'react';
 
 import { useForm } from "react-hook-form" 
 
-import {useHttp} from '../hooks/http.hook'
+// import {useHttp} from '../hooks/http.hook'
 
 
 
@@ -51,30 +51,30 @@ import {useHttp} from '../hooks/http.hook'
 
 function MainPage() { 
 
-  const { loading, error, request } = useHttp() 
+  // const { loading, error, request } = useHttp() 
 
-  const registerHandler = async () => {
-    try { 
-      // function request with parameters: url... 
-      // in routes/auth.routes.js in the backend project
-      const data = await request('/api/auth/register', 'POST', {...form}) 
-      console.log('Data', data)
-    } catch (e) { 
-      // catch will be empty, because it is in useHttp hook
-    }
+  // const registerHandler = async () => {
+  //   try { 
+  //     // function request with parameters: url... 
+  //     // in routes/auth.routes.js in the backend project
+  //     const data = await request('/api/auth/register', 'POST', {...form}) 
+  //     console.log('Data', data)
+  //   } catch (e) { 
+  //     // catch will be empty, because it is in useHttp hook
+  //   }
 
-  }
+  // }
 
 
-  const [form, setForm] = useState({ 
-      email: '', password: ''      
-   }) 
+  // const [form, setForm] = useState({ 
+  //     email: '', password: ''      
+  //  }) 
 
-   // ...form - spread data from form 
-   // event.target.name - name will be email or password - className='email'
-   const changeHandler = event => {
-      setForm({ ...form, [event.target.name]: event. target.value })
-   }
+  //  // ...form - spread data from form 
+  //  // event.target.name - name will be email or password - className='email'
+  //  const changeHandler = event => {
+  //     setForm({ ...form, [event.target.name]: event. target.value })
+  //  }
 
 
 
@@ -313,7 +313,7 @@ function MainPage() {
                 <label for="email">* Email:   </label>
                 <input type='email' 
                 placeholder='test@gmail.com' 
-                onChange={changeHandler}
+                // onChange={changeHandler}
                 className='email'
                 required 
                 {...register('email', {
@@ -329,7 +329,9 @@ function MainPage() {
               <fieldset> 
                 <fieldset>
                     <label for="passwordRegistration">* Password: </label>
-                    <input type='password' onChange={changeHandler} className='password' 
+                    <input type='password' 
+                    // onChange={changeHandler} 
+                    className='password' 
                     // Minimum eight characters, at least one uppercase letter, 
                     // one lowercase letter, one number and one special character 
                     {...register('passwordRegistration', {
@@ -367,9 +369,9 @@ function MainPage() {
             </fieldset> 
             <div>
                 <button type='submit' 
-                onClick={registerHandler} 
+                // onClick={registerHandler} 
                 // disabled - block button, disabled will be true, if loading (data from server) will be true 
-                disabled={loading}
+                // disabled={loading}
                 className='submitRegistrationButton'>Register</button>
             </div>
           </form>
@@ -429,7 +431,9 @@ function MainPage() {
               </fieldset>
             </fieldset> 
             <div>
-                <button type='submit' disabled={loading} className='loginButton'>LOGIN</button>
+                <button type='submit' 
+                // disabled={loading} 
+                className='loginButton'>LOGIN</button>
             </div>
           </form>
           </div>
