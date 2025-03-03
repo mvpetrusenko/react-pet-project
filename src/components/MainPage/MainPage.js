@@ -18,7 +18,9 @@ import { useContext } from 'react';
 
 
 
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form" 
+
+import {useHttp} from '../hooks/http.hook'
 
 
 
@@ -48,6 +50,34 @@ import { useForm } from "react-hook-form"
 // function MainPage({ addToCart0 }) {  // Receive addToCart as a prop 
 
 function MainPage() { 
+
+  const { loading, error, request } = useHttp() 
+
+  const registerHandler = async () => {
+    try { 
+      // function request with parameters: url... 
+      // in routes/auth.routes.js in the backend project
+      const data = await request('/api/auth/register', 'POST', {...form}) 
+      console.log('Data', data)
+    } catch (e) { 
+      // catch will be empty, because it is in useHttp hook
+    }
+
+  }
+
+
+  const [form, setForm] = useState({ 
+      email: '', password: ''      
+   }) 
+
+   // ...form - spread data from form 
+   // event.target.name - name will be email or password - className='email'
+   const changeHandler = event => {
+      setForm({ ...form, [event.target.name]: event. target.value })
+   }
+
+
+
     const {cartItems, setCartItems} = useContext(CartContext); 
     
     // const context = useContext(CartContext); 
@@ -283,6 +313,7 @@ function MainPage() {
                 <label for="email">* Email:   </label>
                 <input type='email' 
                 placeholder='test@gmail.com' 
+                onChange={changeHandler}
                 className='email'
                 required 
                 {...register('email', {
@@ -298,7 +329,7 @@ function MainPage() {
               <fieldset> 
                 <fieldset>
                     <label for="passwordRegistration">* Password: </label>
-                    <input type='password' className='password' 
+                    <input type='password' onChange={changeHandler} className='password' 
                     // Minimum eight characters, at least one uppercase letter, 
                     // one lowercase letter, one number and one special character 
                     {...register('passwordRegistration', {
@@ -328,7 +359,6 @@ function MainPage() {
                     {...register('confirmPasswordRegistration', {
                       required: "Required",
                       validate: (value) => value !== watch("password") || 'Password does not match',
-                      
                     })}></input><br></br>
                   <span>{errors.confirmPasswordRegistration?.message}</span>
                   </fieldset>  */}
@@ -336,7 +366,11 @@ function MainPage() {
               
             </fieldset> 
             <div>
-                <button type='submit' className='submitRegistrationButton'>SUBMIT</button>
+                <button type='submit' 
+                onClick={registerHandler} 
+                // disabled - block button, disabled will be true, if loading (data from server) will be true 
+                disabled={loading}
+                className='submitRegistrationButton'>Register</button>
             </div>
           </form>
       
@@ -395,7 +429,7 @@ function MainPage() {
               </fieldset>
             </fieldset> 
             <div>
-                <button type='submit' className='loginButton'>LOGIN</button>
+                <button type='submit' disabled={loading} className='loginButton'>LOGIN</button>
             </div>
           </form>
           </div>

@@ -572,4 +572,232 @@ npm install react-hook-form
 
 
 
-## 
+## Backend 
+
+body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body 
+
+This body-parser module parses the JSON, buffer, string and URL encoded data submitted using HTTP POST request 
+
+npm install --save express mongodb body-parser 
+
+In package.json in dependencies there will be installed programs 
+
+MERN stack - MongoDb (not-related database), Express, React, Nodejs 
+
+npm -v 
+
+node -v 
+
+npm init (with Enter: entry point: app.js; keywords: mern, react; author: Mariia R <test5@gmail.com>) 
+
+package.json will be generated 
+
+create file app.js  
+
+npm install express mongoose 
+
+Mongoose - js library, to connect Node.js with MongoDB 
+
+(-D to move it all to dev dependencies): 
+
+npm install -D nodemon concurrently
+
+nodemon is a tool that helps develop Node.js based applications 
+by automatically restarting the node application when file changes 
+in the directory are detected (to auto restart server)
+
+
+concurrently npm package (at the same time) to run multiple scripts with one command - to 
+run at the same time frontend and backend !!! 
+
+edit in package.json: 
+
+"scripts": {
+    "start": "node app.js", 
+    "server": "nodemon app.js"
+  }
+
+    start - to start your backend project 
+
+    server - to run backend 
+
+
+to run these scripts, for example: npm run server 
+
+CTRL C - exit from terminal 
+
+to work with config and not hardcore port in app server: 
+
+https://www.npmjs.com/package/config 
+
+npm i config 
+
+create folder config in the root of the project and in it file default.json (to save 
+constants for the project)
+
+to connect to MongoDB add mongoose 
+
+method connect returns promise, to use syntax of async await wrap it with function 
+
+https://www.mongodb.com/ - cloud database 
+
+MongoDB - sign in - create a project - create a cluster (free) - 
+azure - poland (choose server from the nearest country - the nearer the faster connection will be)  
+
+Configure mongo connect: 
+npm run server 
+When cluster has been created - click the Connect button - 
+Add a connection IP address (or use your current IP address automatically - Your current IP address (176.105.44.12) has been added to enable local connectivity)
+
+set user and password to access database: mariia - test 
+Click the Create Database User button 
+Click Choose a connection method button - Drivers - it will show Node.js driver version 
+and mongodb+srv line (connection string) - Copy - Close - add to config-default json line to mongoURI 
+edit mongodb+srv://mariia:<db_password> with mongodb+srv://mariia:test
+
+
+
+
+## Use Custom Hook in the Other Project 
+
+1. Publish as an npm Package (Recommended for Reusability):
+
+Steps:
+
+Create a Package:
+
+In the project containing useHttp, create a package.json file if you don't already have one (e.g., npm init -y).
+Ensure the name and version fields are set correctly.
+Add a main field pointing to the entry point of your hook (e.g., main: "dist/index.js").
+If you are using typescript, configure your tsconfig.json file to output to the dist folder.
+Build the Hook:
+
+Use a build tool like Webpack, Rollup, or esbuild to bundle your hook and its dependencies into a distributable format.
+If you are using typescript, use tsc to compile your code.
+Publish to npm (or a private registry):
+
+Run npm publish (or yarn publish).
+Install in the Other Project:
+
+In your other project, run npm install <package-name> or yarn add <package-name>.
+Import and Use:
+
+Import the hook in your component:
+JavaScript
+
+import { useHttp } from '<package-name>';
+
+function MyComponent() {
+    const { loading, request, error, clearError } = useHttp();
+    // ... your code 
+
+
+
+To build your http.hook.js file using Webpack, you'll need to configure Webpack to bundle it into a distributable format. Since this hook doesn't have complex dependencies or assets, the configuration will be relatively simple.
+
+Here's a step-by-step guide:
+
+1. Set Up Your Project:
+
+Create a Project Directory: If you haven't already, create a directory for your hook.
+Initialize npm: Run npm init -y in the project directory to create a package.json file.
+Install Webpack and Babel (if needed):
+npm install webpack webpack-cli --save-dev
+If you're using modern JavaScript features (like async/await), you'll likely need Babel:
+npm install @babel/core babel-loader @babel/preset-env --save-dev
+2. Create webpack.config.js:
+
+Create a webpack.config.js file in your project's root directory with the following configuration:
+
+JavaScript
+
+const path = require('path');
+
+module.exports = {
+    entry: './http.hook.js', // Entry point of your hook
+    output: {
+        filename: 'http.hook.bundle.js', // Output filename
+        path: path.resolve(__dirname, 'dist'), // Output directory
+        library: 'httpHook', // Name of the library (optional)
+        libraryTarget: 'umd', // Universal Module Definition
+        globalObject: 'this', // Important for UMD compatibility
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
+        ],
+    },
+    mode: 'production', // Use 'development' for development builds
+};
+Explanation:
+
+entry: Specifies the entry point of your hook (http.hook.js).
+output:
+filename: Sets the name of the output bundle.
+path: Specifies the output directory (dist).
+library: Sets the name of the library (optional, but useful for UMD).
+libraryTarget: 'umd' : makes the output compatible with a variety of module systems.
+globalObject: 'this' : makes the output compatible with both browser and node.
+module.rules:
+Uses babel-loader to transpile your JavaScript.
+Uses @babel/preset-env to transpile modern JavaScript features to a compatible version.
+mode: Sets the build mode to production (for optimized builds) or development (for development builds).
+3. Add a Build Script to package.json:
+
+Add a build script to your package.json file:
+
+JSON
+
+{
+    // ... other package.json properties
+    "scripts": {
+        "build": "webpack --config webpack.config.js"
+    },
+    // ... other package.json properties
+}
+4. Run the Build:
+
+Run the build script in your terminal:
+
+Bash
+
+npm run build
+This will create a dist folder containing the bundled http.hook.bundle.js file.
+
+5. Using the Bundled Hook:
+
+In another project:
+
+Copy the dist folder into your other project.
+Import the hook using a relative path:
+JavaScript
+
+import { useHttp } from './dist/http.hook.bundle.js';
+
+function MyComponent() {
+    const { loading, request, error, clearError } = useHttp();
+    // ... your code
+}
+Publishing to npm:
+
+Make sure your package.json file is correctly configured, and that it includes the dist folder in the files property.
+Run npm publish. 
+
+./: Indicates the current directory.
+../: Indicates the parent directory (one level up) 
+
+to get data from frontend to backend use proxy: client-package.json: "proxy": "http://localhost:5000" 
+(all request from frontend (localhost:3000)) will be proxied to backend (localhost: 5000) 
+// in production proxy won`t work 
+
+// to test frontend + backend: npm run dev 
+
