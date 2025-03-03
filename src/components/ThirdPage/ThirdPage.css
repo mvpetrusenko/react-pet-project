@@ -1,0 +1,33 @@
+.searchBlock {
+    width: 50%; 
+    margin: auto;
+    background-color: rgb(135, 9, 253); 
+    padding: 15px; 
+    height: 40px;
+}
+
+
+.searchInput {
+    width: 550px; 
+    height: 30px; 
+    padding-left: 10px;
+}
+
+
+
+
+.buttonSearch {
+    background-color: rgb(209, 39, 243); 
+    height: 36.5px; 
+    width: 80px;
+} 
+
+
+
+
+.searchResult {
+    width: 52%; 
+    margin: auto; 
+    height: 600px; 
+    background-color: rgb(116, 160, 255);
+}
