@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../ThirdPage/ThirdPage.css' 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
 // import Footer from '../Footer/Footer'; 
@@ -149,6 +149,7 @@ function ThirdPage() {
 
 // Correct variant: 
 const [searchValue, setSearchValue] = useState('') 
+const searchListItems = document.querySelectorAll('div#searchResultBlock p') // Get the NodeList (returns array)
 
 const handleSearch = (event) => {  
 
@@ -156,7 +157,7 @@ const handleSearch = (event) => {
 
     setSearchValue(changedSearchValue) 
 
-    const searchListItems = document.querySelectorAll('div#searchResultBlock p') // Get the NodeList (returns array)
+    // const searchListItems = document.querySelectorAll('div#searchResultBlock p') // Get the NodeList (returns array)
 
 
 
@@ -172,7 +173,20 @@ const handleSearch = (event) => {
               item.style.display = 'none'; // Hide the item
           }
       });
-  };
+  }; 
+
+
+
+
+
+
+  const handleClearInput = () => {
+      setSearchValue('') // Clear input field 
+      searchListItems.forEach((item) => {
+        item.style.display = ''; // Show all items again
+    });
+      
+  }
 
 
   return ( 
@@ -191,7 +205,11 @@ const handleSearch = (event) => {
           onChange={handleSearch}
           autoComplete='off' 
           placeholder='Search...'
-          className='searchInput'></input>
+          className='searchInput'></input> 
+
+
+          <button className='buttonClearInput' onClick={handleClearInput}><FontAwesomeIcon icon={faXmark} 
+            className="magnifyingGlassIcon"/></button>
 
           {/* <button className='buttonSearch'><FontAwesomeIcon icon={faMagnifyingGlass} 
           className="magnifyingGlassIcon"/></button> */}

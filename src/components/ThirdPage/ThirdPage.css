@@ -31,3 +31,14 @@
     height: 750px; 
     background-color: rgb(116, 160, 255);
 }
+
+
+
+
+
+.buttonClearInput {
+    width: 35px; 
+    height: 35px; 
+    margin-left: -36px; /* to move clear button on top of search button to the left */ 
+    opacity: 0.5; /* transparent */
+}

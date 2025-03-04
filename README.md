@@ -815,3 +815,37 @@ to get data from frontend to backend use proxy: client-package.json: "proxy": "h
 
 // to test frontend + backend: npm run dev 
 
+
+
+
+## TO DO 
+1 - Images - Slideshow
+2 - responsive design  (media quaries, adaptive to mobile, tablet, different screens) 
+3 - Images - Image Overlay Title 
+4 - Forms - Toggle Password Visibility 
+5 - Forms - Autocomplete (search)
+6 - Filters - Filter Elements 
+7 - Filters - Sort List 
+8 - More - Toggle Dark Mode 
+9 - optimizing images 
+10 - mobile optimization 
+11 - calculator 
+12 - upload images 
+13 - AXIOS for API calls 
+14 - Tailwind CSS 
+15 - change language 
+16 - Role-based access for different membership levels, restricting content based on user subscriptions (admin, customer)
+17 - edit your profile 
+18 - admin panel (add new pages, add/delete clubs, edit schedule) 
+19 - pagination 
+20 - breadcrumbs 
+21 - login via google 
+22 - cookies 
+23 - session storage 
+24 - lazy loading 
+25 - calendar to book a training  
+26 - drag-and-drop 
+27 - pixel-perfect precision 
+28 - mobile-first design 
+29 - add comments 
+30 - optimizing performance 
