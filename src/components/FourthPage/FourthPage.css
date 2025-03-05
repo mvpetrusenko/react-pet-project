@@ -1,0 +1,18 @@
+ul {
+    list-style-type: none;
+}
+
+
+.filterCard {
+    background-color: aquamarine; 
+    border: 2px solid gray;
+    width: 25%; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    margin-top: 40px; 
+    margin-left: 420px;
+} 
+
+
+
+

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage'; 
 import SecondPage from './components/SecondPage/SecondPage'; 
 import ThirdPage from './components/ThirdPage/ThirdPage'; 
+import FourthPage from './components/FourthPage/FourthPage';
 import CartPage from './components/CartPage/CartPage'; 
 import './App.css';  // Ensure you import global styles
 import Header from './components/Header/Header';
@@ -117,6 +118,7 @@ function App() {
           <Route exact path="/" element={<MainPage />} /> 
           <Route path="/second" element={<SecondPage />} /> 
           <Route path="/third" element={<ThirdPage />} />
+          <Route path="/fourth" element={<FourthPage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes> 
 
