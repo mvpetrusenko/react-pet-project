@@ -29,55 +29,64 @@ function FourthPage() {
         id: "1", 
         name: "laptop", 
         category: "technology", 
-        color: "gray"
+        color: "gray", 
+        price: 50
     }, 
     {
         id: "2", 
         name: "chair", 
         category: "furniture", 
-        color: "brown"
+        color: "brown", 
+        price: 100
     }, 
     {
         id: "3", 
         name: "phone", 
         category: "technology", 
-        color: "red"
+        color: "red", 
+        price: 150
     }, 
     {
         id: "4", 
         name: "powerbank", 
         category: "technology", 
-        color: "black"
+        color: "black", 
+        price: 200
     }, 
     {
         id: "5", 
         name: "jacket", 
         category: "clothes", 
-        color: "black"
+        color: "black", 
+        price: 250
     }, 
     {
         id: "6", 
         name: "boots", 
         category: "clothes", 
-        color: "brown"
+        color: "brown", 
+        price: 300
     }, 
     {
         id: "7", 
         name: "shirt", 
         category: "clothes", 
-        color: "brown"
+        color: "brown", 
+        price: 350
     }, 
     {
         id: "8", 
         name: "jeans", 
         category: "clothes", 
-        color: "blue"
+        color: "blue", 
+        price: 400
     }, 
     {
         id: "9", 
         name: "banana", 
         category: "food", 
-        color: "yellow"
+        color: "yellow", 
+        price: 450
     }
 ]
 
@@ -85,13 +94,16 @@ function FourthPage() {
 
 
 
-// const filterDataCards = FilterData.map(card => <li>{card}</li>);
+// const filterDataCards = FilterData.map(card => <li>{card}</li>); 
+// first: breack up li (cards) object on fields 
+// then return them in ul (filterDataCards)
 
 const filterDataCards = FilterData.map(card => <li>
     <div className='filterCard'>
       <p style={{backgroundColor: "white"}}>{card.name}</p>
       <p style={{backgroundColor: "lightBlue"}}>{card.category}</p>
       <p style={{backgroundColor: "lightPink"}}>{card.color}</p>
+      <p style={{backgroundColor: "purple", color: "white"}}>{card.price}</p>
     </div>
 </li>);
 
@@ -102,9 +114,23 @@ const filterDataCards = FilterData.map(card => <li>
         {<NavBar />} */}
         <div className="content"> 
             <p>Fourth Page Content</p> 
+
+
+            <div className='filter'>
+                <p>Filter</p> 
+                <button className='filterName'>name</button> 
+                <button className='filterCategory'>category</button> 
+                <button className='filterColor'>color</button>
+            </div>
           
 
-              <ul>{filterDataCards}</ul>
+              <ul>{filterDataCards}</ul> 
+
+
+            <div className='sorting'>
+              <p>Sorting</p>
+            </div>
+
 
 
         </div> 

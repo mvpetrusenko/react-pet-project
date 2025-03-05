@@ -166,6 +166,9 @@ function SecondPage() {
             <p>popup</p> 
             {/* <button id='openPopUp' className='openPopupChat '>Click to open Popup chat</button>  */} 
 
+            {/* openPopupCHat button after click is replaced by popupForm 
+            button open has the same width/height as button Close */}
+
             <button id='openPopUp' className='openPopupChat' onClick={openPopup}>Click to open Popup chat</button> 
             
             {/* we link ref instead of getElementById to popupForm and onclick of button openPopupChat form opens */}

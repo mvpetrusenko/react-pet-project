@@ -10,9 +10,68 @@ ul {
     padding-top: 10px; 
     padding-bottom: 10px;
     margin-top: 40px; 
-    margin-left: 420px;
+    margin-left: 435px;
+} 
+
+
+
+.filter {
+    background-color: blue;  
+    color: black;
+    margin: 24px 10px 10px 30px;
+    float: left; /* move to the left without display: flex and touching other elements */ 
+    width: 400px; 
+    height: 170px;
+    
+}
+
+
+
+
+
+.sorting {
+    background-color: blueviolet; 
+    color: black;
+    margin: -2039px 30px 40px 30px;
+    float: right; 
+    width: 400px; 
+    height: 170px;
 } 
 
 
 
 
+
+
+
+
+/* the same styles for several buttons */ 
+/* apply css to multiple classes */
+.filterName, .filterCategory, .filterColor {
+    width: 100px; 
+    height: 50px;
+    margin: 10px; 
+    border-radius: 55%; /* round corner */
+}
+
+
+
+/* but different colors for buttons with the same styles */
+.filter .filterName {
+    background-color: rgb(237, 37, 37);
+}
+
+
+
+
+.filter .filterCategory {
+    background-color: yellow;
+} 
+
+
+
+
+
+.filter .filterColor {
+    background-color: rgb(15, 193, 15);
+}
