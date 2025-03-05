@@ -17,11 +17,11 @@ ul {
 
 .filter {
     background-color: blue;  
-    color: black;
+    color: white;
     margin: 24px 10px 10px 30px;
     float: left; /* move to the left without display: flex and touching other elements */ 
     width: 400px; 
-    height: 170px;
+    padding: 10px;
     
 }
 
@@ -32,7 +32,7 @@ ul {
 .sorting {
     background-color: blueviolet; 
     color: black;
-    margin: -2039px 30px 40px 30px;
+    margin: -2040px 30px 40px 30px;
     float: right; 
     width: 400px; 
     height: 170px;
@@ -47,21 +47,19 @@ ul {
 
 /* the same styles for several buttons */ 
 /* apply css to multiple classes */
-.filterName, .filterCategory, .filterColor {
+/* .filterName, .filterCategory, .filterColor {
     width: 100px; 
     height: 50px;
     margin: 10px; 
-    border-radius: 55%; /* round corner */
-}
+    border-radius: 55%; - round corner 
+} */
 
 
 
 /* but different colors for buttons with the same styles */
-.filter .filterName {
+/* .filter .filterName {
     background-color: rgb(237, 37, 37);
 }
-
-
 
 
 .filter .filterCategory {
@@ -70,8 +68,23 @@ ul {
 
 
 
-
-
 .filter .filterColor {
     background-color: rgb(15, 193, 15);
+} */
+
+
+
+
+.filterCategory, .filterColor {
+    background: rgb(97, 97, 243); 
+    margin: 20px 10px 10px 10px; 
+    padding: 5px 10px 40px 15px;
+}
+
+
+
+
+.checkboxGroup {
+    display: flex; 
+    flex-direction: row;
 }
