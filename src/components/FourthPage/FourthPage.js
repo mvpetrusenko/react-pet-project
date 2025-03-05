@@ -110,11 +110,35 @@ const filterDataCards = FilterData.map(card => <li>
 </li>); 
 
 
+// change checked from initial value (false) to changed value (setChecked(true))
+const [checked, setChecked] = useState(false) 
+
+// const filterDataCards = FilterData.map(card => <li>{card}</li>); 
+// first: breack up li (cards) object on fields 
+// then return them in ul (filterDataCards)
+
+// !!! with console.log or debug find in which step there is a problem 
+// !!! what element returns (array, string...) to work with in the next step
 
 
+const handleCheckbox = (event) => { 
+    // ensure which checkbox has been clicked in the filter 
+    // event.target gives you the element that triggered the event 
+    // event.target.value retrieves the value of that element (an input field, for example)
+    // !! what element has been clicked (triggered) - const checkedCheckbox = event.target 
+    // !! what is the value of clicked element - const checkedCheckbox = event.target.value () : 
+    // <input type='checkbox' name='technology' value='technology' onClick={handleCheckbox}></input> 
+    // Checkbox has been checked: technology
+    const checkedCheckbox = event.target.value
+    setChecked(checkedCheckbox) 
+    console.log('Checkbox has been checked: ', checkedCheckbox) 
 
-const handleFilterName = () => {
-    
+    // loop cards and
+    // if checkbox is checked (setChecked(true)) filter where card.category = category.value 
+    // if clicked on checkbox Technology (card.category) show cards with label Technology (category.value) 
+    // if(setChecked) {
+    //     return card.category
+    // }
 }
 
 
@@ -136,22 +160,22 @@ const handleFilterName = () => {
                 <div className='filterCategory'>
                     <p>Category</p> 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='technology'></input>
+                      <input type='checkbox' name='technology' value='technology' onClick={handleCheckbox}></input>
                       <label htmlFor='technology'>Technology</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='furniture'></input>
+                      <input type='checkbox' name='furniture' value='furniture' onClick={handleCheckbox}></input>
                       <label htmlFor='furniture'>Furniture</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='clothes'></input>
+                      <input type='checkbox' name='clothes' value='clothes' onClick={handleCheckbox}></input>
                       <label htmlFor='clothes'>Clothes</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='food'></input>
+                      <input type='checkbox' name='food' value='food' onClick={handleCheckbox}></input>
                       <label htmlFor='food'>Food</label>
                     </div>
                     
@@ -163,32 +187,32 @@ const handleFilterName = () => {
                     <p>Color</p> 
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='gray'></input>
+                      <input type='checkbox' name='gray' value='gray' onClick={handleCheckbox}></input>
                       <label htmlFor='gray'>Gray</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='brown'></input>
+                      <input type='checkbox' name='brown' value='brown' onClick={handleCheckbox}></input>
                       <label htmlFor='brown'>Brown</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='red'></input>
+                      <input type='checkbox' name='red' value='red' onClick={handleCheckbox}></input>
                       <label htmlFor='red'>Red</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='black'></input>
+                      <input type='checkbox' name='black' value='black' onClick={handleCheckbox}></input>
                       <label htmlFor='black'>Black</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='blue'></input>
+                      <input type='checkbox' name='blue' value='blue' onClick={handleCheckbox}></input>
                       <label htmlFor='blue'>Blue</label>
                     </div>
 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='yellow'></input>
+                      <input type='checkbox' name='yellow' value='yellow' onClick={handleCheckbox}></input>
                       <label htmlFor='yellow'>Yellow</label>
                     </div>
 
