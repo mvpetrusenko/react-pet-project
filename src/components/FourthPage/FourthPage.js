@@ -23,7 +23,7 @@ import FilterData from '../FourthPage/FilterData';
 
 
 
-function FourthPage({filteredCategory}) { 
+function FourthPage() { 
 
 
 //   const FilterData = [
@@ -227,70 +227,73 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
             <p>Fourth Page Content</p> 
 
 
-            <div className='filter'>
-                <p>Filter</p> 
-                <div className='filterCategory'>
-                    <p>Category</p> 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='technology' value='technology' filteredCategory={true} onClick={handleCheckbox}></input>
-                      <label htmlFor='technology'>Technology</label>
-                    </div>
+            <div className='filterSortingBlock'>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='furniture' value='furniture' onClick={handleCheckbox}></input>
-                      <label htmlFor='furniture'>Furniture</label>
-                    </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='clothes' value='clothes' onClick={handleCheckbox}></input>
-                      <label htmlFor='clothes'>Clothes</label>
-                    </div>
+                <div className='filter'>
+                    <p>Filter</p> 
+                    <div className='filterCategory'>
+                        <p>Category</p> 
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='technology' value='technology' filteredCategory={true} onClick={handleCheckbox}></input>
+                          <label htmlFor='technology'>Technology</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='food' value='food' onClick={handleCheckbox}></input>
-                      <label htmlFor='food'>Food</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='furniture' value='furniture' onClick={handleCheckbox}></input>
+                          <label htmlFor='furniture'>Furniture</label>
+                        </div>
+
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='clothes' value='clothes' onClick={handleCheckbox}></input>
+                          <label htmlFor='clothes'>Clothes</label>
+                        </div>
+
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='food' value='food' onClick={handleCheckbox}></input>
+                          <label htmlFor='food'>Food</label>
+                        </div>
                     
-                </div>
+                    </div>
 
 
                 
-                <div className='filterColor'>
-                    <p>Color</p> 
+                    <div className='filterColor'>
+                        <p>Color</p> 
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='gray' value='gray' onClick={handleCheckbox}></input>
-                      <label htmlFor='gray'>Gray</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='gray' value='gray' onClick={handleCheckbox}></input>
+                          <label htmlFor='gray'>Gray</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='brown' value='brown' onClick={handleCheckbox}></input>
-                      <label htmlFor='brown'>Brown</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='brown' value='brown' onClick={handleCheckbox}></input>
+                          <label htmlFor='brown'>Brown</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='red' value='red' onClick={handleCheckbox}></input>
-                      <label htmlFor='red'>Red</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='red' value='red' onClick={handleCheckbox}></input>
+                          <label htmlFor='red'>Red</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='black' value='black' onClick={handleCheckbox}></input>
-                      <label htmlFor='black'>Black</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='black' value='black' onClick={handleCheckbox}></input>
+                          <label htmlFor='black'>Black</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='blue' value='blue' onClick={handleCheckbox}></input>
-                      <label htmlFor='blue'>Blue</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='blue' value='blue' onClick={handleCheckbox}></input>
+                          <label htmlFor='blue'>Blue</label>
+                        </div>
 
-                    <div className='checkboxGroup'>
-                      <input type='checkbox' name='yellow' value='yellow' onClick={handleCheckbox}></input>
-                      <label htmlFor='yellow'>Yellow</label>
-                    </div>
+                        <div className='checkboxGroup'>
+                          <input type='checkbox' name='yellow' value='yellow' onClick={handleCheckbox}></input>
+                          <label htmlFor='yellow'>Yellow</label>
+                        </div>
 
                     
+                    </div>
                 </div>
-            </div>
           
 
               {/* <ul>{filterDataCards}</ul>   */}
@@ -323,7 +326,7 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
                   {checked ? <ul>{console.log({filteredcategory})}</ul> : <ul>{filterDataCards}</ul>} */} 
 
                 
-                  {/* Objects are not valid as a React child 
+                  {/* Objects are not valid as a React child - error in console
                   Your data homes is an array, so you would have to iterate over the array using map: 
                   {homes.map(home => <div>{home.name}</div>)} */}
                   {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>{filteredc.name}</li>)}</ul> : <ul>{filterDataCards}</ul>} */} 
@@ -368,15 +371,15 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
               {/* <div>{filteredCategory}</div> */}
 
 
-            <div className='sorting'>
-              <p>Sorting</p>
-            </div>
+                <div className='sorting'>
+                  <p>Sorting</p>
+                </div>
 
 
 
-        </div> 
+            </div> 
 
-        
+        </div>
 
     </div>
 
