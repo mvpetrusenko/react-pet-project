@@ -123,7 +123,8 @@ const [checked, setChecked] = useState(false)
 // then return them in ul (filterDataCards)
 
 // !!! with console.log or debug find in which step there is a problem (to see what value returned)
-// !!! what element returns (array, string...) to work with in the next step
+// !!! what element returns (array, string...) to work with in the next step 
+// if in jsx constant can`t be read (undefined) - save this variable in state (filteredcategory)
 const[filteredcategory, setFilteredcategory] = useState('') 
 
 
@@ -154,6 +155,7 @@ const handleFilterCategory = (event) => {
     // if any of checkbox not checked - show all cards (filterDataCards)
     // if checkbox is checked - show cards with this category (filteredCategory) 
 
+    // if in jsx constant can`t be read (undefined) - save this variable in state (filteredcategory)
 
   //   const filteredcategory = FilterData.filter(item => {
   //     if (item.category === checkedCheckbox) {
@@ -354,11 +356,14 @@ const handleFilterColor = (event) => {
 
 
                 
-                  {/* !!!!!!Objects are not valid as a React child - error in console
+                  {/* !!!!!!Objects are not valid as a React child - error in console 
+                  if you meant to render a collection of children, use an array instead
                   !!!!!Your data homes is an array, so you would have to iterate over the array using map: 
                   {homes.map(home => <div>{home.name}</div>)} */}
                   {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>{filteredc.name}</li>)}</ul> : <ul>{filterDataCards}</ul>} */} 
 
+
+                  {/* if in jsx constant can`t be read (undefined) - save this variable in state (filteredcategory) */}
                   {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>
                       <div className='filterCard'>
                           <p style={{backgroundColor: "white"}}>{filteredc.name}</p>
@@ -397,7 +402,7 @@ const handleFilterColor = (event) => {
                       {
                           isEnvironmentBFE
                           ? (
-                              outputba(
+                              outp(
                                 "b",
                                 "ba",
                                 this.props.lang
@@ -405,7 +410,7 @@ const handleFilterColor = (event) => {
                           ) : NEW CONDITIONAL HERE
                           ? (NEW RESULT)
                           : (
-                            outputba(
+                            outp(
                               "a",
                               "ab",
                               this.props.lang
@@ -463,7 +468,9 @@ const handleFilterColor = (event) => {
 
 
                 <div className='sorting'>
-                  <p>Sorting</p>
+                  <p>Sorting</p> 
+                  <button className='lowToHigh'>Low To High</button>
+                  <button className='highToLow'>High To Low</button>
                 </div>
 
 

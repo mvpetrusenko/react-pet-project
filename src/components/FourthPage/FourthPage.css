@@ -48,6 +48,24 @@ ul {
 } 
 
 
+/* the same styles for several buttons */ 
+/* apply css to multiple classes */
+.lowToHigh, .highToLow {
+    font-weight: bold; 
+    border-radius: 10px; 
+    padding: 15px 35px 15px 35px; /* background of element */
+    color:rgb(10, 46, 10);  
+    margin: 10px;
+
+}
+
+
+
+/* but different colors for buttons with the same styles */ 
+/* .parent element .child element */
+.sorting .lowToHigh {
+    background-color: rgb(255, 0, 200);
+}
 
 
 
