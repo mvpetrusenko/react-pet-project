@@ -4,35 +4,35 @@ const FilterData = [
         name: "laptop", 
         category: "technology", 
         color: "gray", 
-        price: 50
+        price: 150
     }, 
     {
         id: "2", 
         name: "chair", 
         category: "furniture", 
         color: "brown", 
-        price: 100
+        price: 200
     }, 
     {
         id: "3", 
         name: "phone", 
         category: "technology", 
         color: "red", 
-        price: 150
+        price: 50
     }, 
     {
         id: "4", 
         name: "powerbank", 
         category: "technology", 
         color: "black", 
-        price: 200
+        price: 100
     }, 
     {
         id: "5", 
         name: "jacket", 
         category: "clothes", 
         color: "black", 
-        price: 250
+        price: 350
     }, 
     {
         id: "6", 
@@ -46,7 +46,7 @@ const FilterData = [
         name: "shirt", 
         category: "clothes", 
         color: "brown", 
-        price: 350
+        price: 250
     }, 
     {
         id: "8", 

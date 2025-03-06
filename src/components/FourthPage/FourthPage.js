@@ -243,6 +243,70 @@ const handleFilterColor = (event) => {
 
 
 
+const [sortedToHigh, setSortedToHigh] = useState(FilterData)
+
+// const numbers = [1, 7, 3, 10, 25] 
+// numbers.sort((a, b) => a - b ) 
+// Output: [1, 3, 7, 10, 25] 
+// Or: 
+
+// sort and render an array of objects in React (react array sort)
+// const [order,setOrder] = useState('asc');
+//  const [arraySorted,setarraySorted] = useState(users);
+//  const handler = (e)=>{
+//      setOrder(e.target.value);
+//      const sortedarray = arraySorted.sort((a,b) => {
+//      return order === 'asc'?  (a.id - b.id): (b.id - a.id);
+//      })
+//     setarraySorted([...sortedarray])}
+const handleSortLowToHigh = () => {
+  const sortedToHighArray = sortedToHigh.sort((a, b) => (a.price > b.price) ? 1 : -1)
+
+  setSortedToHigh(sortedToHighArray)
+
+console.log('Sorted low to high: ', sortedToHighArray) 
+
+}
+
+
+
+// ? 1 : -1:
+// If b.price is indeed greater than a.price, the expression 
+// returns 1. This tells sort() to place b before a, effectively 
+// sorting in descending order.
+// If b.price is not greater than a.price, the expression 
+// returns -1. This tells sort() to place a before b 
+
+
+// Positive Return Value (e.g., 1): If the comparison function 
+// returns a positive number, it means that b should be placed 
+// before a in the sorted array.
+// Negative Return Value (e.g., -1): If the comparison function 
+// returns a negative number, it means that a should be placed before b in the sorted array.
+// Zero Return Value (Not in your example): If the comparison 
+// function returns zero, it means that a and b are considered equal, 
+// and their relative positions remain unchanged 
+
+// Any positive number will have the same effect as 1, and any 
+// negative number will have the same effect as -1. The sort method 
+// just uses the sign to determine the order. Using 1 and -1 is 
+// a common and concise convention
+
+
+const [sortedToLow, setSortedToLow] = useState(FilterData)
+
+const handleSortHighToLow = () => {
+  const sortedToLowArray = sortedToLow.sort((a, b) => (b.price > a.price) ? 1 : -1)
+
+  setSortedToHigh(sortedToLowArray)
+
+console.log('Sorted high to low: ', sortedToLowArray) 
+
+}
+
+
+
+
 
   return ( 
     <div>
@@ -467,10 +531,11 @@ const handleFilterColor = (event) => {
               {/* <div>{filteredCategory}</div> */}
 
 
+                {/* click button - loop array, sort and show sorted cards */}
                 <div className='sorting'>
                   <p>Sorting</p> 
-                  <button className='lowToHigh'>Low To High</button>
-                  <button className='highToLow'>High To Low</button>
+                  <button className='lowToHigh' onClick={handleSortLowToHigh}>Low To High</button>
+                  <button className='highToLow' onClick={handleSortHighToLow}>High To Low</button>
                 </div>
 
 
