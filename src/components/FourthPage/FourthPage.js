@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../FourthPage/FourthPage.css' 
 import FilterData from '../FourthPage/FilterData'; 
 
-// search for: react jsx render object (array) 
+// search for: react jsx render (show in the frontend) object (array) 
 // [] - array, {} - object 
 // display multiple similar components from a collection of data 
 // filter and transform your array of data into an array of components 
@@ -124,6 +124,8 @@ const [checked, setChecked] = useState(false)
 
 // !!! with console.log or debug find in which step there is a problem (to see what value returned)
 // !!! what element returns (array, string...) to work with in the next step
+const[filteredcategory, setFilteredcategory] = useState('') 
+
 
 
 const handleCheckbox = (event) => { 
@@ -150,16 +152,35 @@ const handleCheckbox = (event) => {
     // but use filter() instead of map() to return only filtered array of cards
     // if card category field = checked checkbox  return cards with this category (filteredCategory) 
     // if any of checkbox not checked - show all cards (filterDataCards)
-    // if checkbox is checked - show cards with this category (filteredCategory)
-    const filteredCategory = FilterData.filter(item => {
-      if (item.category === checkedCheckbox) {
-        console.log('checkbox = category: ', checkedCheckbox) 
-        return item;
-      }
-    }   
-  );
+    // if checkbox is checked - show cards with this category (filteredCategory) 
 
-  console.log('Filtered category by chosen checkbox: ', filteredCategory) 
+
+  //   const filteredcategory = FilterData.filter(item => {
+  //     if (item.category === checkedCheckbox) {
+  //       console.log('checkbox = category: ', checkedCheckbox) 
+  //       return item;
+  //     } 
+  //   }   
+    
+  // );
+
+  // console.log('Filtered category by chosen checkbox: ', filteredcategory) 
+
+
+
+
+  setFilteredcategory(FilterData.filter(item => {
+    if (item.category === checkedCheckbox) {
+      console.log('checkbox = category: ', checkedCheckbox) 
+      return item;
+    } 
+  }   
+  
+));
+
+console.log('Filtered category by chosen checkbox: ', filteredcategory) 
+
+ 
 
 
   // {
@@ -295,11 +316,40 @@ const handleCheckbox = (event) => {
                   {/* !!!!! if checkbox is not clicked - returns filterDataCards, if clicked - filteredCategory
                   {checked ? <ul>filteredCategory</ul> : <ul>filterDataCards</ul>} */}
 
+                  {/* ! filteredCategory - undefined: */}
+                  {/* {checked ? <ul>{filteredCategory}</ul> : <ul>{filterDataCards}</ul>} */} 
 
-                  {checked ? <ul>{console.log(filteredCategory)}</ul> : <ul>{filterDataCards}</ul>}
+                  {/* ! returns array of filtered category in console:
+                  {checked ? <ul>{console.log({filteredcategory})}</ul> : <ul>{filterDataCards}</ul>} */} 
+
+                
+                  {/* Objects are not valid as a React child 
+                  Your data homes is an array, so you would have to iterate over the array using map: 
+                  {homes.map(home => <div>{home.name}</div>)} */}
+                  {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>{filteredc.name}</li>)}</ul> : <ul>{filterDataCards}</ul>} */} 
+
+                  {checked ? <ul>{filteredcategory.map(filteredc => <li>
+                      <div className='filterCard'>
+                          <p style={{backgroundColor: "white"}}>{filteredc.name}</p>
+                          <p style={{backgroundColor: "lightBlue"}}>{filteredc.category}</p>
+                          <p style={{backgroundColor: "lightPink"}}>{filteredc.color}</p>
+                          <p style={{backgroundColor: "purple", color: "white"}}>{filteredc.price}</p>
+                      </div> 
+                    </li>)}</ul> 
+                  : <ul>{filterDataCards}</ul>}
 
 
 
+
+
+                  {/* FilterData.map(card => <li>
+    <div className='filterCard'>
+      <p style={{backgroundColor: "white"}}>{card.name}</p>
+      <p style={{backgroundColor: "lightBlue"}}>{card.category}</p>
+      <p style={{backgroundColor: "lightPink"}}>{card.color}</p>
+      <p style={{backgroundColor: "purple", color: "white"}}>{card.price}</p>
+    </div> 
+</li>); */}
 
 
 
