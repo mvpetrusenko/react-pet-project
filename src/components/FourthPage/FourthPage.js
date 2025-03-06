@@ -23,7 +23,7 @@ import FilterData from '../FourthPage/FilterData';
 
 
 
-function FourthPage() { 
+function FourthPage({filteredCategory}) { 
 
 
 //   const FilterData = [
@@ -106,8 +106,13 @@ const filterDataCards = FilterData.map(card => <li>
       <p style={{backgroundColor: "lightBlue"}}>{card.category}</p>
       <p style={{backgroundColor: "lightPink"}}>{card.color}</p>
       <p style={{backgroundColor: "purple", color: "white"}}>{card.price}</p>
-    </div>
+    </div> 
 </li>); 
+
+// console.log('card fields', filterDataCards)
+
+
+
 
 
 // change checked from initial value (false) to changed value (setChecked(true))
@@ -117,7 +122,7 @@ const [checked, setChecked] = useState(false)
 // first: breack up li (cards) object on fields 
 // then return them in ul (filterDataCards)
 
-// !!! with console.log or debug find in which step there is a problem 
+// !!! with console.log or debug find in which step there is a problem (to see what value returned)
 // !!! what element returns (array, string...) to work with in the next step
 
 
@@ -132,6 +137,52 @@ const handleCheckbox = (event) => {
     const checkedCheckbox = event.target.value
     setChecked(checkedCheckbox) 
     console.log('Checkbox has been checked: ', checkedCheckbox) 
+
+
+    // filter - returns array (cards only with chosen category)
+    // const filteredCategory = FilterData.filter(item => 
+    //   <p>{item.category}</p>) 
+    //   console.log('filtered category', item) 
+
+
+    // if inside map - wrap if with {} (item => {}) 
+    // map - run throught FilterData (cards) and check each card (item) on card fields 
+    // but use filter() instead of map() to return only filtered array of cards
+    // if card category field = checked checkbox  return cards with this category (filteredCategory) 
+    // if any of checkbox not checked - show all cards (filterDataCards)
+    // if checkbox is checked - show cards with this category (filteredCategory)
+    const filteredCategory = FilterData.filter(item => {
+      if (item.category === checkedCheckbox) {
+        console.log('checkbox = category: ', checkedCheckbox) 
+        return item;
+      }
+    }   
+  );
+
+  console.log('Filtered category by chosen checkbox: ', filteredCategory) 
+
+
+  // {
+  //   if (setChecked) {
+  //     return <ul>{filteredCategory}</ul>
+  //   }
+  //   return <ul>{filterDataCards}</ul>
+  // }
+
+
+  
+
+
+  // if (filteredCategory) 
+  //   return <ul>{filteredCategory}</ul>  
+  // else 
+  //   return <ul>{filterDataCards}</ul>  
+  
+
+
+
+
+
 
     // loop cards and
     // if checkbox is checked (setChecked(true)) filter where card.category = category.value 
@@ -160,7 +211,7 @@ const handleCheckbox = (event) => {
                 <div className='filterCategory'>
                     <p>Category</p> 
                     <div className='checkboxGroup'>
-                      <input type='checkbox' name='technology' value='technology' onClick={handleCheckbox}></input>
+                      <input type='checkbox' name='technology' value='technology' filteredCategory={true} onClick={handleCheckbox}></input>
                       <label htmlFor='technology'>Technology</label>
                     </div>
 
@@ -221,7 +272,50 @@ const handleCheckbox = (event) => {
             </div>
           
 
-              <ul>{filterDataCards}</ul> 
+              {/* <ul>{filterDataCards}</ul>   */}
+
+              {/* <ul>{filterDataCards}</ul> 
+
+
+
+              if (filteredCategory) 
+    return filteredCategory
+  else 
+    return filterDataCards */} 
+
+
+              {/* <ul>{filteredCategory ? filteredCategory : filterDataCards}</ul> */} 
+
+
+
+
+
+
+            
+                  {/* !!!!! if checkbox is not clicked - returns filterDataCards, if clicked - filteredCategory
+                  {checked ? <ul>filteredCategory</ul> : <ul>filterDataCards</ul>} */}
+
+
+                  {checked ? <ul>{console.log(filteredCategory)}</ul> : <ul>{filterDataCards}</ul>}
+
+
+
+
+
+
+                {/* {
+                  if (setChecked) {
+                    return <ul>{filteredCategory}</ul>
+                  }
+                  return <ul>{filterDataCards}</ul>
+                } */} 
+
+
+
+            
+
+
+              {/* <div>{filteredCategory}</div> */}
 
 
             <div className='sorting'>
