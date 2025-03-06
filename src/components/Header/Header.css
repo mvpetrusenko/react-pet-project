@@ -44,7 +44,7 @@ h1 {
     width: 50px; 
     height: 50px;
     color: white; /* delete padding to show cart */ 
-    margin: 0px 700px -10px -30px;
+    margin: 10px 700px -10px -30px;
 
     
 }
@@ -59,6 +59,7 @@ h1 {
     background-color: rgba(253, 12, 12, 0.8); 
     border-radius: 20px; 
     margin-right: 10px; 
+    margin-top: 3px;
     font-weight: bold; 
     color: white;
 }

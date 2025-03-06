@@ -957,6 +957,17 @@ const [name, setName] = useState('');
 
 
 
+## Successful Path: 
+
+1. write a plan with step what should 'machine' do (loop arrray, render jsx...) 
+2. debug = see what is returned after each step (if you need element, but array is returned) 
+3. search for errors (errors in console or find out in what step what problem is)
+
+
+
+
+
+
 
 
 

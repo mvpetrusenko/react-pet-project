@@ -128,7 +128,7 @@ const[filteredcategory, setFilteredcategory] = useState('')
 
 
 
-const handleCheckbox = (event) => { 
+const handleFilterCategory = (event) => { 
     // ensure which checkbox has been clicked in the filter 
     // event.target gives you the element that triggered the event 
     // event.target.value retrieves the value of that element (an input field, for example)
@@ -216,6 +216,29 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
 
 
 
+const [checkedColor, setCheckedColor] = useState(false) 
+const[filteredcolor, setFilteredColor] = useState('') 
+
+const handleFilterColor = (event) => { 
+
+    const checkedColorCheckbox = event.target.value
+    setCheckedColor(checkedColorCheckbox) 
+    console.log('Checkbox has been checked: ', checkedColorCheckbox) 
+
+    setFilteredColor(FilterData.filter(item => {
+      if (item.color === checkedColorCheckbox) {
+        console.log('checkbox = color: ', checkedColorCheckbox) 
+        return item;
+      } 
+    }   
+    
+  ));
+  
+  console.log('Filtered color by chosen checkbox: ', filteredcolor) 
+
+}
+
+
 
 
 
@@ -235,22 +258,22 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
                     <div className='filterCategory'>
                         <p>Category</p> 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='technology' value='technology' filteredCategory={true} onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='technology' value='technology' filteredCategory={true} onClick={handleFilterCategory}></input>
                           <label htmlFor='technology'>Technology</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='furniture' value='furniture' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='furniture' value='furniture' onClick={handleFilterCategory}></input>
                           <label htmlFor='furniture'>Furniture</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='clothes' value='clothes' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='clothes' value='clothes' onClick={handleFilterCategory}></input>
                           <label htmlFor='clothes'>Clothes</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='food' value='food' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='food' value='food' onClick={handleFilterCategory}></input>
                           <label htmlFor='food'>Food</label>
                         </div>
                     
@@ -262,32 +285,32 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
                         <p>Color</p> 
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='gray' value='gray' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='gray' value='gray' onClick={handleFilterColor}></input>
                           <label htmlFor='gray'>Gray</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='brown' value='brown' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='brown' value='brown' onClick={handleFilterColor}></input>
                           <label htmlFor='brown'>Brown</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='red' value='red' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='red' value='red' onClick={handleFilterColor}></input>
                           <label htmlFor='red'>Red</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='black' value='black' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='black' value='black' onClick={handleFilterColor}></input>
                           <label htmlFor='black'>Black</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='blue' value='blue' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='blue' value='blue' onClick={handleFilterColor}></input>
                           <label htmlFor='blue'>Blue</label>
                         </div>
 
                         <div className='checkboxGroup'>
-                          <input type='checkbox' name='yellow' value='yellow' onClick={handleCheckbox}></input>
+                          <input type='checkbox' name='yellow' value='yellow' onClick={handleFilterColor}></input>
                           <label htmlFor='yellow'>Yellow</label>
                         </div>
 
@@ -325,12 +348,74 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
                   {/* ! returns array of filtered category in console:
                   {checked ? <ul>{console.log({filteredcategory})}</ul> : <ul>{filterDataCards}</ul>} */} 
 
+
+
+
+
+
                 
-                  {/* Objects are not valid as a React child - error in console
-                  Your data homes is an array, so you would have to iterate over the array using map: 
+                  {/* !!!!!!Objects are not valid as a React child - error in console
+                  !!!!!Your data homes is an array, so you would have to iterate over the array using map: 
                   {homes.map(home => <div>{home.name}</div>)} */}
                   {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>{filteredc.name}</li>)}</ul> : <ul>{filterDataCards}</ul>} */} 
 
+                  {/* {checked ? <ul>{filteredcategory.map(filteredc => <li>
+                      <div className='filterCard'>
+                          <p style={{backgroundColor: "white"}}>{filteredc.name}</p>
+                          <p style={{backgroundColor: "lightBlue"}}>{filteredc.category}</p>
+                          <p style={{backgroundColor: "lightPink"}}>{filteredc.color}</p>
+                          <p style={{backgroundColor: "purple", color: "white"}}>{filteredc.price}</p>
+                      </div> 
+                    </li>)}</ul> 
+                  : <ul>{filterDataCards}</ul>} */}
+
+
+
+
+
+
+
+
+
+                  {/* filter color:      */}
+                  {/* {checked ? <ul>{filteredcolor.map(filteredcol => <li>
+                      <div className='filterCard'>
+                          <p style={{backgroundColor: "white"}}>{filteredcol.name}</p>
+                          <p style={{backgroundColor: "lightBlue"}}>{filteredcol.category}</p>
+                          <p style={{backgroundColor: "lightPink"}}>{filteredcol.color}</p>
+                          <p style={{backgroundColor: "purple", color: "white"}}>{filteredcol.price}</p>
+                      </div> 
+                    </li>)}</ul> 
+                  : null} */} 
+
+
+
+                      
+
+                  {/* rendering multiple conditions ternary operator in React: 
+                  <h1 id="id1">
+                      {
+                          isEnvironmentBFE
+                          ? (
+                              outputba(
+                                "b",
+                                "ba",
+                                this.props.lang
+                          )
+                          ) : NEW CONDITIONAL HERE
+                          ? (NEW RESULT)
+                          : (
+                            outputba(
+                              "a",
+                              "ab",
+                              this.props.lang
+                        )
+                      )
+                    }
+              </h1>
+
+
+              !!!!  : checkedColor ? (else if - else if : a = 1 ? return b) */}
                   {checked ? <ul>{filteredcategory.map(filteredc => <li>
                       <div className='filterCard'>
                           <p style={{backgroundColor: "white"}}>{filteredc.name}</p>
@@ -339,9 +424,15 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
                           <p style={{backgroundColor: "purple", color: "white"}}>{filteredc.price}</p>
                       </div> 
                     </li>)}</ul> 
+                  : checkedColor ? <ul>{filteredcolor.map(filteredcol => <li>
+                    <div className='filterCard'>
+                        <p style={{backgroundColor: "white"}}>{filteredcol.name}</p>
+                        <p style={{backgroundColor: "lightBlue"}}>{filteredcol.category}</p>
+                        <p style={{backgroundColor: "lightPink"}}>{filteredcol.color}</p>
+                        <p style={{backgroundColor: "purple", color: "white"}}>{filteredcol.price}</p>
+                    </div> 
+                  </li>)}</ul> 
                   : <ul>{filterDataCards}</ul>}
-
-
 
 
 
