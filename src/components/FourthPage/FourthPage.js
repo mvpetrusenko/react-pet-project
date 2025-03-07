@@ -217,7 +217,7 @@ console.log('Filtered category by chosen checkbox: ', filteredcategory)
 
 
 
-
+// false - not checked
 const [checkedColor, setCheckedColor] = useState(false) 
 const[filteredcolor, setFilteredColor] = useState('') 
 
@@ -242,8 +242,9 @@ const handleFilterColor = (event) => {
 
 
 
+const [clicked, setClicked] = useState(false)
+const [sortedToHigh, setSortedToHigh] = useState(FilterData) 
 
-const [sortedToHigh, setSortedToHigh] = useState(FilterData)
 
 // const numbers = [1, 7, 3, 10, 25] 
 // numbers.sort((a, b) => a - b ) 
@@ -258,8 +259,16 @@ const [sortedToHigh, setSortedToHigh] = useState(FilterData)
 //      const sortedarray = arraySorted.sort((a,b) => {
 //      return order === 'asc'?  (a.id - b.id): (b.id - a.id);
 //      })
-//     setarraySorted([...sortedarray])}
-const handleSortLowToHigh = () => {
+//     setarraySorted([...sortedarray])} 
+
+
+// sortedToHigh - initial value (card arrays) 
+// sortedToHighArray - changed value (sorted array)
+const handleSortLowToHigh = (event) => { 
+  const clickedLowToHighButton = event.target.value
+  setClicked(clickedLowToHighButton) 
+  console.log('LowToHigh button has been clicked: ', clickedLowToHighButton) 
+
   const sortedToHighArray = sortedToHigh.sort((a, b) => (a.price > b.price) ? 1 : -1)
 
   setSortedToHigh(sortedToHighArray)
@@ -291,14 +300,20 @@ console.log('Sorted low to high: ', sortedToHighArray)
 // negative number will have the same effect as -1. The sort method 
 // just uses the sign to determine the order. Using 1 and -1 is 
 // a common and concise convention
-
-
+// false - not clicked 
+// event - clicked button
+const [clickedDecrese, setClickedDecrese] = useState(false)
 const [sortedToLow, setSortedToLow] = useState(FilterData)
 
-const handleSortHighToLow = () => {
+const handleSortHighToLow = (event) => { 
+  const clickedHightToLowButton = event.target.value
+  setClickedDecrese(clickedHightToLowButton) 
+  console.log('HightToLow button has been clicked: ', clickedHightToLowButton)  
+
+
   const sortedToLowArray = sortedToLow.sort((a, b) => (b.price > a.price) ? 1 : -1)
 
-  setSortedToHigh(sortedToLowArray)
+  setSortedToLow(sortedToLowArray)
 
 console.log('Sorted high to low: ', sortedToLowArray) 
 
@@ -537,6 +552,44 @@ console.log('Sorted high to low: ', sortedToLowArray)
                   <button className='lowToHigh' onClick={handleSortLowToHigh}>Low To High</button>
                   <button className='highToLow' onClick={handleSortHighToLow}>High To Low</button>
                 </div>
+
+
+
+
+                {/* sortedToHigh - initial value (card arrays) 
+                sortedToHighArray - changed value (sorted array) */}
+                {clicked ? <ul>{sortedToHigh.map(sortedToHighCard => <li>
+                      <div className='filterCard'>
+                          <p style={{backgroundColor: "white"}}>{sortedToHighCard.name}</p>
+                          <p style={{backgroundColor: "lightBlue"}}>{sortedToHighCard.category}</p>
+                          <p style={{backgroundColor: "lightPink"}}>{sortedToHighCard.color}</p>
+                          <p style={{backgroundColor: "purple", color: "white"}}>{sortedToHighCard.price}</p>
+                      </div> 
+                    </li>)}</ul> 
+                    // : <ul>{filterDataCards}</ul>} - will be two cards before clicking sorting button 
+                    // !!! : null - will be 1 cards before clicking sorting button which will be changed if filter/sort button clicked
+                    : null} 
+
+
+
+
+
+
+                    {clickedDecrese ? <ul>{sortedToLow.map(sortedToLowCard => <li>
+                      <div className='filterCard'>
+                          <p style={{backgroundColor: "white"}}>{sortedToLowCard.name}</p>
+                          <p style={{backgroundColor: "lightBlue"}}>{sortedToLowCard.category}</p>
+                          <p style={{backgroundColor: "lightPink"}}>{sortedToLowCard.color}</p>
+                          <p style={{backgroundColor: "purple", color: "white"}}>{sortedToLowCard.price}</p>
+                      </div> 
+                    </li>)}</ul> 
+                    // : <ul>{filterDataCards}</ul>} - will be two cards before clicking sorting button 
+                    // !!! : null - will be 1 cards before clicking sorting button which will be changed if filter/sort button clicked
+                    : null} 
+                     
+
+
+
 
 
 
