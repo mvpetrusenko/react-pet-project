@@ -968,6 +968,67 @@ const [name, setName] = useState('');
 
 
 
+## Adaptive webdesign 
+1. viewport 
+2. media quaries (768 - mobile, 1200 - tablet, > 1200 - desctop) 
+3. !important in adaptive webdesign - NOT to have HORIZONTAL SCROLL (check container (without horizontal scroll), then - other element) 
+4. while decreasing the width unnecessary blocks can not be shown 
+5. important elements can be shown after clicking button (navbar menu) 
+6. while decreasing the width from 6 columns - to 3 columns - to 2 columns - 1 columns
+7. while decreasing the width margins and paddings are also decreasing 
+8. while decreasing the width decrease text size 
+9. mobile-first approach and desctop-first (order of adaptation) 
+10. if designer gave only desctop version - choose desctop-first approach 
+11. min/max-width/height properties (for example, width: 50% (default value), min-width: 200px, max-width: 500px) - element cannot access these min/max limits
+12. if add some more content (height - text will be overlay one on another, min-height - height will adapt to adding of additional text) 
+13. max-height: 100% + overflow-y: auto - adding more text to modal window can be scrolled 
+14. if in DevTools - Responsive with 768 header is too big it can be decreased with media quaries (from 60px to 30px), in {} - CSS properites as usual: 
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 30px
+    }
+} 
+
+
+15. if html document will be without tag <meta name="viewport"> in <head> - our media quaries will not effect html
+16. mobile-first (what sizes will be WITHOUT @media): first write small sizes: .title - font-size: 30px (as usual css, WITHOUT @media) and then for desctop (with @media): 
+
+@media (max-width: 1068px) {
+    .title {
+        font-size: 60px
+    }
+} 
+
+17. device orientation: @media (orientation: portrait(--or landscape)) 
+18. in device mode in DevTools hover does not work, because it reacts only on touch, to add hover effect only for devices with cursor: 
+
+@media (hover: hover) {
+    button: hover {
+        background-color: red
+    }
+}
+
+
+19. resinovaja verstka - size in relative values (%, vw - viewport), not in pixel (10px) - it depends on browser window width 
+20. 320-480/768 - mobile phone, 768-992 - tablets 
+21. put size of screen in media quaries in asc/desc order 
+22. if pictures not good while small - add to max-width, !!!height: auto 
+23. convert 40px to vw on screen size 1920: 40/1920*100 - round to 2 symbols after . (2.08vw) 
+24. css tag row-gap: space between picture and text 
+25. in Figma switch to dev mode to see css of element on click
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
