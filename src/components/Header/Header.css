@@ -63,3 +63,18 @@ h1 {
     font-weight: bold; 
     color: white;
 }
+
+
+
+
+
+@media only screen and (max-width: 768px)   {
+    header {
+        max-width: 590px; 
+        
+    } 
+
+    h1 {
+        padding-left: 180px;
+    } 
+}

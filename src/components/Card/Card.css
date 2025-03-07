@@ -87,3 +87,44 @@
     background-color: rgb(232, 116, 157); 
     
 }
+
+
+
+
+
+
+@media only screen and (max-width: 768px)   { 
+
+  .cardContainer {
+    width: 28%; 
+    height: 300px;
+  }
+
+
+  .cards {
+    max-width: 763px;
+  } 
+
+  
+  .cardPrice {
+    margin-bottom: 20px;
+  } 
+
+  
+  .cardImageBlock {
+    max-width: 100px; 
+    max-height: 60px;
+    margin-left: 30px;
+  }
+
+  .cardImage {
+    max-width: 100px;
+  }
+
+
+  .buyButton {
+    max-width: 40px; 
+    padding-left: 30px; 
+    padding-right: 70px;
+  }
+}

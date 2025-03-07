@@ -1011,7 +1011,7 @@ const [name, setName] = useState('');
 
 
 19. resinovaja verstka - size in relative values (%, vw - viewport), not in pixel (10px) - it depends on browser window width 
-20. 320-480/768 - mobile phone, 768-992 - tablets 
+20. 320-480/768 - mobile phone, 768-992 - tablets (breakpoints)
 21. put size of screen in media quaries in asc/desc order 
 22. if pictures not good while small - add to max-width, !!!height: auto 
 23. convert 40px to vw on screen size 1920: 40/1920*100 - round to 2 symbols after . (2.08vw) 
@@ -1046,7 +1046,7 @@ const [name, setName] = useState('');
 10 - mobile optimization 
 11 - calculator 
 12 - upload images 
-13 - AXIOS for API calls 
+13 - AXIOS for API calls (or fetch)
 14 - Tailwind CSS 
 15 - change language 
 16 - Role-based access for different membership levels, restricting content based on user subscriptions (admin, customer)
