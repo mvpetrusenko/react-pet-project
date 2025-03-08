@@ -190,7 +190,7 @@ const handleSearch = (event) => {
 
 
   return ( 
-    <div>
+    <div className='container'>
         {/* {<Header />}
         {<NavBar />} */}
         <div className="content"> 

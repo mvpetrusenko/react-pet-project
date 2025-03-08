@@ -67,14 +67,22 @@ h1 {
 
 
 
-
 @media only screen and (max-width: 768px)   {
-    header {
-        max-width: 590px; 
-        
-    } 
 
     h1 {
-        padding-left: 180px;
-    } 
+        padding-left: 185px;
+    }
+
+}
+
+
+
+
+
+
+/* mobile:  */
+@media only screen and (max-width: 640px)  {
+    h1 {
+        padding-left: 105px;
+    }
 }
