@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef} from 'react';
 import '../SecondPage/SecondPage.css' 
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; 
+import winter from '../../assets/images/winter.jpg'; 
+import spring from '../../assets/images/spring.jpg'; 
+import summer from '../../assets/images/summer.jpg'; 
+import autumn from '../../assets/images/autumn.jpg'; 
 
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
@@ -124,7 +128,62 @@ function SecondPage() {
 
 
 
-  // }
+  // } 
+
+// JS: 
+// let slideIndex = 1;
+// showSlides(slideIndex);
+
+// // Next/previous controls
+// function plusSlides(n) {
+//   showSlides(slideIndex += n);
+// }
+
+// // Thumbnail image controls
+// function currentSlide(n) {
+//   showSlides(slideIndex = n);
+// }
+
+// function showSlides(n) {
+//   let i;
+//   let slides = document.getElementsByClassName("mySlides");
+//   let dots = document.getElementsByClassName("dot");
+//   if (n > slides.length) {slideIndex = 1}
+//   if (n < 1) {slideIndex = slides.length}
+//   for (i = 0; i < slides.length; i++) {
+//     slides[i].style.display = "none";
+//   }
+//   for (i = 0; i < dots.length; i++) {
+//     dots[i].className = dots[i].className.replace(" active", "");
+//   }
+//   slides[slideIndex-1].style.display = "block";
+//   dots[slideIndex-1].className += " active";
+// }
+
+
+const imagesSlides = [winter, spring, summer, autumn] 
+
+
+const [imageIndex, setImageIndex] = useState(0)
+
+const handleNextButton = (imagesSlides) => {
+  // console.log(imagesSlides) 
+  setImageIndex(index => {
+    if(index === imagesSlides.length - 1) return 0
+    return index + 1
+  })
+
+
+}
+
+const handlePreviousButton = (imagesSlides) => {
+  setImageIndex(index => {
+    if(index === 0) return imagesSlides.length - 1 
+    return index - 1
+  })
+
+}
+
 
 
 
@@ -145,6 +204,61 @@ function SecondPage() {
               ></iframe>
             </div>
             <p>Slider</p> 
+            
+            <div className='main-container'> 
+              <a className='previous' onClick={handlePreviousButton}>&#10094;</a> 
+              
+              <div className='slider-container'>
+
+                <div className='slideItem'> 
+                  {/* imagesSlides[imageIndex] = itemArray[0] - the first element of array (winter) */}
+                  <img src={imagesSlides[imageIndex]}></img>
+                  {/* <div className='slideText'>Spring</div> */}
+                </div> 
+            
+                {/* <div className='slideItem'>
+                  <img src={winter} alt='winter'></img>
+                  <div className='slideText'>Winter</div>
+                </div> 
+
+                <div className='slideItem'>
+                  <img src={spring} alt='spring'></img>
+                  <div className='slideText'>Spring</div>
+                </div> 
+
+                <div className='slideItem'>
+                  <img src={summer} alt='summer'></img>
+                  <div className='slideText'>Summer</div>
+                </div> 
+
+                <div className='slideItem'>
+                  <img src={autumn} alt='autumn'></img>
+                  <div className='slideText'>Autumn</div>
+                </div>  */}
+
+                
+
+                </div> 
+                <a className='next' onClick={handleNextButton}>&#10095;</a>
+            </div> 
+            {/* &#10095 - html entity lookup OR in unicode character tables */}
+                {/* <a className='previous'>&#10094;</a> */}
+                {/* <a className='next'>&#10095;</a> */}
+              
+
+
+              <div className='navigationDots'>
+              {imagesSlides.map((_, index) => (
+                // {index} - number on dot
+                <button className='dot' onClick={() => setImageIndex(index)}>{index}</button>))}
+                {/* <span className='dot' onclick="currentSlide(2)"></span>
+                <span className='dot' onclick="currentSlide(3)"></span>
+                <span className='dot' onclick="currentSlide(4)"></span> */}
+              </div> 
+
+              
+            
+
             <p>elements to appear</p> 
               <div className="elementsToAppear">
                 <motion.div

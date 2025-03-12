@@ -1035,15 +1035,11 @@ const [name, setName] = useState('');
 
 ## TO DO 
 1 - Images - Slideshow
-2 - responsive design  (media quaries, adaptive to mobile, tablet, different screens) 
 3 - Images - Image Overlay Title 
 4 - Forms - Toggle Password Visibility 
 5 - Forms - Autocomplete (search)
-6 - Filters - Filter Elements 
-7 - Filters - Sort List 
 8 - More - Toggle Dark Mode 
 9 - optimizing images 
-10 - mobile optimization 
 11 - calculator 
 12 - upload images 
 13 - AXIOS for API calls (or fetch)
@@ -1061,9 +1057,10 @@ const [name, setName] = useState('');
 25 - calendar to book a training  
 26 - drag-and-drop 
 27 - pixel-perfect precision 
-28 - mobile-first design 
+28 - design on Figma template 
 29 - add comments 
 30 - optimizing performance 
 31 - SASS 
 32 - show a notification 
-33 - improve page loading time and time to interactive (DevTools - LightHouse)
+33 - improve page loading time and time to interactive (DevTools - LightHouse) 
+34 - Redux
