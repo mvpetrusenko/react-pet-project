@@ -161,28 +161,54 @@ function SecondPage() {
 // }
 
 
+
+// if (index === 0) return imagesSlides.length - 1;:
+// This if statement checks if the current imageIndex is 0 (i.e., the first image).
+// If it is, it returns imagesSlides.length - 1. This effectively wraps the index 
+// around to the last image in the imagesSlides array, creating a circular navigation effect.
+// return index - 1;:
+// If the current imageIndex is not 0, this line is executed.
+// It returns index - 1, which decrements the imageIndex by 1, moving to the previous image.
+// In simpler terms:
+
+// When the "previous" button is clicked, this function checks if the user is currently on the first image.
+// If they are, it jumps to the last image.
+// Otherwise, it simply goes to the image before the current one 
+
+// imagesSlides.length = 4 (elements)
+
 const imagesSlides = [winter, spring, summer, autumn] 
 
 
-const [imageIndex, setImageIndex] = useState(0)
+const [imageIndex, setImageIndex] = useState(0) 
 
-const handleNextButton = (imagesSlides) => {
+const arrayLength = imagesSlides.length;
+
+// const handleNextButton = (imagesSlides) => {
+const handleNextButton = () => {
   // console.log(imagesSlides) 
   setImageIndex(index => {
-    if(index === imagesSlides.length - 1) return 0
+    // if(index === imagesSlides.length - 1) return 0 - it does not work without separate arrayLength variable
+    if(index === arrayLength - 1) return 0
     return index + 1
   })
 
 
 }
 
-const handlePreviousButton = (imagesSlides) => {
+// const handlePreviousButton = (imagesSlides) => { 
+const handlePreviousButton = () => {
   setImageIndex(index => {
-    if(index === 0) return imagesSlides.length - 1 
+    // if(index === 0) return 3 - it works
+    // if(index === 0) return imagesSlides.length - 1 
+    if(index === 0) return arrayLength - 1 
     return index - 1
   })
 
 }
+
+
+  
 
 
 

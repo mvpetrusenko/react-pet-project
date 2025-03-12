@@ -106,7 +106,7 @@ iframe.introductionVideo {
 .main-container { 
   display: flex; 
   align-items: center; /* slides and arrows in a row inline */ 
-  background-color: red; 
+  background-color: rgb(206, 206, 212); 
   overflow: hidden;
 }
 
@@ -146,7 +146,7 @@ cubic-bezier(n, n, n, n): Allows you to define a custom timing function */
 .slideItem {
     /* display: inline-block;  */
     /* width: 230px;  */
-    height: 100px;
+    height: 350px;
     /* overflow: hidden; - only 1 current image slide */ 
     transition: translate 300ms ease-in-out/* slow slides move */ 
     
@@ -160,7 +160,7 @@ cubic-bezier(n, n, n, n): Allows you to define a custom timing function */
     width: auto;
     margin-top: -22px;
     padding: 16px;
-    color: rgb(203, 22, 149);
+    color: rgb(44, 95, 41);
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
