@@ -166,7 +166,17 @@ function MainPage() {
 
     // When you change the type attribute to 'text', you're telling the 
     // browser to treat the input field as a regular text input 
-    // The browser will then display the input exactly as it was typed, without any masking
+    // The browser will then display the input exactly as it was typed, without any masking 
+
+    // In JS: 
+    // function myFunction() {
+    //   var x = document.getElementById("myInput");
+    //   if (x.type === "password") {
+    //     x.type = "text";
+    //   } else {
+    //     x.type = "password";
+    //   }
+    // }
 
     const [isVisible, setVisible] = useState(false)
     

@@ -12,7 +12,8 @@ function NavBar() {
         </li>
         <li className="activeTab"><NavLink to="/second" activeClassName="active">Second Page</NavLink></li> 
         <li><NavLink to="/third">Third Page</NavLink></li> 
-        <li><NavLink to="/fourth">Fourth Page</NavLink></li>
+        <li><NavLink to="/fourth">Fourth Page</NavLink></li> 
+        <li><NavLink to="/fifth">Fifth Page</NavLink></li>
       </ul>
     </nav>
   );

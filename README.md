@@ -949,8 +949,6 @@ background-color: red
 
 ## TO DO
 
-4 - Forms - Toggle Password Visibility
-5 - Forms - Autocomplete (search)
 8 - More - Toggle Dark Mode
 9 - optimizing images
 11 - calculator
