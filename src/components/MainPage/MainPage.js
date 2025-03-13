@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../MainPage/MainPage.css' 
 import { Link } from 'react-router-dom'; 
 import { useNavigate } from 'react-router-dom';
@@ -118,6 +118,62 @@ function MainPage() {
           ); 
 
 
+
+    // showPassChecked - false = show password checkbox is not checked 
+    // event.target.checked - not event.target.value (returns on) to check if checkbox is checked or not 
+    // const checkedShow = event.target.checked (returns true) 
+
+    // if checkbox show password is checked 
+    // show the value of input type=password in Login form 
+    // isVisible - true = checkbox show password is unchecked
+    // setVisible(!isVisible) to true (!isVisible - to switch to checked) 
+
+
+    // export default function ShowHidePassword({ name }) {
+    //   const [isVisible, setVisible] = useState(false);
+    
+    //   const toggle = () => {
+    //     setVisible(!isVisible);
+    //   };
+    
+    //   return (
+    //     <div className="form-group">
+    //       <input type={!isVisible ? "password" : "text"} name={name} required />
+    //       <span className="icon" onClick={toggle}>
+    //         {isVisible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+    //       </span>
+    //     </div>
+    //   );
+    // } 
+
+
+
+    // !isVisible: This negates the current value of isVisible. 
+    // If it's false, it becomes true, and vice versa
+    // If !isVisible is true (meaning isVisible is false), the type is 
+    // set to 'password', hiding the input.
+    // If !isVisible is false (meaning isVisible is true), the type is 
+    // set to 'text', showing the input.
+
+
+    // Initially, isVisible is false, so the input field's type is 'password'.
+    // When the checkbox is clicked, handleShowPasswordToggle is called.
+    // handleShowPasswordToggle toggles the value of isVisible.
+    // The input field's type is updated based on the new value of isVisible.
+    // If isVisible is now true, the type becomes 'text', showing 
+    // the password. If it's false, the type becomes 'password', hiding it. 
+
+
+    // When you change the type attribute to 'text', you're telling the 
+    // browser to treat the input field as a regular text input 
+    // The browser will then display the input exactly as it was typed, without any masking
+
+    const [isVisible, setVisible] = useState(false)
+    
+    const handleShowPasswordToggle = () => { 
+      setVisible(!isVisible)
+  }
+        
 
     
 
@@ -409,7 +465,7 @@ function MainPage() {
               </fieldset>
               <fieldset>
                 <label for="passwordLogin">* Password: </label>
-                <input type='password' className='password' 
+                <input type={!isVisible ? 'password' : 'text'}  className='password' 
                 // Minimum eight characters, at least one uppercase letter, 
                 // one lowercase letter, one number and one special character
                 {...register('passwordLogin', {
@@ -427,7 +483,11 @@ function MainPage() {
                       message: 'Invalid password: (should have  min 8 characters: uppercase, lowercase, number, special character)',
                   },
               })}></input><br></br>
-              <span>{errors.passwordLogin?.message}</span>
+              <span>{errors.passwordLogin?.message}</span> 
+              <div className='showPasswordBlock'>
+                <input type='checkbox' name='showPassword' onChange={handleShowPasswordToggle}></input>
+                <label htmlFor='showPassword'>Show Password</label>
+              </div>
               </fieldset>
             </fieldset> 
             <div>
