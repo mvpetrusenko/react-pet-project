@@ -218,3 +218,35 @@ One Value: margin: all sides; */
 
 
 
+.imageToHover {
+  width: 100%;
+  display: block;
+}
+
+
+.overlayTitle {
+  position: absolute; /* text over image */
+  bottom: 0; 
+  left: 30px;
+  right:-30px;
+  background-color: rgba(81, 79, 79, 0.6); 
+  color: wheat;
+  padding: 30px;
+  text-align: center;
+  display: none; 
+}
+
+/* without imageOverlayContainer imageOverlayContainer:hover .overlayTitle does NOT work!!! */
+.imageOverlayContainer {
+  position: relative; /* image under text */
+  width: 500px;
+  margin: auto;
+}
+
+
+/* 1. overlayTitle not visible 
+2. imageOverlayContainer - with css styles 
+3. imageOverlayContainer:hover .overlayTitle - when container is hovered .overlayTitle is visible */
+.imageOverlayContainer:hover .overlayTitle {
+  display: block;
+}

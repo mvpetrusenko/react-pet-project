@@ -5,6 +5,8 @@ import winter from '../../assets/images/winter.jpg';
 import spring from '../../assets/images/spring.jpg'; 
 import summer from '../../assets/images/summer.jpg'; 
 import autumn from '../../assets/images/autumn.jpg'; 
+import bigben from '../../assets/images/big-ben.jpg'; 
+import { width } from '@fortawesome/free-solid-svg-icons/fa0';
 
 // import Header from '../Header/Header'; 
 // import NavBar from '../NavBar/NavBar';
@@ -275,15 +277,25 @@ const handlePreviousButton = () => {
 
               <div className='navigationDots'>
               {imagesSlides.map((_, index) => (
-                // {index} - number on dot
-                <button className='dot' onClick={() => setImageIndex(index)}>{index}</button>))}
+                // {index} - number on dot (0, 1, 2, 3)
+                <button className='dot' onClick={() => setImageIndex(index)}>{index + 1}</button>))}
                 {/* <span className='dot' onclick="currentSlide(2)"></span>
                 <span className='dot' onclick="currentSlide(3)"></span>
                 <span className='dot' onclick="currentSlide(4)"></span> */}
               </div> 
 
               
-            
+
+              <p>Just hover the photo</p> 
+              <div className='imageOverlayContainer'>
+                <img src={bigben} 
+                     className='imageToHover'
+                     alt='big-ben' 
+                     style={{width: '500px', margin: '30px'}}>
+                </img> 
+                <div className='overlayTitle'>Big Ben (London)</div>
+              </div>
+
 
             <p>elements to appear</p> 
               <div className="elementsToAppear">

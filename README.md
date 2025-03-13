@@ -1034,7 +1034,6 @@ const [name, setName] = useState('');
 
 
 ## TO DO 
-1 - Images - Slideshow
 3 - Images - Image Overlay Title 
 4 - Forms - Toggle Password Visibility 
 5 - Forms - Autocomplete (search)
