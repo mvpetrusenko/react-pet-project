@@ -949,13 +949,12 @@ background-color: red
 
 ## TO DO
 
-8 - More - Toggle Dark Mode
+15 - change language
 9 - optimizing images
 11 - calculator
 12 - upload images
 13 - AXIOS for API calls (or fetch)
 14 - Tailwind CSS
-15 - change language
 16 - Role-based access for different membership levels, restricting content based on user subscriptions (admin, customer)
 17 - edit your profile
 18 - admin panel (add new pages, add/delete clubs, edit schedule)
