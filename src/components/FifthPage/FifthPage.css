@@ -37,14 +37,14 @@
 
 
 /* hide checkbox to switch mode toggle */
-input {
+.inputCheckboxSwitch {
     display: none;
 }
 
 /* :checked pseudo-class matches any <input> or <option> element that is checked 
 style around input */  
 /* circle in switch toggle after checkbox is checked */
-input:checked + .sliderSwitch::before {
+.inputCheckboxSwitch:checked + .sliderSwitch::before {
     /* background-color: green;  */
     transform: translateX(100px);
 }
@@ -54,7 +54,7 @@ input:checked + .sliderSwitch::before {
 
 
 /* long space of switch after checkbox is checked */
-input:checked + .sliderSwitch {
+.inputCheckboxSwitch:checked + .sliderSwitch {
     background-color: rgb(251, 255, 141);
 }
 

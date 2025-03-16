@@ -183,7 +183,7 @@ function FifthPage() {
             <p>Fifth Page Content</p> 
 
             <label className='switchModeContainer'>
-              <input type='checkbox' 
+              <input className='inputCheckboxSwitch' type='checkbox' 
                       id='checkboxSwitch'
                       onChange={switchTheme}></input> 
               <label htmlFor='checkboxSwitch' className='sliderSwitch'></label>

@@ -18,7 +18,10 @@ import { useContext } from 'react';
 
 
 
-import { useForm } from "react-hook-form" 
+import { useForm } from "react-hook-form"  
+
+
+import axios from 'axios'
 
 // import {useHttp} from '../hooks/http.hook'
 
@@ -78,6 +81,122 @@ function MainPage() {
 
 
 
+
+
+  
+
+
+
+  // import axios from 'axios' 
+  // <input type='submit' value={'To Backend'} onClick={handleExampleToBackendButton}></input> 
+
+  // in backend project: import express, { response } from 'express'; 
+  // import cors from 'cors'  
+  // const app = express()  
+  // app.use(express.json())  
+  // app.use(cors()); 
+
+//   app.get('/', (request, response) => {
+//     response.send('Everything has been received');
+// }) 
+
+
+// app.listen(5000, (error) => {
+//   if(error) {
+//       return console.log('error')
+//   } 
+//   console.log('Server has been started')
+// }); 
+
+// axios.post (Frontend) 
+// It's used to send an HTTP POST request to your backend API  
+// It handles the client-side part of the request: packaging the data, setting headers, 
+// and sending it to the server
+// app.post (Backend) 
+// This is a method provided by the Express.js framework in your backend code 
+// It handles the server-side part of the request: receiving the data, processing it, 
+// and sending a response back to the client
+// The frontend initiates the request using axios.post 
+// The backend listens for and responds to that request using app.post 
+// use value when the fields are empty, but if we have to 
+// type or update the value from the value already in the 
+// input box. We must use defaultValue - cannot see input value while typing 
+// I cannot see input values while typing in fields of my login form 
+// The issue arises from combining React state (useState) and React 
+// Hook Form (register method) on the same input fields. You should 
+// choose one approach to control the input values 
+// login function will not be working without first registration function
+ 
+
+
+  const handleExampleToBackendButton = async () => {
+    try {
+      // event.preventDefault(); 
+      await axios.get('http://localhost:5000').then(response => {
+      console.log('backend works', response.data)
+    }); 
+    } catch (error) {
+      console.log('testButton: ', error)
+    }
+    
+  }
+
+
+
+
+
+  // const [email, setEmail] = useState(''); 
+  // const [password, setPassword] = useState(''); 
+
+  const handleLoginButton = async (data) => {
+    try {
+      // event.preventDefault(); 
+      const responseData = await axios.post('http://localhost:5000/login', {
+        // email: email, - send email from state 
+        // password: password, 
+        email: data.emailLogin, 
+        password: passwordLogin, 
+      });  
+
+      console.log('backend login works', responseData.data); 
+
+    } catch (error) {
+      console.log('login button error: ', error)
+    }
+    
+  }
+
+
+
+
+  const handleRegisterButton = async (data) => {
+    try {
+      // event.preventDefault(); 
+      const responseD = await axios.post('http://localhost:5000/registration', {
+        // email: email, - send email from state 
+        // password: password, 
+        firstName: data.firstName,
+        email: data.email, 
+        password: passwordRegistration, 
+      });  
+
+      console.log('backend registration works', responseD.data); 
+
+    } catch (error) {
+      console.log('register button error: ', error)
+    }
+    
+  }
+
+
+
+
+
+
+
+
+
+
     const {cartItems, setCartItems} = useContext(CartContext); 
     
     // const context = useContext(CartContext); 
@@ -109,14 +228,38 @@ function MainPage() {
       }
 
 
-      const { 
-        register, 
-        watch, 
-        handleSubmit, 
-        getValues, 
-        formState: { errors }} = useForm({mode: "onChange"} 
-          ); 
 
+      //after filling in register fields and press 
+      // register button nothing is send to backend, it simple go 
+      // to my login form to fill in
+      // const { 
+      //   register, 
+      //   watch, 
+      //   handleSubmit, 
+      //   getValues, 
+      //   formState: { errors }} = useForm({mode: "onChange"} 
+      //     ); 
+
+
+      // Solution: Separate useForm Instances for Each Form
+      // Create separate useForm hooks for the registration and login forms 
+      // Use their respective handleSubmit functions independently
+
+      // Separate useForm hooks for each form
+      const { 
+        register: registerRegisterForm,
+        handleSubmit: handleRegisterSubmit, 
+        formState: { errors: registerErrors },
+  } = useForm(); 
+
+
+
+
+  const {
+    register: registerLoginForm,
+    handleSubmit: handleLoginSubmit,
+    formState: { errors: loginErrors },
+  } = useForm();
 
 
     // showPassChecked - false = show password checkbox is not checked 
@@ -331,14 +474,17 @@ function MainPage() {
 
       <div className='formContainer'>  
         <div className='forms'>
-          <form className='registrationForm'>
+          <form className='registrationForm' onSubmit={handleRegisterSubmit(handleRegisterButton)}>
+           {/* onSubmit={handleSubmit(handleRegisterButton)}
+          > */}
             <fieldset>
               <legend>Registration Form</legend>
               <fieldset>
                 <label for="firstName">* First Name: </label>
                 <input type='text' className='firstName' 
                 // regex for email, password, first name, last name
-                {...register('firstName', {
+                // {...register('firstName', { 
+                {...registerRegisterForm('firstName', {
                   required: 'First name is required', 
                   minLength:{
                     value:2,
@@ -353,9 +499,10 @@ function MainPage() {
                       message: 'Invalid first name',
                   },
               })}></input><br></br>
-                <span>{errors.firstName?.message}</span>
+                {/* <span>{errors.firstName?.message}</span> */} 
+                <span>{registerErrors.firstName?.message}</span>
               </fieldset>
-              <fieldset>
+              {/* <fieldset>
                 <label for="lastName">* Last Name: </label>
                 <input type='text' className='lastName' 
                 {...register('lastName', {
@@ -374,7 +521,7 @@ function MainPage() {
                   },
               })}></input><br></br>
                 <span>{errors.lastName?.message}</span>
-              </fieldset>
+              </fieldset> */}
               <fieldset>
                 <label for="email">* Email:   </label>
                 <input type='email' 
@@ -382,14 +529,16 @@ function MainPage() {
                 // onChange={changeHandler}
                 className='email'
                 required 
-                {...register('email', {
+                // {...register('email', { 
+                {...registerRegisterForm('email', {
                   required: 'Email is required',
                   pattern: {
                       value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                       message: 'Invalid email address',
                   },
               })}></input><br></br>
-              <span>{errors.email?.message}</span>
+              {/* <span>{errors.email?.message}</span> */} 
+              <span>{registerErrors.email?.message}</span>
               </fieldset> 
 
               <fieldset> 
@@ -400,7 +549,8 @@ function MainPage() {
                     className='password' 
                     // Minimum eight characters, at least one uppercase letter, 
                     // one lowercase letter, one number and one special character 
-                    {...register('passwordRegistration', {
+                    // {...register('passwordRegistration', {
+                    {...registerRegisterForm('passwordRegistration', {
                       // required: 'Password is required', 
                       minLength:{
                         value:8,
@@ -415,7 +565,8 @@ function MainPage() {
                           message: 'Invalid password: (should have  min 8 characters: uppercase, lowercase, number, special character)',
                       },
                   })}></input><br></br>
-                  <span>{errors.passwordRegistration?.message}</span>
+                  {/* <span>{errors.passwordRegistration?.message}</span> */} 
+                  <span>{registerErrors.passwordRegistration?.message}</span>
                   </fieldset> 
 
                   {/* type='password' - to hide password with ***** */}
@@ -450,35 +601,34 @@ function MainPage() {
 
 
 
-          <form className='loginForm'>
+          <form className='loginForm' 
+          // onSubmit={handleSubmit(handleLoginButton)}
+          onSubmit={handleLoginSubmit(handleLoginButton)}>
             <fieldset className='formFieldLogin'>
               <legend>Login Form</legend>
               <fieldset>
-                <label for="userName">* Username: </label>
-                <input type='text' className='userName' 
-                {...register('userName', {
-                  required: 'Username is required', 
-                  minLength:{
-                    value:2,
-                    message: "Minimum 2 characters required"
-                    }, 
-                    maxLength: {
-                    value:10,
-                    message: "Max 10 is allowed"
-                    },
+                <label htmlFor="emailLogin">* Email: </label>
+                <input type='email' className='emailLogin' 
+                // value={email} onChange={(event) => setEmail(event.target.value)}
+                // {...register('emailLogin', {
+                {...registerLoginForm('emailLogin', {
+                  required: 'Email is required',
                   pattern: {
-                      value: /[a-zA-Z]/,
-                      message: 'Invalid username',
+                      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: 'Invalid email address',
                   },
               })}></input><br></br> 
-                  <span>{errors.userName?.message}</span>
+                  {/* <span>{errors.emailLogin?.message}</span> */} 
+                  <span>{loginErrors.emailLogin?.message}</span>
               </fieldset>
               <fieldset>
-                <label for="passwordLogin">* Password: </label>
+                <label htmlFor="passwordLogin">* Password: </label>
                 <input type={!isVisible ? 'password' : 'text'}  className='password' 
+                // value={password} onChange={(event) => setPassword(event.target.value)}
                 // Minimum eight characters, at least one uppercase letter, 
                 // one lowercase letter, one number and one special character
-                {...register('passwordLogin', {
+                // {...register('passwordLogin', { 
+                {...registerLoginForm('passwordLogin', {
                   required: 'Password is required', 
                   minLength:{
                     value:8,
@@ -493,7 +643,8 @@ function MainPage() {
                       message: 'Invalid password: (should have  min 8 characters: uppercase, lowercase, number, special character)',
                   },
               })}></input><br></br>
-              <span>{errors.passwordLogin?.message}</span> 
+              {/* <span>{errors.passwordLogin?.message}</span>  */} 
+              <span>{loginErrors.passwordLogin?.message}</span> 
               <div className='showPasswordBlock'>
                 <input type='checkbox' name='showPassword' onChange={handleShowPasswordToggle}></input>
                 <label htmlFor='showPassword'>Show Password</label>
@@ -503,12 +654,21 @@ function MainPage() {
             <div>
                 <button type='submit' 
                 // disabled={loading} 
-                className='loginButton'>LOGIN</button>
+                className='loginButton' 
+                // onClick={handleLoginButton}
+                >LOGIN</button>
             </div>
           </form>
           </div>
         </div>
 
+
+
+
+
+              <div>
+                <input type='submit' value={'To Backend'} onClick={handleExampleToBackendButton}></input>
+              </div>
 
 
 
