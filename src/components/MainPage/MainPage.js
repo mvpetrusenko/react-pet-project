@@ -155,7 +155,7 @@ function MainPage() {
         // email: email, - send email from state 
         // password: password, 
         email: data.emailLogin, 
-        password: passwordLogin, 
+        password: data.passwordLogin, 
       });  
 
       console.log('backend login works', responseData.data); 
@@ -177,7 +177,7 @@ function MainPage() {
         // password: password, 
         firstName: data.firstName,
         email: data.email, 
-        password: passwordRegistration, 
+        password: data.passwordRegistration, 
       });  
 
       console.log('backend registration works', responseD.data); 
