@@ -14,15 +14,11 @@
 }
 
 
-
-
 .buttonSearch {
     background-color: rgb(209, 39, 243); 
     height: 36.5px; 
     width: 80px;
 } 
-
-
 
 
 .searchResult {
@@ -33,30 +29,14 @@
 }
 
 
-
-
-
 .buttonClearInput {
     width: 35px; 
     height: 35px; 
-    margin-left: -36px; /* to move clear button on top of search button to the left */ 
-    opacity: 0.5; /* transparent */
+    margin-left: -36px; 
+    opacity: 0.5; 
 }
 
 
-
-
-
-
-/* adaptive design for smartphones (desctop-first approach) */ 
-
-  /* @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) */ 
-
-  /* The only keyword prevents older browsers that do not support media queries with 
-  media features from applying the given styles. It has no effect on modern browsers */
-
-  /* portrain and landscape (tablet) */ 
-  /* breakpoints:  */ 
   @media only screen and (max-width: 768px)   {
     
     .container {
@@ -69,10 +49,3 @@
 
   }
 
-
-
-
-
-
-  /* mobile:  */
-  @media only screen and (max-width: 640px)  {}

@@ -1,23 +1,22 @@
 .scrollToTop {
-    cursor: pointer; /* hand instead of arrow */
-    border-radius: 10px; /* rounded corners */ 
+    cursor: pointer; 
+    border-radius: 10px; 
     color: rgb(99, 10, 99); 
     background-color: rgb(205, 143, 206);  
     width: 70px; 
     height: 43px; 
-    margin-left: 550px; /* from right corner */
+    margin-left: 550px; 
     bottom: 20px; 
-    position: fixed; /* arrow will be visible not only in the footer, but also during scroll */ 
-    z-index: 1; /* to show in front of footer */
-    opacity: 0.4; /* transparent */
-    /* border: 6px solid gray; */
+    position: fixed;
+    z-index: 1; 
+    opacity: 0.4; 
+
 }
 
 
 .scrollToTop:hover {
     background-color: #eaf919;
 }
-
 
 
 .arrowUp {

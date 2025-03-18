@@ -1,15 +1,11 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import { Link } from 'react-router-dom';
 import '../Header/Header.css'
 import logo from '../../assets/images/logo.png'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
-
-
 import { CartContext } from "../../App.js"; 
 import { useContext } from 'react';
-
-
 
 
 
@@ -17,14 +13,6 @@ function Header() {
   const getData = () => {}; 
 
   const {cartItems, setCartItems} = useContext(CartContext);
-
-  // let initialNumber = '0';
-  
-  //    const [counterNumber, setCounterNumber] = useState(initialNumber);
-  
-  //    const handleChangeCounterNumber = () => {
-  //     setCounterNumber('1');
-  //   } 
 
 
 
@@ -38,16 +26,12 @@ function Header() {
           <div className='cartBlock'>
             <Link to="/cart"><FontAwesomeIcon icon={faCartShopping} className="cart"/>
             <div className='cartCounter'>
-              {/* <AddToCartElement change={getData} /> */}
               {cartItems.length}
             </div>
             </Link>
           </div> 
-          
-        
         </div>
       </header> 
-
   );
 }
 

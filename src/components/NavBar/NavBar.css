@@ -11,11 +11,10 @@
 
   nav ul { 
 
-    list-style-type: none; /* Remove bullets */
+    list-style-type: none; 
     margin: 5px 25px 5px 25px; 
     padding: 15px 5px 10px 15px;
-    display: flex; /* make nav links horizontal */ 
-    /* justify-content: space-between; */ 
+    display: flex; 
     gap: 20px;
     
 
@@ -27,24 +26,19 @@
  }
 
 
-/* activeClassName is not supported in React Router v6 
-use NavLink instead of Link  */
-
 nav .active {
  color: rgb(255, 255, 255); 
  background-size: 30px;
  background-repeat: no-repeat; 
 }
 
- 
-  /* margin-right: 50px;  space between navbar elements  */
 
   nav a {
-    text-decoration: none; /* Remove underline from links */
-    color: #232324; /* Link color */
+    text-decoration: none; 
+    color: #232324; 
     font-weight: bold; 
     text-align: center; 
-    display: flex; /* Use flexbox to align icon and text */ 
+    display: flex; 
     
   }  
 

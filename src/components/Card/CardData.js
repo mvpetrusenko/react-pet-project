@@ -28,4 +28,4 @@ const CardData = [
 
 ]; 
 
-export default CardData; // !!! it was not seen because it has NOT been exported
+export default CardData;

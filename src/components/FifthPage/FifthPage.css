@@ -9,8 +9,6 @@
 }
 
 
-
-/* long space of switch */
 .sliderSwitch {
     background-color: rgb(65, 65, 65);
     width: 200px; 
@@ -21,9 +19,6 @@
 }
 
 
-
-
-/* circle in switch toggle after checkbox is Unchecked */
 .sliderSwitch::before { 
     background-color: rgb(255, 136, 0);
     content: ''; 
@@ -31,33 +26,23 @@
     width: 90px; 
     height: 90px; 
     border-radius: 200px; 
-    left: 4px; /* instead of margin-left: -90px */
+    left: 4px; 
     bottom: 4px;
 }
 
 
-/* hide checkbox to switch mode toggle */
 .inputCheckboxSwitch {
     display: none;
 }
 
-/* :checked pseudo-class matches any <input> or <option> element that is checked 
-style around input */  
-/* circle in switch toggle after checkbox is checked */
 .inputCheckboxSwitch:checked + .sliderSwitch::before {
-    /* background-color: green;  */
     transform: translateX(100px);
 }
 
 
-
-
-
-/* long space of switch after checkbox is checked */
 .inputCheckboxSwitch:checked + .sliderSwitch {
     background-color: rgb(251, 255, 141);
 }
-
 
 
 

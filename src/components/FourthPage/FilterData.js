@@ -65,5 +65,4 @@ const FilterData = [
 ]
 
 
-// export to import and use this code
 export default FilterData; 

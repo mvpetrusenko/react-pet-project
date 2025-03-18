@@ -2,10 +2,10 @@
     margin: 0; 
 }
 
-.product-items { /* - without array props */
+.product-items {
     display: flex; 
     flex-wrap: wrap;
-    flex-direction: row; /* not this it will be all in one line */
+    flex-direction: row; 
     align-items: center;
     margin: 30px;
     justify-content: space-between;
@@ -13,18 +13,14 @@
   } 
 
 
-
-
   .itemBlock {
-    width: 25%; /* put 3 items in a row + display: flex + flex-wrap: wrap */ 
+    width: 25%; 
     border: 5px solid rgb(156, 162, 157); 
     padding: 15px;
   } 
 
 
-
-
-  .imageBlock { /* image in div to inline text with different image height */ 
+  .imageBlock { 
     position: relative; 
     border: 5px solid rgb(156, 162, 157); 
     width: 200px; 
@@ -32,19 +28,17 @@
     margin-bottom: 15px; 
     margin-left: 55px;
     overflow: hidden; 
-    /* display, align-items, justify-content - to put image from the top to the center of image block) */
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
 
-  
   .itemBlock img {
     width: 100%; 
-    margin-bottom: 10px; /* Space between image and text */
-    
-    
+    margin-bottom: 10px; 
+
   }
 
 
@@ -57,7 +51,6 @@
   
 
 
-  
   .itemBlock p {
     margin: 10px 10px 10px 10px; 
     font-family: 'Courier New', Courier, monospace;
@@ -69,7 +62,6 @@
   } 
 
 
-  /* if text overflows, move it to the new line: display: inline-block; + word-wrap: break-word; */
   .product-description {
     color: #000000; 
     margin-bottom: 40px; 
@@ -80,10 +72,8 @@
   }
 
 
-
-
   .formContainer { 
-    display: flex; /* if in child (forms) is display: flex, in parent (formContainer) should be also display: flex */
+    display: flex; 
     flex-direction: row;
     background-image: url('../../assets/images/wall.jpg'); 
     background-repeat: no-repeat; 
@@ -95,13 +85,12 @@
   
 
 
-
   .forms { 
     display: flex; 
     flex-direction: row;
     width: 800px; 
     color: rgb(94, 224, 94); 
-    background-color: rgba(0, 0, 0, 0.7); /* 0.7 - transparent form on background image */
+    background-color: rgba(0, 0, 0, 0.7); 
     margin: 80px 10px 120px 250px; 
     padding: 20px 20px 60px 20px;
   }
@@ -111,7 +100,6 @@
     width: 500px; 
     margin-right: 50px;
   } 
-
 
 
   .formFieldLogin {
@@ -124,45 +112,17 @@
   }
 
 
-
-
-
   .submitRegistrationButton, .loginButton {
     font-weight: bold; 
     border-radius: 10px; 
     background-color: rgb(94, 224, 94); 
-    padding: 15px 105px 15px 65px; /* background of element */
+    padding: 15px 105px 15px 65px; 
     color:rgb(10, 46, 10);  
     width: 50px;
     margin-top: 20px;
   } 
 
 
-
-
-
-
-
-
-
-  /* adaptive design for smartphones (desctop-first approach) */ 
-
-  /* @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) */ 
-
-  /* The only keyword prevents older browsers that do not support media queries with 
-  media features from applying the given styles. It has no effect on modern browsers */
-
-  /* portrain and landscape (tablet) */ 
-  /* breakpoints:  */ 
-  /* @media only screen and (max-width: 768px)   {} */
-
-
-
-
-
-
-  /* mobile:  */
-  /* @media only screen and (max-width: 640px)  {} */
    
 
 
